@@ -15,6 +15,9 @@ env:
 
 matrix:
   fast_finish: true
+  
+before_script: 
+script: mvn spring-boot:run
 
 script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
