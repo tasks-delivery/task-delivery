@@ -8,18 +8,17 @@ language: java
 jdk:
   - oraclejdk8
 
+env:
 
+  DOCKER_COMPOSE_VERSION: 3.0
+
+before_install:
+  - sudo docker-compose up
 
 env:
   matrix:
     - TEST_CATEGORY=firefox
     - TEST_CATEGORY=chrome
-
-env:
-  DOCKER_COMPOSE_VERSION: 3.0
-
-before_install:
-  - sudo docker-compose up
 
 matrix:
   fast_finish: true
