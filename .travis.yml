@@ -19,7 +19,7 @@ env:
   DOCKER_COMPOSE_VERSION: 3.0
 
 before_install:
-  - sudo docker-compose down
+  - sudo docker-compose up
 
 matrix:
   fast_finish: true
