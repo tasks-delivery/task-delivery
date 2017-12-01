@@ -174,7 +174,7 @@
                     <executions>
 						   <execution>
                                <id>up</id>
-                               <phase>prepare-package</phase>
+                               <phase>verify</phase>
                                <goals>
                                    <goal>up</goal>
                                </goals>
