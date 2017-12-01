@@ -3,13 +3,14 @@ package uitest.config;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 public abstract class ConciseAPI {
 
     public WebDriver driver;
 
-    public String baseUrl = "http://localhost:8080";
-
+ //   public String baseUrl = "http://localhost:8080";
+/*
     @BeforeClass
     public void setUp() {
         System.setProperty("webdriver.gecko.driver", "src\\main\\resources\\geckodriver.exe");
@@ -19,7 +20,7 @@ public abstract class ConciseAPI {
         Configuration.timeout = 8000;
     //    Configuration.baseUrl = "http://localhost:8080";
     }
-    /*
+    */
         @Parameters({"browser", "browserVersion", "remote", "timeout", "baseUrl"})
         @BeforeClass
         public void setUp(String browsers, String version, String server, Integer time, String url) {
@@ -32,7 +33,7 @@ public abstract class ConciseAPI {
         Configuration.timeout = time;
         Configuration.baseUrl = url;
         }
-    */
+
 
 
 }
