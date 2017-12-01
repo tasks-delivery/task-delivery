@@ -20,8 +20,8 @@ env:
 matrix:
   fast_finish: true
 
-#before_script:
- # - sudo docker-compose up --build -d
+before_script:
+  - mvn post-integration-test
 
 script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi

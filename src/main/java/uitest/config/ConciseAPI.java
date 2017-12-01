@@ -21,14 +21,15 @@ public abstract class ConciseAPI {
     //    Configuration.baseUrl = "http://localhost:8080";
     }
     */
-        @Parameters({"browser", "browserVersion", "timeout", "baseUrl"})
+        @Parameters({"browser", "browserVersion", "remote", "timeout", "baseUrl"})
         @BeforeClass
-        public void setUp(String browsers, String version, Integer time, String url) {
+        public void setUp(String browsers, String version, String server, Integer time, String url) {
         System.setProperty("webdriver.gecko.driver", "src\\main\\resources\\geckodriver.exe");
         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
         System.setProperty("webdriver.ie.driver", "src\\main\\resources\\IEDriverServer.exe");
         Configuration.browser = browsers;
         Configuration.browserVersion = version;
+        Configuration.remote = server;
         Configuration.timeout = time;
         Configuration.baseUrl = url;
         }
