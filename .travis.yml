@@ -17,8 +17,6 @@ matrix:
   fast_finish: true
 
 script:
-  - if [ $TEST_CATEGORY == 'firefox' ]; then mvn spring-boot:run; fi
-  - if [ $TEST_CATEGORY == 'chrome' ]; then mvn spring-boot:run; fi
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
   - if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
 
