@@ -20,16 +20,16 @@ env:
 matrix:
   fast_finish: true
 
-before_script:
-  - sudo docker-compose up --build -d
+#before_script:
+ # - sudo docker-compose up --build -d
 
 script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
   - if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
 
-after_success:
-script:
-  - sudo docker-compose down
+#after_success:
+#script:
+ # - sudo docker-compose down
       
 
 
