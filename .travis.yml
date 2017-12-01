@@ -24,7 +24,7 @@ env:
     - TEST_CATEGORY=chrome
 
 matrix:
-  fast_finish: true
+  fast_finish: false
 
 script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
