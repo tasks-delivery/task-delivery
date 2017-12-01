@@ -21,7 +21,7 @@ public class MainPageTest extends BaseTest {
     public void firstTest(){
         open(baseUrl);
         $(mainPage.btnContacts).click();
-        $(secondPage.btnAddContacts).shouldBe(visible);
+        $(secondPage.btnAddContacts).shouldNotBe(visible);
 
     }
 
