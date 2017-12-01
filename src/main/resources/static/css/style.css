@@ -1,0 +1,13 @@
+a.delete{
+	color: red;
+}
+
+a.edit{
+	text-decoration: none;
+}
+
+a.add-contact, a.add-organization{
+	outline: 1px solid black;
+	padding: 4px;
+	text-decoration: none;
+}
