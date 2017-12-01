@@ -21,7 +21,7 @@ matrix:
   fast_finish: true
 
 before_script:
-  - mvn process-resources
+  - mvn prepare-package
 
 script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
