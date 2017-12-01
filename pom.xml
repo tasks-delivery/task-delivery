@@ -117,7 +117,6 @@
 			<version>6.11</version>
 		</dependency>
 	</dependencies>
-
 	<profiles>
 		<profile>
 			<id>chrome</id>
@@ -142,7 +141,6 @@
 			</properties>
 		</profile>
 	</profiles>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -169,7 +167,7 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
-			<!-- <plugin>
+			<plugin>
                 <groupId>com.dkanejs.maven.plugins</groupId>
                 <artifactId>docker-compose-maven-plugin</artifactId>
                 <version>1.0.1</version>
@@ -198,9 +196,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin> !-->
-
+            </plugin>
 		</plugins>
 	</build>
-
 </project>
