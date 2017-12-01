@@ -12,9 +12,6 @@ env:
 
   DOCKER_COMPOSE_VERSION: 3.0
 
-before_install:
-  - sudo docker-compose up
-
 env:
   matrix:
     - TEST_CATEGORY=firefox
@@ -22,6 +19,9 @@ env:
 
 matrix:
   fast_finish: true
+
+before_script:
+  - sudo docker-compose up
 
 script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
