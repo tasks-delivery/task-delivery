@@ -19,7 +19,7 @@ env:
   DOCKER_COMPOSE_VERSION: 3.0
 
 before_install:
-  - sudo docker-compose up
+  - sudo docker-compose down
 
 matrix:
   fast_finish: true
@@ -28,9 +28,9 @@ script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
   - if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
 
-#after_success:
-#script:
-# - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
+after_success:
+script:
+  - sudo docker-compose down
       
 
 
