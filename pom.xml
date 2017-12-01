@@ -172,9 +172,9 @@
                     <artifactId>docker-compose-maven-plugin</artifactId>
                     <version>1.0.1</version>
                     <executions>
-						<!--    <execution>
+						   <execution>
                                <id>up</id>
-                               <phase>verify</phase>
+                               <phase>process-resources</phase>
                                <goals>
                                    <goal>up</goal>
                                </goals>
@@ -183,7 +183,7 @@
                                    <detachedMode>true</detachedMode>
                                </configuration>
                            </execution>
-                 <execution>
+                <!-- <execution>
                       <id>test</id>
                       <phase>clean</phase>
                       <goals>
