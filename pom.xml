@@ -183,9 +183,8 @@
                             <detachedMode>true</detachedMode>
                         </configuration>
                     </execution>
-                    <execution>
-                        <id>test
-                        </id>
+                   <!-- <execution>
+                        <id>test</id>
                         <phase>clean</phase>
                         <goals>
                             <goal>down</goal>
@@ -194,7 +193,7 @@
                             <composeFile>${project.basedir}/docker-compose.yml</composeFile>
                             <removeVolumes>true</removeVolumes>
                         </configuration>
-                    </execution>
+                    </execution>!-->
                 </executions>
             </plugin>
 		</plugins>
