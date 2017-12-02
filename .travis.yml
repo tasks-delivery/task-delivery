@@ -9,6 +9,10 @@ jdk:
   - oraclejdk8
 #  - sudo docker-compose up
 
+before_install:
+- echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
+- git lfs pull
+
 env:
   matrix:
     - TEST_CATEGORY=firefox
