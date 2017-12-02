@@ -27,7 +27,6 @@ matrix:
 before_script:
 - if [ $TEST_CATEGORY == 'firefox' ]; then sudo docker-compose up -d; fi
 - if [ $TEST_CATEGORY == 'chrome' ]; then sudo docker-compose up -d; fi
-  #- sudo docker-compose up -d
 - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
 - if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
 
@@ -35,14 +34,13 @@ before_script:
  # - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
   #- if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
 
-  #  - if [[ $BUILD == 0 ]]; then git branch delivery; fi
-   # - if [[ $BUILD == 0 ]]; then git push -f origin delivery; fi;
-
 after_success:
 script:
-  # if [ "x$TEST" = "x--enable-tests" ]; then cabal new-test -w ${HC} ${TEST} all; fi
-  - git branch delivery
-  - git push -f origin delivery
+# - RESULT=0
+#- if [[ ${RESULT} = 0 ]]; then git branch delivery; fi
+#- if [[ ${RESULT} = 0 ]]; then git push -f origin delivery; fi
+  - git branch prod
+  - git push -f origin prod
 
 
 
