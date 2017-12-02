@@ -27,7 +27,7 @@ script:
 after_success:
 script:
   - git branch delivery
-  - git push origin delivery
+  - git push -f origin delivery
 
 
 
