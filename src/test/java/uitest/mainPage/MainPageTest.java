@@ -24,7 +24,6 @@ public class MainPageTest extends BaseTest {
         open(baseUrl);
         $(mainPage.btnContacts).click();
         $(secondPage.btnAddContacts).shouldBe(visible);
-        $(secondPage.btnAddContacts).shouldHave(text("test deploy"));
     }
 
 }
