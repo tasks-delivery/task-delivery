@@ -25,9 +25,11 @@ matrix:
   fast_finish: true
 
 before_script:
-  - sudo docker-compose up -d
-    - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
-    - if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
+- if [ $TEST_CATEGORY == 'firefox' ]; then sudo docker-compose up -d; fi
+- if [ $TEST_CATEGORY == 'chrome' ]; then sudo docker-compose up -d; fi
+  #- sudo docker-compose up -d
+- if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
+- if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
 
 #script:
  # - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
