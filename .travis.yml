@@ -8,10 +8,6 @@ language: java
 jdk:
   - oraclejdk8
 
-branches:
-  only:
-- master
-
 before_install:
 - echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
 - git lfs pull
@@ -30,8 +26,6 @@ before_script:
 script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
   - if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
-  - git branch delivery
-  - git push -f origin delivery
 
 after_success:
 script:
