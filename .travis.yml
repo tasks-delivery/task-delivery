@@ -8,16 +8,16 @@ language: java
 jdk:
   - oraclejdk8
 
-env:
+#env:
 
-  DOCKER_COMPOSE_VERSION: 3.0
+ # DOCKER_COMPOSE_VERSION: 3.0
 
-before_install:
-    - sudo rm /usr/local/bin/docker-compose
-    - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-    - chmod +x docker-compose
+#before_install:
+   # - sudo rm /usr/local/bin/docker-compose
+  #  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+ #   - chmod +x docker-compose
 #    - sudo mv docker-compose
-    - sudo docker-compose up
+#    - sudo docker-compose up
 
 env:
   matrix:
@@ -25,7 +25,10 @@ env:
     - TEST_CATEGORY=chrome
 
 matrix:
-  fast_finish: false
+  fast_finish: true
+
+before_script:
+  - docker.sh
 
 script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
