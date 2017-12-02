@@ -36,10 +36,8 @@ script:
 
 after_success:
 script:
-  - if [ "mvn test -P chrome" = "1" ]; then git branch delivery; fi;
-  - if [ "mvn test -P chrome" = "1" ]; then git push -f origin delivery; fi;
- # - if [[ $TEST == 0 ]]; then git branch delivery; fi
-  #- if [[ $TEST == 0 ]]; then git push -f origin delivery; fi;
+  - if [[ $TEST == 0 ]]; then git branch delivery; fi
+  - if [[ $TEST == 0 ]]; then git push -f origin delivery; fi;
   # if [ "x$TEST" = "x--enable-tests" ]; then cabal new-test -w ${HC} ${TEST} all; fi
  # - git branch delivery
   #- git push -f origin delivery
