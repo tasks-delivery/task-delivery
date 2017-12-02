@@ -30,13 +30,14 @@ before_script:
 script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
   - if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
-  - if [ "mvn test -P chrome" = "0" ]; then git branch delivery; fi;
-  - if [ "mvn test -P chrome" = "0" ]; then git push -f origin delivery; fi;
+
   #  - if [[ $BUILD == 0 ]]; then git branch delivery; fi
    # - if [[ $BUILD == 0 ]]; then git push -f origin delivery; fi;
 
 after_success:
 script:
+  - if [ "mvn test -P chrome" = "0" ]; then git branch delivery; fi;
+  - if [ "mvn test -P chrome" = "0" ]; then git push -f origin delivery; fi;
  # - if [[ $TEST == 0 ]]; then git branch delivery; fi
   #- if [[ $TEST == 0 ]]; then git push -f origin delivery; fi;
   # if [ "x$TEST" = "x--enable-tests" ]; then cabal new-test -w ${HC} ${TEST} all; fi
