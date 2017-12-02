@@ -7,7 +7,8 @@ language: java
 
 jdk:
   - oraclejdk8
-   
+#  - sudo docker-compose up
+
 env:
   matrix:
     - TEST_CATEGORY=firefox
@@ -16,16 +17,17 @@ env:
 matrix:
   fast_finish: true
 
+before_script:
+  - sudo docker-compose up -d
+
 script:
-  - if [ $TEST_CATEGORY == 'firefox' ]; then mvn spring-boot:run; fi
-  - if [ $TEST_CATEGORY == 'chrome' ]; then mvn spring-boot:run; fi
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
   - if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
 
 #after_success:
 #script:
-# - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
-      
+ # - sudo docker-compose down
+
 
 
       
