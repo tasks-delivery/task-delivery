@@ -28,7 +28,7 @@ matrix:
   fast_finish: true
 
 before_script:
-  - docker.sh
+  - bash -c "docker.sh"
 
 script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
