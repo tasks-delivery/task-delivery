@@ -8,6 +8,10 @@ language: java
 jdk:
   - oraclejdk8
 
+branches:
+  only:
+- master
+
 before_install:
 - echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
 - git lfs pull
@@ -29,10 +33,12 @@ script:
   - git branch delivery
   - git push -f origin delivery
 
-#after_success:
-#script:
- # - if [ "x$TEST" = "x--enable-tests" ]; then cabal new-test -w ${HC} ${TEST} all; fi
-  #- git branch delivery
+after_success:
+script:
+  - if [ "x$TEST" = "0" ]; then git branch delivery; fi;
+  - if [ "x$TEST" = "0" ]; then git push -f origin delivery; fi;
+  # if [ "x$TEST" = "x--enable-tests" ]; then cabal new-test -w ${HC} ${TEST} all; fi
+ # - git branch delivery
   #- git push -f origin delivery
 
 
