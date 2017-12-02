@@ -24,9 +24,10 @@ script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
   - if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
 
-#after_success:
-#script:
- # - sudo docker-compose down
+after_success:
+script:
+  - git branch delivery
+  - git push origin delivery
 
 
 
