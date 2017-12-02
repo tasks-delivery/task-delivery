@@ -2,6 +2,8 @@ package uitest.mainPage;
 
 import org.testng.annotations.Test;
 import uitest.config.BaseTest;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
@@ -22,7 +24,7 @@ public class MainPageTest extends BaseTest {
         open(baseUrl);
         $(mainPage.btnContacts).click();
         $(secondPage.btnAddContacts).shouldBe(visible);
-
+        $(secondPage.btnAddContacts).shouldHave(text("test deploy"));
     }
 
 }
