@@ -30,8 +30,8 @@ before_script:
 script:
   - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
   - if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
-  - if [ "x$TEST" = "0" ]; then git branch delivery; fi;
-  - if [ "x$TEST" = "0" ]; then git push -f origin delivery; fi;
+  - if [ "mvn test -P chrome" = "0" ]; then git branch delivery; fi;
+  - if [ "mvn test -P chrome" = "0" ]; then git push -f origin delivery; fi;
   #  - if [[ $BUILD == 0 ]]; then git branch delivery; fi
    # - if [[ $BUILD == 0 ]]; then git push -f origin delivery; fi;
 
