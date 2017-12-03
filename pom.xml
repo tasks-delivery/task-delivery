@@ -8,8 +8,8 @@
 	<version>1</version>
 	<packaging>jar</packaging>
 
-	<name>simple-crm</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Task delivery</name>
+	<description>Test system for project on Spring</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

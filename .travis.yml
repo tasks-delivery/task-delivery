@@ -16,6 +16,11 @@ branches:
   only:
     - master
 
+stages:
+  - Test
+  - name: deploy
+if: branch = master
+
 jobs:
   include:
     - stage: Test
