@@ -8,17 +8,15 @@ import org.testng.annotations.Parameters;
 public abstract class ConciseAPI {
 
     public WebDriver driver;
-
- //   public String baseUrl = "http://localhost:8080";
 /*
     @BeforeClass
     public void setUp() {
         System.setProperty("webdriver.gecko.driver", "src\\main\\resources\\geckodriver.exe");
         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
         System.setProperty("webdriver.ie.driver", "src\\main\\resources\\IEDriverServer.exe");
-        Configuration.browser = "marionette";
+        Configuration.browser = "chrome";
         Configuration.timeout = 8000;
-    //    Configuration.baseUrl = "http://localhost:8080";
+        Configuration.baseUrl = "http://localhost:8080";
     }
     */
         @Parameters({"browser", "browserVersion", "remote", "timeout", "baseUrl"})
@@ -33,7 +31,5 @@ public abstract class ConciseAPI {
         Configuration.timeout = time;
         Configuration.baseUrl = url;
         }
-
-
 
 }
