@@ -31,6 +31,8 @@ jobs:
       - if [ $BROWSER == 'firefox' ]; then sudo docker-compose up -d; fi
       - if [ $BROWSER == 'firefox' ]; then mvn test -P firefox; fi
     - stage: deploy
+      env:
+        - BRANCH=prod
       script:
-      - git branch prod
-      - git push -f origin prod
+      - git branch ${BRANCH}
+      - git push -f origin ${BRANCH}
