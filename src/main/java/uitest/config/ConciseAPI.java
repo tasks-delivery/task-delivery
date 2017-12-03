@@ -4,6 +4,7 @@ import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+import static com.codeborne.selenide.Configuration.browser;
 
 public abstract class ConciseAPI {
 
@@ -15,18 +16,26 @@ public abstract class ConciseAPI {
         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
         System.setProperty("webdriver.ie.driver", "src\\main\\resources\\IEDriverServer.exe");
         Configuration.browser = "chrome";
+        Configuration.headless = true;
         Configuration.timeout = 8000;
         Configuration.baseUrl = "http://localhost:8080";
     }
-    */
-        @Parameters({"browser", "browserVersion", "remote", "timeout", "baseUrl"})
+   */
+
+    static{
+        System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
+        System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http", "warn");
+    }
+
+        @Parameters({"browser", "headless", "remote", "browserVersion", "timeout", "baseUrl"})
         @BeforeClass
-        public void setUp(String browsers, String version, String server, Integer time, String url) {
+        public void setUp(String browsers, Boolean mode, String version, String server, Integer time, String url) {
         System.setProperty("webdriver.gecko.driver", "src\\main\\resources\\geckodriver.exe");
         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
         System.setProperty("webdriver.ie.driver", "src\\main\\resources\\IEDriverServer.exe");
-        Configuration.browser = browsers;
+        browser = browsers;
         Configuration.browserVersion = version;
+        Configuration.headless = mode;
         Configuration.remote = server;
         Configuration.timeout = time;
         Configuration.baseUrl = url;
