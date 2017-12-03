@@ -10,7 +10,7 @@ public class OrganizationsListPage extends BasePage {
 
     public String organizationTitle = "Organizations";
 
-    public SelenideElement btnAddOrganization = $(By.className("add-organization"));
+    public SelenideElement btnAddOrganization = $(By.id("organizations"));
     SelenideElement h3Title = $(By.xpath("//h3"));
 
     public OrganizationsListPage(WebDriver driver) {
