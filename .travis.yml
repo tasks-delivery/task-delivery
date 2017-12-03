@@ -1,9 +1,9 @@
 sudo: required
 
-services: 
+services:
   -docker
-  
-language: java     
+
+language: java
 
 jdk:
   - oraclejdk8
@@ -12,37 +12,25 @@ before_install:
 - echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
 - git lfs pull
 
-env:
-  matrix:
-    - TEST_CATEGORY=firefox
-    - TEST_CATEGORY=chrome
-
 branches:
   only:
     - master
 
-matrix:
-  fast_finish: true
-
-before_script:
-- if [ $TEST_CATEGORY == 'firefox' ]; then sudo docker-compose up -d; fi
-- if [ $TEST_CATEGORY == 'chrome' ]; then sudo docker-compose up -d; fi
-- if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
-- if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
-
-#script:
- # - if [ $TEST_CATEGORY == 'firefox' ]; then mvn test -P firefox; fi
-  #- if [ $TEST_CATEGORY == 'chrome' ]; then mvn test -P chrome; fi
-
-after_success:
-script:
-# - RESULT=0
-#- if [[ ${RESULT} = 0 ]]; then git branch delivery; fi
-#- if [[ ${RESULT} = 0 ]]; then git push -f origin delivery; fi
-  - git branch prod
-  - git push -f origin prod
-
-
-
-      
-      
+jobs:
+  include:
+    - stage: Test
+      env:
+        - BROWSER=chrome
+      script:
+      - if [ $BROWSER == 'chrome' ]; then sudo docker-compose up -d; fi
+      - if [ $BROWSER == 'chrome' ]; then mvn test -P chrome; fi
+    - stage: Test
+      env:
+        - BROWSER=firefox
+      script:
+      - if [ $BROWSER == 'firefox' ]; then sudo docker-compose up -d; fi
+      - if [ $BROWSER == 'firefox' ]; then mvn test -P firefox; fi
+    - stage: deploy
+      script:
+      - git branch prod
+      - git push -f origin prod
