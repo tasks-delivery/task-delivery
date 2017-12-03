@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 public class MainPage extends BasePage {
 
    public SelenideElement btnContacts = $(By.id("contacts"));
-   public SelenideElement btnOrganizations = $(By.id("organizations"));
+   public SelenideElement btnOrganization = $(By.id("organizations"));
 
     public MainPage(WebDriver driver) {
         super(driver);

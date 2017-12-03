@@ -26,7 +26,8 @@ public class MainPageTest extends BaseTest {
         open(baseUrl);
         $(mainPage.btnContacts).click();
         $(contactsListPage.btnAddContact).shouldBe(visible);
-        $(organizationsListPage.btnAddOrganization).shouldBe(visible);
+        $(mainPage.btnOrganization).click();
+        $(organizationsListPage.btnAddOrganizations).shouldBe(visible);
     }
 
 }

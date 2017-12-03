@@ -27,8 +27,8 @@ public class AddOrganizationsPageTest extends BaseTest{
     @BeforeMethod
     public void preconditions(){
         open(baseUrl);
-        $(mainPage.btnOrganizations).click();
-        $(organizationsListPage.btnAddOrganization).click();
+        $(mainPage.btnOrganization).click();
+        $(organizationsListPage.btnAddOrganizations).click();
     }
 
     @Test(description = "Verify that organization name is shown in list of organizations")
