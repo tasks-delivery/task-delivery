@@ -1,0 +1,42 @@
+language: none
+env:
+  global:
+    - STEEM_VERSION=0.12.2
+    - secure: UONz5/DCdkFgbZDgOCMg0oWBePDceCMTUnaOPeDXk90TMStUw/owxpLf7Hei1XhlTLixuV0/eH1hJi+FUF+zH4RgcNU3i+rAOoci7ntQJNavTRgIoDlH8TqFJiPqEwcMB7ml4BT1edMUx3kLs40sziNnWsNrd/xh32/1xIq2qOhNw1yApkNcqXGsCHo8co5nac19b7TbFarm0l9Nl87bOOh0EKH1Nwb2zeEo7HtCuOWaRXmH1ReMZjaaSVVlZT/WtgnkSaXovr0MyGkCq7qMVEwvcNlc3jWTpFwRVKRZMACOuBmQFuPMg5aX5d9UgxzWcUcxKAevYwenncdpqdm/4w==
+
+build:
+  pre_ci_boot:
+    image_name: ubuntu
+    image_tag: 16.04
+  ci:
+    - apt-get update
+    - apt-get install -y --no-install-recommends
+      ca-certificates
+      build-essential
+      cmake
+      git
+      doxygen
+      libboost-all-dev
+      libssl-dev
+      autogen
+      automake
+      libtool
+      python3
+      ruby
+    - git clone https://github.com/steemit/steem.git
+    - cd steem
+    - git checkout v${STEEM_VERSION}
+    - git submodule update --init --recursive
+    - cmake -DENABLE_INSTALLER=ON .
+    - make
+    - make install
+    - tar -cvzf steem-${STEEM_VERSION}-Linux.tgz -C ./install .
+    - ls -lah
+  on_success:
+    - gem install dpl
+    - dpl
+      --provider=releпases
+      --skip_cleanup=true
+      --api-key=$GITHUB_API_KEY
+      --overwrite=true
+--file=steem-${STEEM_VERSION}-Linux.tgz
