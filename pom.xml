@@ -103,25 +103,47 @@
 	</dependencies>
 	<profiles>
 		<profile>
-			<id>chrome</id>
+			<id>osx-chrome</id>
 			<activation>
 				<property>
 					<name>SUITES</name>
 				</property>
 			</activation>
 			<properties>
-				<suites>testChrome</suites>
+				<suites>testOsxChrome</suites>
 			</properties>
 		</profile>
 		<profile>
-			<id>firefox</id>
+			<id>osx-firefox</id>
 			<activation>
 				<property>
 					<name>SUITES</name>
 				</property>
 			</activation>
 			<properties>
-				<suites>testFirefox</suites>
+				<suites>testOsxFirefox</suites>
+			</properties>
+		</profile>
+		<profile>
+			<id>linux-chrome</id>
+			<activation>
+				<property>
+					<name>SUITES</name>
+				</property>
+			</activation>
+			<properties>
+				<suites>testLinuxChrome</suites>
+			</properties>
+		</profile>
+		<profile>
+			<id>linux-firefox</id>
+			<activation>
+				<property>
+					<name>SUITES</name>
+				</property>
+			</activation>
+			<properties>
+				<suites>testLinuxFirefox</suites>
 			</properties>
 		</profile>
 	</profiles>
