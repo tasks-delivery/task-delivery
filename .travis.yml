@@ -24,7 +24,6 @@ if: branch = master
 
 jobs:
   include:
-    - osx_image: xcode8.3
 #    - stage: Test
 #      os:
 #        - osx
@@ -76,7 +75,8 @@ jobs:
       - git branch ${BRANCH_OSX_CHROME}
       - git push -f origin ${BRANCH_OSX_CHROME}
     - stage: deploy test
-#      - osx_image: xcode8.3
+      os:
+        - osx
       env:
         - BRANCH_OSX_FIREFOX=osx-firefox
       script:
