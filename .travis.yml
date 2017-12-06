@@ -17,8 +17,7 @@ branches:
     - master
 
 stages:
-  - name: deploy test
-if: branch = master
+  - deploy test
   - Test
   - name: deploy prod
 if: branch = master
