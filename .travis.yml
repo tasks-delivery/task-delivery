@@ -19,7 +19,7 @@ branches:
 stages:
   - Test
   - deploy test
-  - name: deploy
+  - name: deploy prod
 if: branch = master
 
 jobs:
@@ -55,13 +55,7 @@ jobs:
         - BROWSER=firefox
       script:
       - if [ $BROWSER == 'firefox' ]; then sudo docker-compose up -d; fi
-      - if [ $BROWSER == 'firefox' ]; then mvn test -P firefox; fi
-    - stage: deploy
-      env:
-        - BRANCH_PROD=prod
-      script:
-      - git branch ${BRANCH_PROD}
-      - git push -f origin ${BRANCH_PROD}         
+      - if [ $BROWSER == 'firefox' ]; then mvn test -P firefox; fi    
     - stage: deploy test
       env:
         - BRANCH_LINUX_FIREFOX=linux-firefox
@@ -86,3 +80,9 @@ jobs:
       script:
       - git branch ${BRANCH_OSX_FIREFOX}
       - git push -f origin ${BRANCH_OSX_FIREFOX}
+    - stage: deploy prod
+      env:
+        - BRANCH_PROD=prod
+      script:
+      - git branch ${BRANCH_PROD}
+      - git push -f origin ${BRANCH_PROD}     
