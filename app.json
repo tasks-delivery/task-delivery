@@ -3,4 +3,12 @@
   "description": "Test  system for spring project",
   "repository": "https://github.com/tasks-delivery/task-delivery",
   "keywords": ["selenide", "travis", "spring"],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "mvn test -P chrome",
+        "test": "mvn test -P chrome"
+      }
+    }
+  }
 }
