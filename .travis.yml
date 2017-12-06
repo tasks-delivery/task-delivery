@@ -5,6 +5,12 @@ services:
 
 language: java
 
+os:
+    # будем прогонять CI и на Linux, и на Mac OS X...
+    - linux
+    - osx
+
+
 jdk:
   - oraclejdk8
 
