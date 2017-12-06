@@ -23,9 +23,25 @@ if: branch = master
 
 jobs:
   include:
-    - stage: Test
+      - stage: Test
       os:
         - osx
+      env:
+        - BROWSER=chrome
+      script:
+      - if [ $BROWSER == 'chrome' ]; then sudo docker-compose up -d; fi
+      - if [ $BROWSER == 'chrome' ]; then mvn test -P chrome; fi
+    - stage: Test
+      os:
+         - osx
+      env:
+        - BROWSER=firefox
+      script:
+      - if [ $BROWSER == 'firefox' ]; then sudo docker-compose up -d; fi
+      - if [ $BROWSER == 'firefox' ]; then mvn test -P firefox; fi
+    - stage: Test
+      os:
+        - linux
       env:
         - BROWSER=chrome
       script:
