@@ -18,6 +18,7 @@ branches:
 
 stages:
   - Test
+  - deploy test
   - name: deploy
 if: branch = master
 
@@ -57,7 +58,31 @@ jobs:
       - if [ $BROWSER == 'firefox' ]; then mvn test -P firefox; fi
     - stage: deploy
       env:
-        - BRANCH=prod
+        - BRANCH_PROD=prod
       script:
-      - git branch ${BRANCH}
-      - git push -f origin ${BRANCH}
+      - git branch ${BRANCH_PROD}
+      - git push -f origin ${BRANCH_PROD}         
+    - stage: deploy test
+      env:
+        - BRANCH_LINUX_FIREFOX=linux-firefox
+      script:
+      - git branch ${BRANCH_LINUX_FIREFOX}
+      - git push -f origin ${BRANCH_LINUX_FIREFOX}
+    - stage: deploy test
+      env:
+        - BRANCH_LINUX_CHROME=prod
+      script:
+      - git branch ${BRANCH_LINUX_CHROME}
+      - git push -f origin ${BRANCH_LINUX_CHROME}
+    - stage: deploy test
+      env:
+        - BRANCH_OSX_CHROME=prod
+      script:
+      - git branch ${BRANCH_OSX_CHROME}
+      - git push -f origin ${BRANCH_OSX_CHROME}
+    - stage: deploy test
+      env:
+        - BRANCH_OSX_FIREFOX=prod
+      script:
+      - git branch ${BRANCH_OSX_FIREFOX}
+      - git push -f origin ${BRANCH_OSX_FIREFOX}
