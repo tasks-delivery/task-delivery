@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tasks-delivery/test.svg?branch=master)](https://travis-ci.org/tasks-delivery/task-delivery/settings)
+[![Build Status](https://travis-ci.org/tasks-delivery/test.svg?branch=master)](https://travis-ci.org/tasks-delivery/task-delivery)
 
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/tasks-delivery/task-delivery)
