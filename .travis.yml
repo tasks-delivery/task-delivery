@@ -23,7 +23,7 @@ if: branch = master
 
 jobs:
   include:
-      - stage: Test
+    - stage: Test
       os:
         - osx
       env:
