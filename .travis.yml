@@ -93,3 +93,32 @@ jobs:
       script:
       - git branch ${BRANCH_PROD}
       - git push -f origin ${BRANCH_PROD}     
+      
+jobs:
+  include:
+    - stage: deploy test
+      env:
+        - BRANCH_OSX_CHROME=osx-chrome
+      script:
+      - git branch ${BRANCH_OSX_CHROME}
+      - git push -f origin ${BRANCH_OSX_CHROME}
+    - stage: deploy test
+    - os: osx
+      osx_image: xcode7.3
+      language: generic
+      env:
+        - _OSX=10.11
+        - _PHP: php56
+        - BRANCH_OSX_FIREFOX=osx-firefox
+      script:
+      - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git branch ${BRANCH_OSX_FIREFOX}; fi
+      - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then push -f origin ${BRANCH_OSX_FIREFOX}; fi
+#      - git branch ${BRANCH_OSX_FIREFOX}
+ #     - git push -f origin ${BRANCH_OSX_FIREFOX}
+    - stage: deploy prod
+      env:
+        - BRANCH_PROD=prod
+      script:
+      - git branch ${BRANCH_PROD}
+      - git push -f origin ${BRANCH_PROD}     
+      
