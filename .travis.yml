@@ -22,6 +22,16 @@ stages:
   - name: deploy prod
 if: branch = master
 
+
+matrix:
+  include:
+    - os: linux
+    - os: osx
+      language: generic
+      python: 3.5
+      env: PYTHONVERSION=3.5.2
+
+
 jobs:
   include:
 #    - stage: Test
