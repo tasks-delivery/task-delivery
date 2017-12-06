@@ -75,9 +75,7 @@ jobs:
       - git branch ${BRANCH_OSX_CHROME}
       - git push -f origin ${BRANCH_OSX_CHROME}
     - stage: deploy test
-      os:
-       - osx
-        - osx_image: xcode8.3
+      - osx_image: xcode8.3
       env:
         - BRANCH_OSX_FIREFOX=osx-firefox
       script:
