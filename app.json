@@ -1,0 +1,6 @@
+{
+  "name": "Task delivery",
+  "description": "Test  system for spring project",
+  "repository": "https://github.com/tasks-delivery/task-delivery",
+  "keywords": ["selenide", "travis", "spring"],
+}
