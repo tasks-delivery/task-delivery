@@ -8,10 +8,6 @@ language: java
 jdk:
   - oraclejdk8
 
-os: 
-  - osx
-  - linux
-
 before_install:
 - echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
 - git lfs pull
@@ -75,6 +71,8 @@ jobs:
       - git branch ${BRANCH_LINUX_CHROME}
       - git push -f origin ${BRANCH_LINUX_CHROME}
     - stage: deploy test
+      os:
+      - osx
       env:
       - BRANCH_OSX_CHROME=osx-chrome
       script:
@@ -83,6 +81,8 @@ jobs:
       - git branch ${BRANCH_OSX_CHROME}
       - git push -f origin ${BRANCH_OSX_CHROME}
     - stage: deploy test
+      os:
+      - osx
       osx_image: xcode7.3
       language: generic
       env:
