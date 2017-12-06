@@ -33,7 +33,7 @@ jobs:
       - if [ $BROWSER == 'chrome' ]; then mvn test -P chrome; fi
     - stage: Test
       os:
-         - osx
+        - osx
       env:
         - BROWSER=firefox
       script:
@@ -49,7 +49,7 @@ jobs:
       - if [ $BROWSER == 'chrome' ]; then mvn test -P chrome; fi
     - stage: Test
       os:
-         - linux
+        - linux
       env:
         - BROWSER=firefox
       script:
