@@ -5,12 +5,6 @@ services:
 
 language: java
 
-os:
-    # будем прогонять CI и на Linux, и на Mac OS X...
-    - linux
-    - osx
-
-
 jdk:
   - oraclejdk8
 
@@ -30,12 +24,16 @@ if: branch = master
 jobs:
   include:
     - stage: Test
+      os:
+        - osx
       env:
         - BROWSER=chrome
       script:
       - if [ $BROWSER == 'chrome' ]; then sudo docker-compose up -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P chrome; fi
     - stage: Test
+      os:
+         - linux
       env:
         - BROWSER=firefox
       script:
