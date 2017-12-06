@@ -51,16 +51,12 @@ jobs:
 #      - if [ $BROWSER == 'firefox' ]; then sudo docker-compose up -d; fi
 #      - if [ $BROWSER == 'firefox' ]; then mvn test -P osx-firefox; fi
     - stage: Test
-      os:
-        - linux
       env:
         - BROWSER=chrome
       script:
       - if [ $BROWSER == 'chrome' ]; then sudo docker-compose up -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome; fi
     - stage: Test
-      os:
-        - linux
       env:
         - BROWSER=firefox
       script:
@@ -81,8 +77,6 @@ jobs:
       - git branch ${BRANCH_LINUX_CHROME}
       - git push -f origin ${BRANCH_LINUX_CHROME}
     - stage: deploy test
-      os:
-      - osx
       env:
       - BRANCH_OSX_CHROME=osx-chrome
       script:
@@ -91,13 +85,6 @@ jobs:
       - git branch ${BRANCH_OSX_CHROME}
       - git push -f origin ${BRANCH_OSX_CHROME}
     - stage: deploy test
-      os:
-      - osx
-      osx_image: xcode7.3
-      language: generic
-      env:
-        - _OSX=10.11
-        - _PHP: php56
         - BRANCH_OSX_FIREFOX=osx-firefox
       script:
       - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git branch ${BRANCH_OSX_FIREFOX}; fi
