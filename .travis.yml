@@ -22,16 +22,6 @@ stages:
   - name: deploy prod
 if: branch = master
 
-
-matrix:
-  include:
-    - os: linux
-    - os: osx
-      language: generic
-      python: 3.5
-      env: PYTHONVERSION=3.5.2
-
-
 jobs:
   include:
 #    - stage: Test
@@ -85,7 +75,18 @@ jobs:
       - git branch ${BRANCH_OSX_CHROME}
       - git push -f origin ${BRANCH_OSX_CHROME}
     - stage: deploy test
-        - BRANCH_OSX_FIREFOX=osx-firefox
+      env:  
+        - BRANCH_OSX_FIREFOX=osx-firefox       
+      before_install:
+      - PLATFORM=osx64
+      - export NIGHTLY_DATE=`date`
+      - export NIGHTLY_BUILD_NUMBER=`date +%Y%m%d%H%M%S`
+      - export NIGHTLY_HASH=`git ls-remote git://github.com/tasks-delivery/task-delivery.git | grep refs/heads/master | cut -f 1`
+      - brew update
+      install:
+      - brew unlink node; brew install node
+      - brew ls | grep -wq qt5 || brew install qt5
+      - export PATH=$PATH:/usr/local/opt/qt5/bin  
       script:
       - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git branch ${BRANCH_OSX_FIREFOX}; fi
       - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then push -f origin ${BRANCH_OSX_FIREFOX}; fi
