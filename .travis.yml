@@ -41,12 +41,16 @@ jobs:
 #      - if [ $BROWSER == 'firefox' ]; then sudo docker-compose up -d; fi
 #      - if [ $BROWSER == 'firefox' ]; then mvn test -P osx-firefox; fi
     - stage: Test
+      os:
+        - linux
       env:
         - BROWSER=chrome
       script:
       - if [ $BROWSER == 'chrome' ]; then sudo docker-compose up -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome; fi
     - stage: Test
+      os:
+        - linux
       env:
         - BROWSER=firefox
       script:
@@ -56,47 +60,29 @@ jobs:
       env:
         - BRANCH_LINUX_FIREFOX=linux-firefox
       script:
-      - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then git branch ${BRANCH_LINUX_FIREFOX}; fi
-      - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then push -f origin ${BRANCH_LINUX_FIREFOX}; fi
+      - git branch ${BRANCH_LINUX_FIREFOX}
+      - git push -f origin ${BRANCH_LINUX_FIREFOX}
     - stage: deploy test
       env:
-      - BRANCH_LINUX_CHROME=linux-chrome
+        - BRANCH_LINUX_CHROME=linux-chrome
       script:
-      - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then git branch ${BRANCH_LINUX_CHROME}; fi
-      - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then push -f origin ${BRANCH_LINUX_CHROME}; fi
       - git branch ${BRANCH_LINUX_CHROME}
       - git push -f origin ${BRANCH_LINUX_CHROME}
     - stage: deploy test
       env:
-      - BRANCH_OSX_CHROME=osx-chrome
+        - BRANCH_OSX_CHROME=osx-chrome
       script:
-      - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git branch ${BRANCH_OSX_CHROME}; fi
-      - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then push -f origin ${BRANCH_OSX_CHROME}; fi
       - git branch ${BRANCH_OSX_CHROME}
       - git push -f origin ${BRANCH_OSX_CHROME}
     - stage: deploy test
-      os: osx
-      env:  
-        - BRANCH_OSX_FIREFOX=osx-firefox       
-      before_install:
-      - PLATFORM=osx64
-      - export NIGHTLY_DATE=`date`
-      - export NIGHTLY_BUILD_NUMBER=`date +%Y%m%d%H%M%S`
-      - export NIGHTLY_HASH=`git ls-remote git://github.com/tasks-delivery/task-delivery.git | grep refs/heads/master | cut -f 1`
-      - brew update
-      install:
-      - brew unlink node; brew install node
-      - brew ls | grep -wq qt5 || brew install qt5
-      - export PATH=$PATH:/usr/local/opt/qt5/bin  
+      env:
+        - BRANCH_OSX_FIREFOX=osx-firefox
       script:
-      - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then git branch ${BRANCH_OSX_FIREFOX}; fi
-      - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then push -f origin ${BRANCH_OSX_FIREFOX}; fi
-#      - git branch ${BRANCH_OSX_FIREFOX}
- #     - git push -f origin ${BRANCH_OSX_FIREFOX}
+      - git branch ${BRANCH_OSX_FIREFOX}
+      - git push -f origin ${BRANCH_OSX_FIREFOX}
     - stage: deploy prod
       env:
         - BRANCH_PROD=prod
       script:
       - git branch ${BRANCH_PROD}
-      - git push -f origin ${BRANCH_PROD}        
-      
+      - git push -f origin ${BRANCH_PROD}     
