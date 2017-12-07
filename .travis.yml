@@ -68,18 +68,18 @@ jobs:
       script:
       - git branch ${BRANCH_LINUX_CHROME}
       - git push -f origin ${BRANCH_LINUX_CHROME}
-    - stage: deploy test
-      env:
-        - BRANCH_OSX_CHROME=osx-chrome
-      script:
-      - git branch ${BRANCH_OSX_CHROME}
-      - git push -f origin ${BRANCH_OSX_CHROME}
-    - stage: deploy test
-      env:
-        - BRANCH_OSX_FIREFOX=osx-firefox
-      script:
-      - git branch ${BRANCH_OSX_FIREFOX}
-      - git push -f origin ${BRANCH_OSX_FIREFOX}
+#   - stage: deploy test
+#      env:
+#        - BRANCH_OSX_CHROME=osx-chrome
+#      script:
+#      - git branch ${BRANCH_OSX_CHROME}
+#      - git push -f origin ${BRANCH_OSX_CHROME}
+#    - stage: deploy test
+#      env:
+#        - BRANCH_OSX_FIREFOX=osx-firefox
+#      script:
+#      - git branch ${BRANCH_OSX_FIREFOX}
+#      - git push -f origin ${BRANCH_OSX_FIREFOX}
     - stage: deploy prod
       env:
         - BRANCH_PROD=prod
