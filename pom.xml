@@ -146,6 +146,17 @@
 				<suites>testLinuxFirefox</suites>
 			</properties>
 		</profile>
+        <profile>
+            <id>local-test</id>
+            <activation>
+                <property>
+                    <name>SUITES</name>
+                </property>
+            </activation>
+            <properties>
+                <suites>testLocal</suites>
+            </properties>
+        </profile>
 	</profiles>
 	<build>
 		<plugins>

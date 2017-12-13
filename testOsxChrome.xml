@@ -5,6 +5,7 @@
         <parameter name="browser" value="chrome"/>
         <parameter name="browserVersion" value="null"/>
         <parameter name="remote" value="http://localhost:4444/wd/hub"/>
+        <parameter name="headless" value="false"/>
         <parameter name="timeout" value="8000"/>
         <parameter name="baseUrl" value="https://task-delivery-test-osx-chrome.herokuapp.com/"/>
         <classes>

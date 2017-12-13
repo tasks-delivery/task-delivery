@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test in osx for firefox browser">
-    <test name="testOsxFirefox">
-        <parameter name="browser" value="firefox"/>
+<suite name="test for local">
+    <test name="test for local">
+        <parameter name="browser" value="chrome"/>
         <parameter name="browserVersion" value="null"/>
         <parameter name="remote" value="http://localhost:4444/wd/hub"/>
         <parameter name="headless" value="false"/>
         <parameter name="timeout" value="8000"/>
-        <parameter name="baseUrl" value="https://task-delivery-test-osx-ff.herokuapp.com/"/>
-        <classes>
+        <parameter name="baseUrl" value="https://task-delivery-test-linux-chrom.herokuapp.com/"/>        <classes>
             <class name="uitest.mainPage.MainPageTest"/>
             <class name="uitest.contacts.AddContactsPageTest"/>
             <class name="uitest.organizations.AddOrganizationsPageTest"/>
