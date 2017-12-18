@@ -2,12 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="test for local">
     <test name="test for local">
-        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="marionette"/>
         <parameter name="browserVersion" value="null"/>
-        <parameter name="remote" value="http://localhost:4444/wd/hub"/>
+        <parameter name="remote" value="null"/>
         <parameter name="headless" value="false"/>
         <parameter name="timeout" value="8000"/>
-        <parameter name="baseUrl" value="https://task-delivery-test-linux-chrom.herokuapp.com/"/>        <classes>
+        <parameter name="baseUrl" value="http://localhost:8080/"/>
+        <classes>
             <class name="uitest.mainPage.MainPageTest"/>
             <class name="uitest.contacts.AddContactsPageTest"/>
             <class name="uitest.organizations.AddOrganizationsPageTest"/>

@@ -30,11 +30,11 @@ function displayContactsList(){
 				
 				$("ul", container).append("<li><a class='edit' href='#' data-id='"+contact.id+"'>" + escapeHtml(contact.firstName) + " " + 
 											escapeHtml(contact.lastName) + "</a> | Organization: " + escapeHtml(organizationName) + 
-											" | <a class='delete' href='#' data-id='"+contact.id+"'>Delete</a> </li>");
+											" | <button class='delete' href='#' data-id='"+contact.id+"'>Delete</button> </li>");
 
 			});
 			$("a.edit").unbind("click", displayContactEdit).bind("click", displayContactEdit);
-			$("a.delete").unbind("click", deleteContact).bind("click", deleteContact);
+			$("button.delete").unbind("click", deleteContact).bind("click", deleteContact);
 		},
 		error: errorLogger
 	});
@@ -522,10 +522,10 @@ function displayOrganizationsList(){
 			
 			data.forEach(function(organization){
 				$("container ul").append("<li><a class='edit' href='#' data-id='"+organization.id+"'>" + escapeHtml(organization.name) + 
-											"</a> <a class='delete' href='#' data-id='"+organization.id+"'>Delete</a> </li>");
+											"</a> <button class='delete' href='#' data-id='"+organization.id+"'>Delete</button> </li>");
 			});
 			$("a.edit").unbind("click", displayOrganizationEdit).bind("click", displayOrganizationEdit);
-			$("a.delete").unbind("click", deleteOrganization).bind("click", deleteOrganization);
+			$("button.delete").unbind("click", deleteOrganization).bind("click", deleteOrganization);
 			
 		},
 		error: errorLogger

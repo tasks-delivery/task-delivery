@@ -6,7 +6,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
-
 import com.tloureiro.entity.Address;
 import com.tloureiro.entity.Contact;
 import com.tloureiro.entity.Organization;
@@ -15,10 +14,6 @@ import com.tloureiro.repository.ContactRepository;
 import com.tloureiro.repository.OrganizationRepository;
 import com.tloureiro.repository.OrganizationTypeRepository;
 
-/**
- * @author Thiago Loureiro
- *	Application boot
- */
 @SpringBootApplication
 public class SimpleCrmApplication {
 

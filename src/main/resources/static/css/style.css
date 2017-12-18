@@ -1,5 +1,12 @@
+body{
+  background: antiquewhite;
+  font-size: 15px;
+}
+
+
+
 a.delete{
-	color: red;
+	color: blue;
 }
 
 a.edit{
@@ -7,6 +14,10 @@ a.edit{
 }
 
 a.add-contact, a.add-organization{
+display: flex;
+  width: 10%;
+  justify-content: center;
+  align-items: center;
 	outline: 1px solid black;
 	padding: 4px;
 	text-decoration: none;
