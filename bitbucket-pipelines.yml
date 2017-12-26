@@ -1,9 +1,8 @@
-image: ubuntu
-
 pipelines:
-  default:
-  image: tmaier/docker-compose:latest
-    - step:
+  branches:
+    master:
+    image: tmaier/docker-compose:latest
+      - step:
         script:
           - docker-compose up
           - mvn test
