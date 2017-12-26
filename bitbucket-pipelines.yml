@@ -1,0 +1,7 @@
+pipelines:
+  default:
+    - step:
+        script:
+          - service docker start
+          - sudo docker-compose up
+          - mvn test
