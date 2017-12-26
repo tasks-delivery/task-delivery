@@ -1,7 +1,12 @@
+image: ubuntu
+
 pipelines:
   default:
+  image: tmaier/docker-compose:latest
     - step:
         script:
-          - service docker start
-          - sudo docker-compose up
+          - docker-compose up
           - mvn test
+
+options:
+  docker: true
