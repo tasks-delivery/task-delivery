@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="UI tests">
-    <suite-files>
-        <suite-file path="testLinuxChrome.xml"/>
-        <suite-file path="testLinuxFirefox.xml"/>
-    </suite-files>
-</suite>

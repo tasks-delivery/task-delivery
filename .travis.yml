@@ -1,12 +1,12 @@
+language: java
+dist: trusty
 sudo: required
+group: deprecated-2017Q4
+
+jdk: openjdk8
 
 services:
-  -docker
-
-language: java
-
-jdk:
-  - oraclejdk8
+  - docker
 
 before_install:
 - echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
@@ -15,74 +15,36 @@ before_install:
 branches:
   only:
     - master
+    - release
 
 stages:
-  - deploy test
   - Test
   - name: deploy prod
 if: branch = master
 
 jobs:
   include:
-#    - stage: Test
-#      os:
-#        - osx
-#      env:
-#        - BROWSER=chrome
-#      script:
-#      - if [ $BROWSER == 'chrome' ]; then sudo docker-compose up -d; fi
-#      - if [ $BROWSER == 'chrome' ]; then mvn test -P osx-chrome; fi
-#    - stage: Test
-#      os:
-#        - osx
-#      env:
-#        - BROWSER=firefox
-#      script:
-#      - if [ $BROWSER == 'firefox' ]; then sudo docker-compose up -d; fi
-#      - if [ $BROWSER == 'firefox' ]; then mvn test -P osx-firefox; fi
     - stage: Test
       os:
         - linux
       env:
         - BROWSER=chrome
       script:
-      - if [ $BROWSER == 'chrome' ]; then sudo docker-compose up -d; fi
-      - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome; fi
+      - ~/selenium
+      - if [ $BROWSER == 'chrome' ]; then docker-compose up -d; fi
+      - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome -rf :selenium; fi
     - stage: Test
       os:
         - linux
       env:
         - BROWSER=firefox
       script:
-      - if [ $BROWSER == 'firefox' ]; then sudo docker-compose up -d; fi
-      - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox; fi
-    - stage: deploy test
-      env:
-        - BRANCH_LINUX_FIREFOX=linux-firefox
-      script:
-      - git branch ${BRANCH_LINUX_FIREFOX}
-      - git push -f origin ${BRANCH_LINUX_FIREFOX}
-    - stage: deploy test
-      env:
-        - BRANCH_LINUX_CHROME=linux-chrome
-      script:
-      - git branch ${BRANCH_LINUX_CHROME}
-      - git push -f origin ${BRANCH_LINUX_CHROME}
-#   - stage: deploy test
-#      env:
-#        - BRANCH_OSX_CHROME=osx-chrome
-#      script:
-#      - git branch ${BRANCH_OSX_CHROME}
-#      - git push -f origin ${BRANCH_OSX_CHROME}
-#    - stage: deploy test
-#      env:
-#        - BRANCH_OSX_FIREFOX=osx-firefox
-#      script:
-#      - git branch ${BRANCH_OSX_FIREFOX}
-#      - git push -f origin ${BRANCH_OSX_FIREFOX}
+      - ~/selenium
+      - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
+      - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
     - stage: deploy prod
       env:
         - BRANCH_PROD=prod
       script:
       - git branch ${BRANCH_PROD}
-      - git push -f origin ${BRANCH_PROD}     
+      - git push -f origin ${BRANCH_PROD}
