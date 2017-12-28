@@ -30,7 +30,6 @@ jobs:
       env:
         - BROWSER=chrome
       script:
-      - if [ $BROWSER == 'chrome' ]; then mvn spring-boot:run -rf :app; fi
       - if [ $BROWSER == 'chrome' ]; then docker-compose up -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome -rf :selenium; fi
     - stage: Test
@@ -39,7 +38,6 @@ jobs:
       env:
         - BROWSER=firefox
       script:
-      - if [ $BROWSER == 'firefox' ]; then mvn spring-boot:run -rf :app; fi
       - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
       - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
     - stage: deploy prod

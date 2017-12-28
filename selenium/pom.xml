@@ -14,7 +14,13 @@
     <properties>
         <selenide.version>4.8</selenide.version>
     </properties>
+
     <dependencies>
+        <dependency>
+            <groupId>org.test</groupId>
+            <artifactId>app</artifactId>
+            <version>1</version>
+        </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -30,7 +36,6 @@
             <artifactId>selenium-server</artifactId>
             <version>3.7.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-opera-driver -->
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>backbone-marionette</artifactId>
@@ -41,13 +46,11 @@
             <artifactId>selenium-firefox-driver</artifactId>
             <version>3.7.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-remote-driver</artifactId>
             <version>3.7.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
@@ -119,16 +122,20 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20</version>
                 <configuration>
                     <!--<parallel>methods</parallel>
                     <threadCount>10</threadCount>
-                    <groups>Google,cleanup</groups>!-->
+                    <groups>Google,cleanup</groups>
                     <systemPropertyVariables>
                         <hubAddress>http://0.0.0.0:4444/wd/hub</hubAddress>
-                    </systemPropertyVariables>
+                    </systemPropertyVariables>!-->
                     <suiteXmlFiles>
                         <suiteXmlFile>${suites}.xml</suiteXmlFile>
                     </suiteXmlFiles>
@@ -143,7 +150,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-            <!--	<plugin>
+            <!--<plugin>
                    <groupId>com.dkanejs.maven.plugins</groupId>
                    <artifactId>docker-compose-maven-plugin</artifactId>
                    <version>1.0.1</version>

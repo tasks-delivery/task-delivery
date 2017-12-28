@@ -17,10 +17,10 @@ import com.tloureiro.repository.OrganizationTypeRepository;
 @SpringBootApplication
 public class SimpleCrmApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(SimpleCrmApplication.class, args);
-    }
-    
+	public static void main(String[] args) {
+		SpringApplication.run(SimpleCrmApplication.class, args);
+	}
+
     /**
      * Binds the database console to allow database analysis
      * @return
