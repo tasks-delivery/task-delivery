@@ -30,6 +30,7 @@ jobs:
       env:
         - BROWSER=chrome
       script:
+      - mvn spring-boot:run -rf :app -B
       - if [ $BROWSER == 'chrome' ]; then docker-compose up -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome -rf :selenium; fi
     - stage: Test
