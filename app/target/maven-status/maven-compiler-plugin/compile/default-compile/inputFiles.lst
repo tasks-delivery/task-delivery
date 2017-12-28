@@ -1,0 +1,13 @@
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\entity\Contact.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\controller\ContactController.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\repository\OrganizationRepository.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\controller\OrganizationController.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\entity\OrganizationType.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\controller\exceptions\ElementNotFoundException.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\entity\Address.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\repository\OrganizationTypeRepository.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\controller\exceptions\WrongIdFormatException.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\entity\Organization.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\SimpleCrmApplication.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\controller\OrganizationTypeController.java
+D:\projects\task-delivery\app\src\main\java\com\tloureiro\repository\ContactRepository.java
