@@ -13,6 +13,7 @@
 
     <properties>
         <selenide.version>4.8</selenide.version>
+        <start-class>com.tloureiro.SimpleCrmApplication</start-class>
     </properties>
 
     <dependencies>
