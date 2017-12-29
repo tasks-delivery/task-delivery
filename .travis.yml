@@ -30,7 +30,9 @@ jobs:
       env:
         - BROWSER=chrome
       script:
-      - mvn spring-boot:run -rf :app -B
+
+      
+      - javac -d . $TRAVIS_BUILD_DIR/app/src/main/java/com/tloureiro/SimpleCrmApplication.java
       - if [ $BROWSER == 'chrome' ]; then docker-compose up -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome -rf :selenium; fi
     - stage: Test
