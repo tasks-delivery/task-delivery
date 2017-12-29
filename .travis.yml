@@ -17,6 +17,12 @@ branches:
     - master
     - release
 
+deploy:
+  provider: script
+  script: scripts/release.sh
+  on:
+    branch: release
+
 stages:
   - Test
   - name: deploy prod
