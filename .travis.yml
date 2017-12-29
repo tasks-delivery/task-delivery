@@ -45,7 +45,7 @@ jobs:
        - mvn clean package -DskipTests=true
        - mvn docker:build -rf :app
        - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-       - docker run -it -p 8080:8080 -p 2000:2000 apptd/app:v1.0.0
+       - docker run -it -p 8080:8080 -p 2000:2000 apptd/app:latest
        - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
        - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
       after_script:
