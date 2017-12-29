@@ -41,7 +41,8 @@ jobs:
       env:
         - BROWSER=firefox
       script:
-      - mvn spring-boot:run -f -rf :app
+      - javac -d ./app/src/main/java/com/tloureiro/SimpleCrmApplication.java
+      - javac -d /app/src/main/java/com/tloureiro/SimpleCrmApplication.java
       - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
       - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
 
