@@ -30,10 +30,10 @@ jobs:
       env:
         - BROWSER=chrome
       script:
-      - java -jar -d ./app/target/app-1.jar
-      - d java -jar ./app/target/app-1.jar
+  #    - java -jar -d ./app/target/app-1.jar
+ #     - d java -jar ./app/target/app-1.jar
 #      - mvn clean package -DskipTests=true -rf :app
-      - java d -jar ./app/target/app-1.jar
+      - java  -jar ./app/target/app-1.jar
       - if [ $BROWSER == 'chrome' ]; then docker-compose up -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome -rf :selenium; fi
     - stage: Test
@@ -42,7 +42,8 @@ jobs:
       env:
         - BROWSER=firefox
       script:
-      - if [ $BROWSER == 'firefox' ]; then java -jar ./app/target/app-1.jar -d; fi
+       - ./release.sh
+ #     - if [ $BROWSER == 'firefox' ]; then java -jar ./app/target/app-1.jar -d; fi
 #      - javac -d ./app/src/main/java/com/tloureiro/SimpleCrmApplication.java
  #     - javac -d /app/src/main/java/com/tloureiro/SimpleCrmApplication.java
  #     - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
