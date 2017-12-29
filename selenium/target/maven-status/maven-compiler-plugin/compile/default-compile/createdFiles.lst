@@ -1,8 +1,0 @@
-uitest\organizations\AddOrganizationsPage.class
-uitest\contacts\AddContactsPage.class
-uitest\organizations\OrganizationsListPage.class
-uitest\config\BasePage.class
-uitest\config\ConciseAPI.class
-uitest\mainPage\MainPage.class
-uitest\config\BaseTest.class
-uitest\contacts\ContactsListPage.class
