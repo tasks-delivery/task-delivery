@@ -3,7 +3,7 @@ services:
   app:
     image: apptd/app:latest
     ports:
-      - "8080:8080"
+      - "7777:7777"
   selenium-hub:
     image: selenium/hub:3.7.1
     container_name: selenium-hub
