@@ -74,7 +74,7 @@
                         <imageTag>latest</imageTag>
                     </imageTags>
                     <forceTags>true</forceTags>
-                    <imageName>apptd/app</imageName>
+                    <imageName>fiodar/td</imageName>
                     <dockerDirectory>app/src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
