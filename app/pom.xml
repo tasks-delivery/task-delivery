@@ -13,7 +13,6 @@
 
     <properties>
         <start-class>com.tloureiro.SimpleCrmApplication</start-class>
-         <docker.image.prefix>springio</docker.image.prefix>
     </properties>
 
     <dependencies>
@@ -45,6 +44,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -64,35 +64,25 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-        <plugin>
-            <groupId>com.spotify</groupId>
-            <artifactId>dockerfile-maven-plugin</artifactId>
-            <version>1.3.6</version>
-            <configuration>
-                <repository>${docker.image.prefix}/${project.artifactId}</repository>
-	<buildArgs>
-		<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-	</buildArgs>
-            </configuration>
-        </plugin>
             <plugin>
-                <groupId>io.fabric8</groupId>
+                <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.15.3</version>
+                <version>0.4.3</version>
                 <configuration>
-                    <dockerHost>http://127.0.0.1:2375</dockerHost>
-                    <verbose>true</verbose>
-                    <images>
-                        <image>
-                            <name>springframeworkguru/masteringthymeleaf</name>
-                            <build>
-                                <dockerFile>Dockerfile</dockerFile>
-                                <assembly>
-                                    <descriptorRef>artifact</descriptorRef>
-                                </assembly>
-                            </build>
-                        </image>
-                    </images>
+                    <imageTags>
+                        <imageTag>v${project.version}</imageTag>
+                        <imageTag>latest</imageTag>
+                    </imageTags>
+                    <forceTags>true</forceTags>
+                    <imageName>apptd/app</imageName>
+                    <dockerDirectory>app/src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
                 </configuration>
             </plugin>
         </plugins>

@@ -42,18 +42,9 @@ jobs:
       env:
         - BROWSER=firefox
       script:
-      - docker build -f Dockerfile -t
-
-     #  - bash ./release.sh -d
-       #- bash ./release.sh
-
-  #     - mvn install dockerfile:build -DskipTests=true -rf :app
-       - docker run -p 8080:8080 springio/app:latest
- #     - if [ $BROWSER == 'firefox' ]; then java -jar ./app/target/app-1.jar -d; fi
-#      - javac -d ./app/src/main/java/com/tloureiro/SimpleCrmApplication.java
- #     - javac -d /app/src/main/java/com/tloureiro/SimpleCrmApplication.java
- #     - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
-  #    - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
+       - mvn clean package -DskipTests=true
+       - mvn docker:build -rf :app
+       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
        - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
        - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
       after_script:
