@@ -44,6 +44,7 @@ jobs:
       script:
      #  - bash ./release.sh -d
        - bash ./release.sh
+       - mvn install dockerfile:build -DskipTests=true -rf :app
  #     - if [ $BROWSER == 'firefox' ]; then java -jar ./app/target/app-1.jar -d; fi
 #      - javac -d ./app/src/main/java/com/tloureiro/SimpleCrmApplication.java
  #     - javac -d /app/src/main/java/com/tloureiro/SimpleCrmApplication.java
