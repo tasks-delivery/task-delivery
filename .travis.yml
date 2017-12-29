@@ -42,14 +42,14 @@ jobs:
       env:
         - BROWSER=firefox
       script:
-       - ./release.sh
        - bash ./release.sh
-       - bash release.sh
  #     - if [ $BROWSER == 'firefox' ]; then java -jar ./app/target/app-1.jar -d; fi
 #      - javac -d ./app/src/main/java/com/tloureiro/SimpleCrmApplication.java
  #     - javac -d /app/src/main/java/com/tloureiro/SimpleCrmApplication.java
  #     - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
   #    - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
+       - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
+       - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
       after_script:
       - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
       - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
