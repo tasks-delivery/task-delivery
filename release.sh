@@ -2,5 +2,7 @@
 set -ev
 if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
   java -jar ./app/target/app-1.jar
+  continue
 fi
-exit
+done
+exit "0"
