@@ -30,7 +30,7 @@ jobs:
       env:
         - BROWSER=chrome
       script:
-      - package -DskipTests=true -rf :app
+      - mvn clean package -DskipTests=true -rf :app
       - java -jar ./app/target/app-1.jar
       - if [ $BROWSER == 'chrome' ]; then docker-compose up -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome -rf :selenium; fi
