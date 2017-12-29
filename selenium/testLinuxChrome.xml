@@ -7,8 +7,14 @@
         <parameter name="remote" value="https://localhost:4444/wd/hub"/>
         <parameter name="headless" value="false"/>
         <parameter name="timeout" value="8000"/>
-        <parameter name="baseUrl" value="https://localhost:5050/"/>
+        <parameter name="baseUrl" value="http://localhost:8080/"/>
         <classes>
+           <!-- <class name="uitest.config.ConciseAPI">
+                <methods>
+                    <include name="main"/>
+                </methods>
+
+            </class>!-->
             <class name="uitest.mainPage.MainPageTest"/>
             <class name="uitest.contacts.AddContactsPageTest"/>
             <class name="uitest.organizations.AddOrganizationsPageTest"/>

@@ -13,14 +13,9 @@
 
     <properties>
         <selenide.version>4.8</selenide.version>
-    </properties>
+   </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.test</groupId>
-            <artifactId>app</artifactId>
-            <version>1</version>
-        </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -60,6 +55,11 @@
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.3.11.RELEASE</version>
         </dependency>
     </dependencies>
     <profiles>

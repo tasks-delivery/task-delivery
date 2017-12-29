@@ -1,0 +1,5 @@
+uitest\organizations\OrganizationsListPageTest.class
+uitest\contacts\ContactsListPageTest.class
+uitest\contacts\AddContactsPageTest.class
+uitest\mainPage\MainPageTest.class
+uitest\organizations\AddOrganizationsPageTest.class
