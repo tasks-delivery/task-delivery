@@ -17,12 +17,6 @@ branches:
     - master
     - release
 
-deploy:
-  provider: script
-  script: scripts/release.sh
-  on:
-    branch: release
-
 stages:
   - Test
   - name: deploy prod
@@ -30,11 +24,6 @@ if: branch = master
 
 jobs:
   include:
-    - stage: Test
-      os:
-        - linux
-      script:
-      - java -jar ./app/target/app-1.jar
     - stage: Test
       os:
         - linux
@@ -51,8 +40,12 @@ jobs:
       env:
         - BROWSER=firefox
       script:
+      - java -jar ./app/target/app-1.jar
 #      - javac -d ./app/src/main/java/com/tloureiro/SimpleCrmApplication.java
  #     - javac -d /app/src/main/java/com/tloureiro/SimpleCrmApplication.java
+ #     - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
+  #    - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
+      after_script:
       - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
       - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
 
