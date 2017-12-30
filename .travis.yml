@@ -13,7 +13,12 @@ before_install:
 - git lfs pull
 
 addons:
-firefox: "44.0"
+ firefox: "44.0"
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 
 branches:
   only:
