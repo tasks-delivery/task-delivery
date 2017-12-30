@@ -4,13 +4,11 @@ services:
     build:
         context: .
         dockerfile: Dockerfile.build
-    environment:
-        VERSION: dev
     volumes:
         - "$HOME/.m2:/root/.m2"
     ports:
         - "7777:7777"
-    command: mvn spring-boot:run
+    command: mvn spring-boot:run -rf :app
 #  app:
  #   image: fiodar/td:latest
   #  ports:
