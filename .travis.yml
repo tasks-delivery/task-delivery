@@ -33,7 +33,7 @@ jobs:
       - mvn clean package -DskipTests=true
       - mvn docker:build -rf :app
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push fiodar/td:lates
+      - docker push fiodar/td
       - if [ $BROWSER == 'chrome' ]; then docker run -it -p 8080:8080 -p 2000:2000 fiodar/td:lates -d; fi
       - if [ $BROWSER == 'chrome' ]; then docker-compose up -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome -rf :selenium; fi
