@@ -12,7 +12,7 @@
     <artifactId>selenium</artifactId>
 
     <properties>
-        <selenide.version>4.8</selenide.version>
+        <selenide.version>4.9</selenide.version>
    </properties>
 
 <dependencies>
@@ -24,12 +24,12 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.7.1</version>
+            <version>3.8.1</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-server</artifactId>
-            <version>3.7.1</version>
+            <version>3.8.1</version>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
@@ -39,27 +39,22 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-firefox-driver</artifactId>
-            <version>3.7.1</version>
+            <version>3.8.1</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-remote-driver</artifactId>
-            <version>3.7.1</version>
+            <version>3.8.1</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
-            <version>3.7.1</version>
+            <version>3.8.1</version>
         </dependency>
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>4.3.11.RELEASE</version>
         </dependency>
     </dependencies>
     <profiles>

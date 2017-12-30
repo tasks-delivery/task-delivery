@@ -8,4 +8,4 @@ RUN sh -c 'touch /opt/app.jar'
 ENTRYPOINT ["java","-jar","/opt/podcast-server/app.jar"]
 
 # RUN with docker like that :
-# $ docker run -it -p 8080:8080 -p 2000:2000 apptd/app
+# $ docker run -it -p 8080:8080 -p 2000:2000 fiodar/td

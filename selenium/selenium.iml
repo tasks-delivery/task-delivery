@@ -12,13 +12,13 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-java:3.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-api:3.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-edge-driver:3.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-ie-driver:3.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-opera-driver:3.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-safari-driver:3.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-support:3.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-java:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-api:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-edge-driver:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-ie-driver:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-opera-driver:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-safari-driver:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-support:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.7.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-exec:1.3" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
@@ -30,28 +30,30 @@
     <orderEntry type="library" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.14" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.3.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.6" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-server:3.7.1" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-server:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: com.beust:jcommander:1.48" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.5" level="project" />
-    <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.7" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-text:1.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
+    <orderEntry type="library" name="Maven: commons-net:commons-net:3.6" level="project" />
     <orderEntry type="library" name="Maven: org.w3c.css:sac:1.3" level="project" />
-    <orderEntry type="library" name="Maven: net.sourceforge.cssparser:cssparser:0.9.23" level="project" />
-    <orderEntry type="library" name="Maven: net.sourceforge.htmlunit:htmlunit:2.27" level="project" />
-    <orderEntry type="library" name="Maven: net.sourceforge.htmlunit:htmlunit-core-js:2.27" level="project" />
-    <orderEntry type="library" name="Maven: net.sourceforge.htmlunit:neko-htmlunit:2.27" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.cssparser:cssparser:0.9.24" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.htmlunit:htmlunit:2.28" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.htmlunit:htmlunit-core-js:2.28" level="project" />
+    <orderEntry type="library" name="Maven: net.sourceforge.htmlunit:neko-htmlunit:2.28" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpmime:4.3.6" level="project" />
     <orderEntry type="library" name="Maven: net.jcip:jcip-annotations:1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:jetty-repacked:9.4.5.v20170502" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-client:9.4.5.v20170502" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:jetty-repacked:9.4.7.v20170914" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-client:9.4.7.v20170914" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.2.9.v20150224" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:9.2.9.v20150224" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:9.2.9.v20150224" level="project" />
-    <orderEntry type="library" name="Maven: com.codeborne:phantomjsdriver:1.4.0" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:htmlunit-driver:2.27" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-xml:9.2.9.v20150224" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:htmlunit-driver:2.28" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-api:9.4.5.v20170502" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-client:9.4.5.v20170502" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-common:9.4.5.v20170502" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-api:9.4.7.v20170914" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-client:9.4.7.v20170914" level="project" />
+    <orderEntry type="library" name="Maven: org.eclipse.jetty.websocket:websocket-common:9.4.7.v20170914" level="project" />
     <orderEntry type="library" name="Maven: xalan:serializer:2.7.2" level="project" />
     <orderEntry type="library" name="Maven: xalan:xalan:2.7.2" level="project" />
     <orderEntry type="library" name="Maven: xerces:xercesImpl:2.11.0" level="project" />
@@ -61,13 +63,12 @@
     <orderEntry type="library" name="Maven: org.webjars:jquery:1.8.3" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:underscorejs:1.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.webjars:backbonejs:1.1.2" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-firefox-driver:3.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-remote-driver:3.7.1" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:3.7.1" level="project" />
-    <orderEntry type="library" name="Maven: com.codeborne:selenide:4.8" level="project" />
-    <orderEntry type="library" name="Maven: io.github.bonigarcia:webdrivermanager:1.7.2" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-firefox-driver:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-remote-driver:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:3.8.1" level="project" />
+    <orderEntry type="library" name="Maven: com.codeborne:selenide:4.9" level="project" />
+    <orderEntry type="library" name="Maven: io.github.bonigarcia:webdrivermanager:2.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.11" level="project" />
-    <orderEntry type="library" name="Maven: com.typesafe:config:1.2.1" level="project" />
     <orderEntry type="library" name="Maven: org.rauschig:jarchivelib:0.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.9" level="project" />
     <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.10.2" level="project" />
@@ -83,8 +84,7 @@
     <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15on:1.58" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.58" level="project" />
     <orderEntry type="library" name="Maven: net.lightbody.bmp:mitm:2.1.5" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-test:4.3.11.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-core:4.1.6.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.codeborne:phantomjsdriver:1.4.3" level="project" />
     <orderEntry type="library" name="Maven: org.testng:testng:6.11" level="project" />
   </component>
 </module>

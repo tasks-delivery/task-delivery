@@ -19,6 +19,7 @@ branches:
 
 stages:
   - Test
+  - Push docker image
   - name: deploy prod
 if: branch = master
 
@@ -30,11 +31,6 @@ jobs:
       env:
         - BROWSER=chrome
       script:
-      - mvn clean package -DskipTests=true
-      - mvn docker:build -rf :app
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push fiodar/td
-      - if [ $BROWSER == 'chrome' ]; then docker run -it -p 7777:7777 -p 2000:2000 fiodar/td:lates -d; fi
       - if [ $BROWSER == 'chrome' ]; then docker-compose up --build -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome -rf :selenium; fi
     - stage: Test
@@ -43,13 +39,18 @@ jobs:
       env:
         - BROWSER=firefox
       script:
-       - mvn clean package -DskipTests=true
-       - mvn docker:build -rf :app
-       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-       - docker push fiodar/td
-       - docker run -d -it -p 7777:7777 -p 2000:2000 fiodar/td:lates
        - if [ $BROWSER == 'firefox' ]; then docker-compose up --build -d; fi
        - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
+    - stage: Push docker image
+      os:
+        - linux
+      env:
+        - IMAGE=task/delivery
+      script:
+      - mvn clean package -DskipTests=true
+      - mvn docker:build -rf :app
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push ${IMAGE}
     - stage: deploy prod
       env:
         - BRANCH_PROD=prod
