@@ -38,7 +38,7 @@ jobs:
       - "sh -e /etc/init.d/xvfb start"
       - sleep 5 # give xvfb some time to start
       script:
- #     - if [ $BROWSER == 'chrome' ]; then docker-compose up --build -d; fi
+      - if [ $BROWSER == 'chrome' ]; then docker-compose up --build -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome -rf :selenium; fi
     - stage: Test
       os:
@@ -50,7 +50,7 @@ jobs:
         - "sh -e /etc/init.d/xvfb start"
         - sleep 5 # give xvfb some time to start
       script:
-  #     - if [ $BROWSER == 'firefox' ]; then docker-compose up --build -d; fi
+       - if [ $BROWSER == 'firefox' ]; then docker-compose up --build -d; fi
        - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
     - stage: Push docker image
       os:
