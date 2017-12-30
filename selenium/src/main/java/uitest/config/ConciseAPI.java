@@ -27,11 +27,13 @@ public abstract class ConciseAPI  {
     }
 */
 
+    String currentDir = System.getProperty("user.dir");
+
     @Parameters({"browser", "browserVersion", "timeout", "baseUrl"})
     @BeforeClass
     public void setUp(String browsers, String version, Integer time, String url) {
-    System.setProperty("webdriver.gecko.driver", "/home/travis/build/task-delivery/selenium/geckodriver");
-    System.setProperty("webdriver.chrome.driver", "/home/travis/build/task-delivery/task-delivery/selenium/chromedriver");
+    System.setProperty("webdriver.gecko.driver", currentDir+"\\drivers\\geckodriver.exe");
+    System.setProperty("webdriver.chrome.driver", currentDir+"\\drivers\\chromedriver");
     System.setProperty("webdriver.ie.driver", "src\\main\\resources\\IEDriverServer.exe");
     Configuration.browser = browsers;
     Configuration.browserVersion = version;
