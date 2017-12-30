@@ -38,8 +38,6 @@ jobs:
       - "sh -e /etc/init.d/xvfb start"
       - sleep 5 # give xvfb some time to start
       script:
-      - whereis google-chrome-stable
-      - whereis chromedriver
  #     - if [ $BROWSER == 'chrome' ]; then docker-compose up --build -d; fi
       - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome -rf :selenium; fi
     - stage: Test

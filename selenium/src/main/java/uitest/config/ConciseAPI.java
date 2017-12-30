@@ -30,9 +30,9 @@ public abstract class ConciseAPI  {
     @Parameters({"browser", "browserVersion", "timeout", "baseUrl"})
     @BeforeClass
     public void setUp(String browsers, String version, Integer time, String url) {
-  //  System.setProperty("webdriver.gecko.driver", "src\\main\\resources\\geckodriver.exe");
-  //  System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\winDrivers\\chromedriver.exe");
-   // System.setProperty("webdriver.ie.driver", "src\\main\\resources\\IEDriverServer.exe");
+    System.setProperty("webdriver.gecko.driver", "src\\main\\resources\\drivers\\linux\\geckodriver.exe");
+    System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\drivers\\linux\\chromedriver");
+    System.setProperty("webdriver.ie.driver", "src\\main\\resources\\IEDriverServer.exe");
     Configuration.browser = browsers;
     Configuration.browserVersion = version;
     Configuration.timeout = time;
