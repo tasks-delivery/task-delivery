@@ -20,7 +20,7 @@ addons:
     sources:
       - google-chrome
     packages:
-- google-chrome-stable
+      - google-chrome-stable
 
 branches:
   only:
