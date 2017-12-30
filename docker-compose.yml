@@ -1,34 +1,22 @@
 version: "3"
 services:
-  app:
-    build:
-        context: .
-        dockerfile: Dockerfile.build
-    volumes:
-        - "$HOME/.m2:/root/.m2"
-    ports:
-        - "7777:7777"
-    command: mvn spring-boot:run -rf :app
-#  app:
- #   image: fiodar/td:latest
-  #  ports:
-   #   - "7777:7777"
   selenium-hub:
-    image: selenium/hub:3.7.1
+    image: selenium/hub:3.8.1
     container_name: selenium-hub
     ports:
       - "4444:4444"
   chrome:
-    image: selenium/node-chrome:3.7.1
+    image: selenium/node-chrome:3.8.1
     depends_on:
       - selenium-hub
     environment:
       - HUB_PORT_4444_TCP_ADDR=selenium-hub
       - HUB_PORT_4444_TCP_PORT=4444
   firefox:
-    image: selenium/node-firefox:3.7.1
+    image: selenium/node-firefox:3.8.1
     depends_on:
       - selenium-hub
     environment:
       - HUB_PORT_4444_TCP_ADDR=selenium-hub
       - HUB_PORT_4444_TCP_PORT=4444
+

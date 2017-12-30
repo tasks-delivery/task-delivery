@@ -1,5 +1,4 @@
 FROM maven:3-jdk-8
-MAINTAINER Tom Barlow "<tomwbarlow@gmail.com>"
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     make
@@ -11,3 +10,8 @@ RUN curl -sL https://get.docker.com/builds/Linux/x86_64/docker-${DOCKER_VERSION}
 
 ADD . /workspace
 WORKDIR /workspace
+
+# RUN docker run  -p 4444:4444 --name selenium-hub selenium/hub:3.8.1
+
+# RUN docker run  --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-chrome:3.8.1
+# RUN docker run  --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-firefox:3.8.1
