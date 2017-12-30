@@ -1,9 +1,20 @@
 version: "3"
 services:
   app:
-    image: fiodar/td:latest
+    build:
+        context: .
+        dockerfile: Dockerfile.build
+    environment:
+        VERSION: dev
+    volumes:
+        - "$HOME/.m2:/root/.m2"
     ports:
-      - "7777:7777"
+        - "7777:7777"
+    command: mvn spring-boot:run
+#  app:
+ #   image: fiodar/td:latest
+  #  ports:
+   #   - "7777:7777"
   selenium-hub:
     image: selenium/hub:3.7.1
     container_name: selenium-hub
