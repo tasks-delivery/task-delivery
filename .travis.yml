@@ -12,53 +12,59 @@ before_install:
 - echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
 - git lfs pull
 
-addons:
-firefox: "44.0"
-
-addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
-
 branches:
   only:
     - master
     - release
 
 stages:
-  - Test
+  - Deploy test server
+  - Unit test
+  - Selenium test
   - Push docker image
-  - name: deploy prod
+  - name: Deploy prod
 if: branch = master
 
 jobs:
   include:
-    - stage: Test
+    - stage: Deploy test server
+      env:
+        - BRANCH_LINUX_CHROME=linux-firefox
+      script:
+        - git branch ${BRANCH_LINUX_FIREFOX}
+        - git push -f origin ${BRANCH_LINUX_FIREFOX}
+    - stage: Deploy test server
+      env:
+        - BRANCH_LINUX_CHROME=linux-chrome
+      script:
+        - git branch ${BRANCH_LINUX_CHROME}
+        - git push -f origin ${BRANCH_LINUX_CHROME}
+    - stage: Unit tests
+      os:
+        - linux
+      script:
+        - mvn test -rf :app
+    - stage: Unit test
+      os:
+        - linux
+      script:
+        - mvn test -rf :app
+    - stage: Selenium test
       os:
         - linux
       env:
         - BROWSER=chrome
-      before_script:
-      - "export DISPLAY=:99.0"
-      - "sh -e /etc/init.d/xvfb start"
-      - sleep 5 # give xvfb some time to start
       script:
-      - if [ $BROWSER == 'chrome' ]; then docker-compose up --build -d; fi
-      - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome -rf :selenium; fi
-    - stage: Test
+        - if [ $BROWSER == 'chrome' ]; then docker-compose up -d; fi
+        - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome; fi
+    - stage: Selenium test
       os:
         - linux
       env:
         - BROWSER=firefox
-      before_script:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
-        - sleep 5 # give xvfb some time to start
       script:
-       - if [ $BROWSER == 'firefox' ]; then docker-compose up --build -d; fi
-       - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox -rf :selenium; fi
+        - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
+        - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox; fi
     - stage: Push docker image
       os:
         - linux
@@ -67,9 +73,9 @@ jobs:
       script:
       - mvn clean package -DskipTests=true
       - mvn docker:build -rf :app
-      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
       - docker push ${IMAGE}
-    - stage: deploy prod
+    - stage: Deploy prod
       env:
         - BRANCH_PROD=prod
       script:

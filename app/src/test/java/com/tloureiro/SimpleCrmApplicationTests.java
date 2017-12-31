@@ -73,7 +73,7 @@ public class SimpleCrmApplicationTests {
 		contactRepository.save(contact);
 
 		mockMvc.perform(
-				MockMvcRequestBuilders.post("/resources/uitest.contacts").
+				MockMvcRequestBuilders.post("/resources/contacts").
 				content(new ObjectMapper().writeValueAsString(contact)).
 				contentType(contentType)
 				).andExpect(
@@ -98,7 +98,7 @@ public class SimpleCrmApplicationTests {
 		organization.setPhone("20093940384");
 
 		mockMvc.perform(
-				MockMvcRequestBuilders.post("/resources/uitest.organizations").
+				MockMvcRequestBuilders.post("/resources/organizations").
 				content(new ObjectMapper().writeValueAsString(organization)).
 				contentType(contentType)
 				).andExpect(
@@ -133,7 +133,7 @@ public class SimpleCrmApplicationTests {
 	public void testRestContactsList() throws JsonProcessingException, Exception{
 
 		MvcResult mvcResult = mockMvc.perform(
-					MockMvcRequestBuilders.get("/resources/uitest.contacts")
+					MockMvcRequestBuilders.get("/resources/contacts")
 				).andExpect(
 						MockMvcResultMatchers.status().is2xxSuccessful()
 				).andReturn();
@@ -156,7 +156,7 @@ public class SimpleCrmApplicationTests {
 	public void testRestOrganizationsList() throws Exception{
 
 		MvcResult mvcResult = mockMvc.perform(
-				MockMvcRequestBuilders.get("/resources/uitest.organizations")
+				MockMvcRequestBuilders.get("/resources/organizations")
 			).andExpect(
 					MockMvcResultMatchers.status().is2xxSuccessful()
 			).andReturn();
@@ -204,7 +204,7 @@ public class SimpleCrmApplicationTests {
 		contact.setFirstName(contact.getFirstName() + " Modified");
 
 		mockMvc.perform(
-				MockMvcRequestBuilders.put("/resources/uitest.contacts/" + contact.getId()).
+				MockMvcRequestBuilders.put("/resources/contacts/" + contact.getId()).
 				content(new ObjectMapper().writeValueAsString(contact)).
 				contentType(contentType)
 			).andExpect(
@@ -224,7 +224,7 @@ public class SimpleCrmApplicationTests {
 		organization.setName(organization.getName() + " Modified");
 
 		mockMvc.perform(
-				MockMvcRequestBuilders.put("/resources/uitest.organizations/" + organization.getId()).
+				MockMvcRequestBuilders.put("/resources/organizations/" + organization.getId()).
 				content(new ObjectMapper().writeValueAsString(organization)).
 				contentType(contentType)
 			).andExpect(
@@ -271,7 +271,7 @@ public class SimpleCrmApplicationTests {
 		Assert.notNull(contact);
 
 		mockMvc.perform(
-				MockMvcRequestBuilders.delete("/resources/uitest.contacts/" + contact.getId())
+				MockMvcRequestBuilders.delete("/resources/contacts/" + contact.getId())
 			).andExpect(
 					MockMvcResultMatchers.status().is2xxSuccessful()
 			);
@@ -315,7 +315,7 @@ public class SimpleCrmApplicationTests {
 		Assert.notNull(organization);
 
 		mockMvc.perform(
-				MockMvcRequestBuilders.delete("/resources/uitest.organizations/" + organization.getId())
+				MockMvcRequestBuilders.delete("/resources/organizations/" + organization.getId())
 			).andExpect(
 					MockMvcResultMatchers.status().is2xxSuccessful()
 			);

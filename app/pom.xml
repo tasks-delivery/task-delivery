@@ -5,7 +5,7 @@
     <parent>
         <artifactId>demo</artifactId>
         <groupId>org.test</groupId>
-        <version>1</version>
+        <version>0.2.5</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -74,7 +74,7 @@
                         <imageTag>latest</imageTag>
                     </imageTags>
                     <forceTags>true</forceTags>
-                    <imageName>fiodar/td</imageName>
+                    <imageName>task/delivery</imageName>
                     <dockerDirectory>app/src/main/docker</dockerDirectory>
                     <resources>
                         <resource>
