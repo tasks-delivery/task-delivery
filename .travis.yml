@@ -81,6 +81,5 @@ jobs:
       env:
         - BRANCH_PROD=prod
       script:
-      - git pull -f origin master
       - git branch ${BRANCH_PROD}
       - git push -f origin ${BRANCH_PROD}
