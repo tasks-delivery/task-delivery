@@ -18,7 +18,7 @@ branches:
     - release
 
 stages:
-  - seploy test server
+  - deploy test server
   - unit test
   - selenium test
   - push docker image
@@ -31,12 +31,14 @@ jobs:
       env:
         - BRANCH_LINUX_CHROME=linux-firefox
       script:
+        - git pull -f origin master
         - git branch ${BRANCH_LINUX_FIREFOX}
         - git push -f origin ${BRANCH_LINUX_FIREFOX}
     - stage: deploy test server
       env:
         - BRANCH_LINUX_CHROME=linux-chrome
       script:
+        - git pull -f origin master
         - git branch ${BRANCH_LINUX_CHROME}
         - git push -f origin ${BRANCH_LINUX_CHROME}
     - stage: unit test
@@ -74,5 +76,6 @@ jobs:
       env:
         - BRANCH_PROD=prod
       script:
+      - git pull -f origin master
       - git branch ${BRANCH_PROD}
       - git push -f origin ${BRANCH_PROD}
