@@ -1,4 +1,4 @@
-package uitest.config;
+package selenium.config;
 
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;

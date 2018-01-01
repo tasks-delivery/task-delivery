@@ -1,9 +1,10 @@
-package uitest.organizations;
+package selenium.organizations;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import uitest.config.BasePage;
+import selenium.config.BasePage;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class OrganizationsListPage extends BasePage {

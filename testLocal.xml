@@ -9,9 +9,9 @@
         <parameter name="timeout" value="8000"/>
         <parameter name="baseUrl" value="http://localhost:8080/"/>
         <classes>
-            <class name="uitest.mainPage.MainPageTest"/>
-            <class name="uitest.contacts.AddContactsPageTest"/>
-            <class name="uitest.organizations.AddOrganizationsPageTest"/>
+            <class name="selenium.mainPage.MainPageTest"/>
+            <class name="selenium.contacts.AddContactsPageTest"/>
+            <class name="selenium.organizations.AddOrganizationsPageTest"/>
         </classes>
     </test>
 </suite>

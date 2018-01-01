@@ -1,10 +1,10 @@
-package uitest.organizations;
+package selenium.organizations;
 
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import uitest.config.BaseTest;
-import uitest.mainPage.MainPage;
+import selenium.config.BaseTest;
+import selenium.mainPage.MainPage;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class AddOrganizationsPageTest extends BaseTest{
+public class AddOrganizationsPageTest extends BaseTest {
 
     AddOrganizationsPage addOrganizationsPage;
     OrganizationsListPage organizationsListPage;

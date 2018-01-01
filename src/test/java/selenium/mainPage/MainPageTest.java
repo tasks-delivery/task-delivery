@@ -1,9 +1,9 @@
-package uitest.mainPage;
+package selenium.mainPage;
 
 import org.testng.annotations.Test;
-import uitest.config.BaseTest;
-import uitest.contacts.ContactsListPage;
-import uitest.organizations.OrganizationsListPage;
+import selenium.config.BaseTest;
+import selenium.contacts.ContactsListPage;
+import selenium.organizations.OrganizationsListPage;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;

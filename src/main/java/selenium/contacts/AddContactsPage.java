@@ -1,18 +1,21 @@
-package uitest.organizations;
+package selenium.contacts;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import uitest.config.BasePage;
+import selenium.config.BasePage;
+
 import static com.codeborne.selenide.Selenide.$;
 
-public class AddOrganizationsPage extends BasePage {
+public class AddContactsPage extends BasePage {
 
-    public String confirmSuccesfully = "Organization succesfully created!";
+    public String confirmSuccesfully = "Contact succesfully created!";
 
+    SelenideElement fieldFirstName = $(By.name("firstName"));
+    SelenideElement fieldLastName = $(By.name("lastName"));
     SelenideElement fieldEmail = $(By.name("email"));
     SelenideElement fieldPhone = $(By.name("phone"));
-    SelenideElement dropdownOrganizationType = $(By.name("organizationTypeId"));
+    SelenideElement dropdownOrganization = $(By.name("organizationId"));
     SelenideElement fieldStreet = $(By.name("street"));
     SelenideElement fieldCity = $(By.name("city"));
     SelenideElement fieldCountry = $(By.name("country"));
@@ -20,9 +23,8 @@ public class AddOrganizationsPage extends BasePage {
     SelenideElement fieldNumber = $(By.name("number"));
     SelenideElement fieldProvince = $(By.name("province"));
     SelenideElement btnAdd = $(By.xpath("//*[@type='submit']"));
-    SelenideElement fieldOrganizationName = $(By.name("name"));
 
-    public AddOrganizationsPage(WebDriver driver) {
+    public AddContactsPage(WebDriver driver) {
         super(driver);
     }
 }

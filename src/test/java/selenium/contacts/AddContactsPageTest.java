@@ -1,10 +1,10 @@
-package uitest.contacts;
+package selenium.contacts;
 
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import uitest.config.BaseTest;
-import uitest.mainPage.MainPage;
+import selenium.config.BaseTest;
+import selenium.mainPage.MainPage;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;

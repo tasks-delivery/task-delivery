@@ -1,4 +1,4 @@
-package uitest.config;
+package selenium.config;
 
 import org.openqa.selenium.WebDriver;
 

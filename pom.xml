@@ -40,7 +40,7 @@
 				</property>
 			</activation>
 			<properties>
-				<suites>qa/testOsxChrome</suites>
+				<suites>testOsxChrome</suites>
 			</properties>
 		</profile>
 		<profile>
@@ -51,7 +51,7 @@
 				</property>
 			</activation>
 			<properties>
-				<suites>qa/testOsxFirefox</suites>
+				<suites>testOsxFirefox</suites>
 			</properties>
 		</profile>
 		<profile>
@@ -62,7 +62,7 @@
 				</property>
 			</activation>
 			<properties>
-				<suites>qa/testLinuxChrome</suites>
+				<suites>testLinuxChrome</suites>
 			</properties>
 		</profile>
 		<profile>
@@ -73,7 +73,7 @@
 				</property>
 			</activation>
 			<properties>
-				<suites>qa/testLinuxFirefox</suites>
+				<suites>testLinuxFirefox</suites>
 			</properties>
 		</profile>
 		<profile>
@@ -84,7 +84,7 @@
 				</property>
 			</activation>
 			<properties>
-				<suites>qa/testLocal</suites>
+				<suites>testLocal</suites>
 			</properties>
 		</profile>
 	</profiles>
