@@ -38,8 +38,7 @@ jobs:
       env:
         - BRANCH_LINUX_CHROME=linux-firefox
       script:
-        - git pull -f origin master
-        - git branch ${BRANCH_LINUX_FIREFOX}
+        - git branch linux-firefox
         - git push -f origin linux-firefox
     - stage: deploy test server
       env:
