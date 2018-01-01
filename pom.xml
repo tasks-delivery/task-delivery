@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.test</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>org.td</groupId>
+	<artifactId>task-delivery</artifactId>
 	<version>0.2.6</version>
 	<packaging>jar</packaging>
 	<name>Task delivery</name>
-	<description>Test system for project on Spring</description>
+	<description>Automation testing blog</description>
 	<properties>
 		<selenide.version>4.9</selenide.version>
 		<selenium.java.version>3.8.1</selenium.java.version>
