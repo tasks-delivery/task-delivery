@@ -204,7 +204,7 @@
 					</imageTags>
 					<forceTags>true</forceTags>
 					<imageName>task/delivery</imageName>
-					<dockerDirectory>app/src/main/docker</dockerDirectory>
+					<dockerDirectory>src/main/docker</dockerDirectory>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
