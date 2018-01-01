@@ -22,7 +22,7 @@ before_install:
 branches:
   only:
     - master
-    - release
+    - dev
 
 stages:
   - deploy test server
@@ -71,7 +71,7 @@ jobs:
       os:
         - linux
       env:
-        - IMAGE=task/delivery
+        - IMAGE=fiodar/td
       script:
       - mvn clean package -DskipTests=true
       - mvn docker:build
