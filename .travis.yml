@@ -24,15 +24,14 @@ branches:
     - dev
     - master
     
-
 stages:
-  - name: deploy test server
+  - deploy test server
 if: branch = dev  
-  - name: unit test
+  - unit test
 if: branch = dev  
-  - name: selenium test
+  - selenium test
 if: branch = dev  
-  - name: deploy prod and push docker image
+  - deploy prod and push docker image
 if: branch = master
 
 jobs:
