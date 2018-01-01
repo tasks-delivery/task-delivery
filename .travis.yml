@@ -18,38 +18,33 @@ branches:
     - release
 
 stages:
-  - Deploy test server
-  - Unit test
-  - Selenium test
-  - Push docker image
-  - name: Deploy prod
+  - seploy test server
+  - unit test
+  - selenium test
+  - push docker image
+  - name: deploy prod
 if: branch = master
 
 jobs:
   include:
-    - stage: Deploy test server
+    - stage: deploy test server
       env:
         - BRANCH_LINUX_CHROME=linux-firefox
       script:
         - git branch ${BRANCH_LINUX_FIREFOX}
         - git push -f origin ${BRANCH_LINUX_FIREFOX}
-    - stage: Deploy test server
+    - stage: deploy test server
       env:
         - BRANCH_LINUX_CHROME=linux-chrome
       script:
         - git branch ${BRANCH_LINUX_CHROME}
         - git push -f origin ${BRANCH_LINUX_CHROME}
-    - stage: Unit tests
+    - stage: unit test
       os:
         - linux
       script:
-        - mvn test -rf :app
-    - stage: Unit test
-      os:
-        - linux
-      script:
-        - mvn test -rf :app
-    - stage: Selenium test
+        - mvn clean test -Dtest=com.tloureiro.SimpleCrmApplicationTests -Dsurefire.useFile=false
+    - stage: selenium test
       os:
         - linux
       env:
@@ -57,7 +52,7 @@ jobs:
       script:
         - if [ $BROWSER == 'chrome' ]; then docker-compose up -d; fi
         - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome; fi
-    - stage: Selenium test
+    - stage: selenium test
       os:
         - linux
       env:
@@ -65,7 +60,7 @@ jobs:
       script:
         - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
         - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox; fi
-    - stage: Push docker image
+    - stage: push docker image
       os:
         - linux
       env:
@@ -75,7 +70,7 @@ jobs:
       - mvn docker:build -rf :app
       - docker login -u $DOCKER_USER -p $DOCKER_PASS
       - docker push ${IMAGE}
-    - stage: Deploy prod
+    - stage: deploy prod
       env:
         - BRANCH_PROD=prod
       script:
