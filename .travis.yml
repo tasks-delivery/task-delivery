@@ -29,7 +29,7 @@ stages:
   - unit test
   - selenium test
   - name: push docker test image
-    if branch = dev
+    if: branch = dev
   - name: deploy prod and push docker image
     if: branch = master
 
