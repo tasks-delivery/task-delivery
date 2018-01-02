@@ -7,7 +7,7 @@
 	<version>0.2.6</version>
 	<packaging>jar</packaging>
 	<name>Task delivery</name>
-	<description>Test system for project on Spring</description>
+	<description>Tracing system</description>
 	<properties>
 		<selenide.version>4.9</selenide.version>
 		<selenium.java.version>3.8.1</selenium.java.version>
