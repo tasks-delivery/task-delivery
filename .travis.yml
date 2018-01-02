@@ -21,9 +21,9 @@ before_install:
 
 branches:
   only:
-    - master
     - dev
-
+    - master
+    
 stages:
   - deploy test server
   - unit test
@@ -73,4 +73,4 @@ jobs:
       - mvn clean package -DskipTests=true
       - mvn docker:build
       - docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push ${IMAGE}
+      - docker push ${IMAGE}   
