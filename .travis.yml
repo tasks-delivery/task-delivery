@@ -22,14 +22,12 @@ before_install:
 branches:
   only:
     - master
-    - dev
 
 stages:
   - deploy test server
   - unit test
   - selenium test
-  - name: push docker test image
-    if: branch = dev
+  - push docker test image
   - name: deploy prod and push docker image
     if: branch = master
 
