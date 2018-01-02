@@ -28,6 +28,8 @@ stages:
   - deploy test server
   - unit test
   - selenium test
+  - name: push docker test image
+    if: branch = dev
   - name: deploy prod and push docker image
     if: branch = master
 
@@ -63,6 +65,14 @@ jobs:
       script:
         - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
         - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox; fi
+    - stage: push docker test image
+      env:
+        - IMAGE=fiodar/td:test
+      script:
+      - mvn clean package -DskipTests=true
+      - mvn docker:build
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push ${IMAGE}
     - stage: deploy prod and push docker image
       env:
         - BRANCH_PROD=prod
