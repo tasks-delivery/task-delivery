@@ -9,9 +9,7 @@
         <parameter name="timeout" value="8000"/>
         <parameter name="baseUrl" value="https://task-delivery-test-osx-chrome.herokuapp.com/"/>
         <classes>
-            <class name="selenium.mainPage.MainPageTest"/>
-            <class name="selenium.contacts.AddContactsPageTest"/>
-            <class name="selenium.organizations.AddOrganizationsPageTest"/>
+            <class name="selenium.main.MainPageTest"/>
         </classes>
     </test>
 </suite>

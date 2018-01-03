@@ -21,29 +21,27 @@ before_install:
 
 branches:
   only:
-    - master
     - dev
-
+    - master
+    
 stages:
   - deploy test server
   - unit test
   - selenium test
-  - push docker image
-  - name: deploy prod
-if: branch = master
+  - name: push docker test image
+    if: branch = dev
+  - name: deploy prod and push docker image
+    if: branch = master
 
 jobs:
   include:
     - stage: deploy test server
       env:
+        - BRANCH_LINUX_CHROME=linux-chrome
         - BRANCH_LINUX_FIREFOX=linux-firefox
       script:
         - git branch ${BRANCH_LINUX_FIREFOX}
         - git push -f origin ${BRANCH_LINUX_FIREFOX}
-    - stage: deploy test server
-      env:
-        - BRANCH_LINUX_CHROME=linux-chrome
-      script:
         - git branch ${BRANCH_LINUX_CHROME}
         - git push -f origin ${BRANCH_LINUX_CHROME}
     - stage: unit test
@@ -67,19 +65,22 @@ jobs:
       script:
         - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
         - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox; fi
-    - stage: push docker image
-      os:
-        - linux
+    - stage: push docker test image
       env:
-        - IMAGE=fiodar/td
+        - IMAGE=fiodar/td:test
       script:
       - mvn clean package -DskipTests=true
       - mvn docker:build
       - docker login -u $DOCKER_USER -p $DOCKER_PASS
       - docker push ${IMAGE}
-    - stage: deploy prod
+    - stage: deploy prod and push docker image
       env:
         - BRANCH_PROD=prod
+        - IMAGE=fiodar/td
       script:
       - git branch ${BRANCH_PROD}
       - git push -f origin ${BRANCH_PROD}
+      - mvn clean package -DskipTests=true
+      - mvn docker:build
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push ${IMAGE}   
