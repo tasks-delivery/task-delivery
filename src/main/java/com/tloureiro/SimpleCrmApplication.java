@@ -14,7 +14,7 @@ import com.tloureiro.repository.ContactRepository;
 import com.tloureiro.repository.OrganizationRepository;
 import com.tloureiro.repository.OrganizationTypeRepository;
 
-@SpringBootApplication(scanBasePackages={"src.main"})
+@SpringBootApplication
 public class SimpleCrmApplication {
 
 	public static void main(String[] args) {
