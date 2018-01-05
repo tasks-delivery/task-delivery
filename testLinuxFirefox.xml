@@ -10,6 +10,11 @@
         <parameter name="baseUrl" value="https://task-delivery-test-linux-ff.herokuapp.com/"/>
         <classes>
             <class name="selenium.main.MainPageTest"/>
+            <class name="selenium.docs.DocsPageTest"/>
+            <class name="selenium.about.AboutPageTest"/>
+            <class name="selenium.support.SupportPageTest"/>
+            <class name="selenium.blog.BlogPageTest"/>
+            <class name="selenium.loginAndRegistration.LoginModalWindowTest"/>
         </classes>
     </test>
 </suite>
