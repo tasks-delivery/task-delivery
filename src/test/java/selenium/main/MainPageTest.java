@@ -17,7 +17,7 @@ public class MainPageTest extends BaseTest {
         mainPage = new MainPage(driver);
     }
 
-    @Test(description = "Check text near picture")
+    @Test(enabled = false, description = "Check text near picture")
     public void textNearPictureShouldBeVisible(){
         open(baseUrl);
         $(mainPage.infoText).shouldHave(text("Generates progress reports"))
@@ -32,26 +32,26 @@ public class MainPageTest extends BaseTest {
         $(mainPage.btnAbout).shouldBe(visible).shouldHave(text("About")).exists();
         $(mainPage.btnBlog).shouldBe(visible).shouldHave(text("Blog")).exists();
         $(mainPage.btnDocs).shouldBe(visible).shouldHave(text("Docs")).exists();
-        $(mainPage.btnSignIn).shouldBe(visible).shouldHave(text("Sign In")).exists();
+        $(mainPage.btnSignIn).shouldBe(visible).shouldHave(text("Sign up")).exists();
         $(mainPage.btnSupport).shouldBe(visible).shouldHave(text("Support")).exists();
-        $(byText("Task-delivery")).shouldBe(visible);
+        $(mainPage.appName).shouldBe(visible);
         $(mainPage.tdLogo).shouldBe(visible).exists();
     }
 
-    @Test(description = "Verify big button 'Registration' and 'How it works'")
+    @Test(enabled = false, description = "Verify big button 'Registration' and 'How it works'")
     public void buttonsRegistrationAndHowItWorksShouldBeVisible(){
         open(baseUrl);
         $(mainPage.btnRegistration).shouldBe(visible).shouldHave(text("Registration")).exists();
         $(mainPage.btnHowItWork).shouldBe(visible).shouldHave(text("How it works")).exists();
     }
 
-    @Test(description = "Picture with application should be visible")
+    @Test(enabled = false, description = "Picture with application should be visible")
     public void pictureWithApplication(){
         open(baseUrl);
         $(mainPage.applicationPicture).shouldBe(visible).exists();
     }
 
-    @Test(description = "Pictures near text should be visible")
+    @Test(enabled = false, description = "Pictures near text should be visible")
     public void picturesNearTextInfo(){
         open(baseUrl);
         $(mainPage.bugPicture).shouldBe(visible).exists();

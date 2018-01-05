@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="test for local">
     <test name="test for local">
-        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="firefox"/>
         <parameter name="browserVersion" value="null"/>
         <parameter name="remote" value="null"/>
         <parameter name="headless" value="false"/>
@@ -10,6 +10,11 @@
         <parameter name="baseUrl" value="http://localhost:8080/"/>
         <classes>
             <class name="selenium.main.MainPageTest"/>
+            <class name="selenium.docs.DocsPageTest"/>
+            <class name="selenium.about.AboutPageTest"/>
+            <class name="selenium.support.SupportPageTest"/>
+            <class name="selenium.blog.BlogPageTest"/>
+            <class name="selenium.loginAndRegistration.LoginModalWindowTest"/>
         </classes>
     </test>
 </suite>

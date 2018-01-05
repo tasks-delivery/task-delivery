@@ -1,4 +1,4 @@
-package selenium.docs;
+package selenium.support;
 
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
@@ -8,18 +8,19 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class DocsPageTest extends BaseTest {
+public class SupportPageTest extends BaseTest {
 
-    DocsPage docsPage;
+    SupportPage supportPage;
 
-    public DocsPageTest(){
-        docsPage = new DocsPage(driver);
+    public SupportPageTest(){
+        supportPage = new SupportPage(driver);
     }
 
     @Test(description = "Docs page should be visible by clicking 'Docs' in navbar panel")
     public void redirectToDocsPage(){
         open(baseUrl);
-        $(docsPage.btnDocs).click();
-        $(byText("Docs page")).shouldBe(visible).exists();
+        $(supportPage.btnSupport).click();
+        $(byText("Support page")).shouldBe(visible).exists();
     }
+
 }

@@ -11,6 +11,11 @@ public abstract class ConciseAPI  {
 
     String currentDir = System.getProperty("user.dir");
 
+    static{
+        System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
+        System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http", "warn");
+    }
+
     @Parameters({"browser", "browserVersion", "headless", "remote", "timeout", "baseUrl"})
     @BeforeClass
     public void setUp(String browsers, String version, Boolean mode, String server, Integer time, String url) {
