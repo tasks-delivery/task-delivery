@@ -10,6 +10,15 @@
         <parameter name="baseUrl" value="http://localhost:8080/"/>
         <classes>
             <class name="selenium.main.MainPageTest"/>
+            <class name="selenium.docs.DocsPageTest"/>
+            <class name="selenium.about.AboutPageTest"/>
+            <class name="selenium.support.SupportPageTest"/>
+            <class name="selenium.blog.BlogPageTest"/>
+            <class name="selenium.loginAndRegistration.LoginModalWindowTest">
+                <methods>
+                    <exclude name="closeWindowByESC"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

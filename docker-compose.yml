@@ -1,4 +1,4 @@
-version: "3"
+version: "2"
 services:
 # app:
 #   build:
@@ -9,6 +9,25 @@ services:
 #   ports:
 #       - "8080:8080"
 #   command: mvn spring-boot:run
+#   mysql-data:
+#    image: busybox
+#    volumes:
+#      - ./.volumes/mysql:/var/lib/mysql
+#  mysql:
+#    image: mysql:5.7.16
+#    ports:
+#      - "13306:3306"
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=user
+#      - MYSQL_USER=pwd
+#      - MYSQL_PASSWORD=user
+#      - MYSQL_DATABASE=td
+#    volumes_from:
+#      - mysql-data
+#    command:
+#      - "mysqld"
+#      - "--character-set-server=utf8"
+#      - "--collation-server=utf8_unicode_ci"
    selenium-hub:
      image: selenium/hub:3.8.1
      container_name: selenium-hub
