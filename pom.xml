@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.td</groupId>
 	<artifactId>task-delivery</artifactId>
-	<version>0.2.7</version>
+	<version>0.2.8</version>
 	<packaging>jar</packaging>
 	<name>Task delivery</name>
 	<description>Tracing system</description>
@@ -181,9 +181,6 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 		</dependency>
-
-
-
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
