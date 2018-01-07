@@ -30,7 +30,7 @@
 				<li><a href="/docs">Docs</a></li>
 				<li><a href="/support">Support</a></li>
 				<li><a href="/blog">Blog</a></li>
-				<li><a href="about">About</a></li>
+				<li><a href="/about">About</a></li>
 			</ul>
 			<ul class="right">
                 <c:if test="${pageContext.request.userPrincipal.name != null}">

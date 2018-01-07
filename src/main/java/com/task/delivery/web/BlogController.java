@@ -10,6 +10,6 @@ public class BlogController {
 
     @RequestMapping(value = {"/blog"}, method = RequestMethod.GET)
     public String blog(Model model) {
-        return "blog";
+        return "resources/templates/navbar/blog/blog";
     }
 }

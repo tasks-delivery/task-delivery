@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,11 +17,11 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
 <body>
-<%@ include file="/navbar.html" %>
-<div>Blog page</div>
-<div>Blog page</div>
-<div>Blog page</div>
-<div class="blog">Blog page</div>
+<%@ include file="/resources/templates/navbar/navbar.html" %>
+<div>About page</div>
+<div>About page</div>
+<div>About page</div>
+<div class="about">About page</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>

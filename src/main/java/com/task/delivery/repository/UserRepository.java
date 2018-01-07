@@ -2,7 +2,16 @@ package com.task.delivery.repository;
 
 import com.task.delivery.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.List;
+
+public interface UserRepository extends CrudRepository<User, Long> {
     User findByUsername(String username);
+
+    public List<User> findByPassword(String password);
+
+    public List<User> findById(Integer id);
+
+
 }

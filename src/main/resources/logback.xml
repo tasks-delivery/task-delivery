@@ -9,7 +9,7 @@
     </appender>
 
     <logger name="com.hellokoding.account">
-        <level value="debug"/>
+        <level value="warn"/>
     </logger>
 
     <logger name="org.springframework">

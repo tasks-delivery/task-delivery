@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="test for local">
     <test name="test for local">
-        <parameter name="browser" value="firefox"/>
+        <parameter name="browser" value="chrome"/>
         <parameter name="browserVersion" value="null"/>
         <parameter name="remote" value="null"/>
         <parameter name="headless" value="false"/>
@@ -14,7 +14,11 @@
             <class name="selenium.about.AboutPageTest"/>
             <class name="selenium.support.SupportPageTest"/>
             <class name="selenium.blog.BlogPageTest"/>
-            <class name="selenium.loginAndRegistration.LoginModalWindowTest"/>
+            <class name="selenium.loginAndRegistration.LoginModalWindowTest">
+                <methods>
+                    <exclude name="closeWindowByESC"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

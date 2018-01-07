@@ -58,7 +58,7 @@ public class UserController {
 
     @RequestMapping(value = {"/dashboard"}, method = RequestMethod.GET)
     public String dashboard(Model model) {
-        return "dashboard";
+        return "resources/templates/dashboard/dashboard";
     }
 
 }

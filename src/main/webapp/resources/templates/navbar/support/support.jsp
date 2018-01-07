@@ -16,7 +16,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
 <body>
-<%@ include file="/navbar.html" %>
+<%@ include file="/resources/templates/navbar/navbar.html" %>
 <div>Support page</div>
 <div>Support page</div>
 <div>Support page</div>
