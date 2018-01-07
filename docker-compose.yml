@@ -1,14 +1,14 @@
 version: "2"
 services:
-# app:
-#   build:
-#       context: .
-#       dockerfile: Dockerfile.build
-#   volumes:
-#       - "$HOME/.m2:/root/.m2"
-#   ports:
-#       - "8080:8080"
-#   command: mvn spring-boot:run
+   app:
+     build:
+         context: .
+         dockerfile: Dockerfile.build
+     volumes:
+         - "$HOME/.m2:/root/.m2"
+     ports:
+         - "8080:8080"
+     command: mvn spring-boot:run
 #   mysql-data:
 #    image: busybox
 #    volumes:
