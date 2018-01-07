@@ -14,12 +14,12 @@ public class RestTest  {
 
     protected RequestSpecification spec;
     private
-    int port = 8080;
+    int port = 8081;
 
     @BeforeClass
     public void initSpec() {
         spec = new RequestSpecBuilder()
-                .setBaseUri("https://task-delivery-test-linux-ff.herokuapp.com/")
+                .setBaseUri("http://localhost:" + port + "/")
                 .addFilter(new ResponseLoggingFilter())
                 .addFilter(new RequestLoggingFilter())
                 .build();
