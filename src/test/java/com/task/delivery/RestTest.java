@@ -14,7 +14,7 @@ public class RestTest  {
 
     protected RequestSpecification spec;
     private
-    int port = 8080;
+    int port = 8081;
 
     @BeforeClass
     public void initSpec() {

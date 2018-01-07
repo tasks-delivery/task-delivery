@@ -7,7 +7,7 @@ services:
      volumes:
          - "$HOME/.m2:/root/.m2"
      ports:
-         - "8080:8080"
+         - "8081:8081"
      command: mvn spring-boot:run
 #   mysql-data:
 #    image: busybox
