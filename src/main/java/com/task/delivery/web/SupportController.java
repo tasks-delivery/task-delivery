@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class SupportController {
 
-
     @RequestMapping(value = {"/support"}, method = RequestMethod.GET)
     public String support(Model model) {
         return "resources/templates/navbar/support/support";

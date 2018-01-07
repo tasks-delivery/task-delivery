@@ -2,13 +2,9 @@ package com.task.delivery.service;
 
 import com.task.delivery.model.User;
 import com.task.delivery.repository.UserRepository;
-import com.task.delivery.validator.UserValidator;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.InjectMocks;
 import org.testng.annotations.Test;
 import org.mockito.Mock;
-import org.mockito.Spy;
-import java.text.ParseException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserServiceImplTest {
@@ -16,13 +12,7 @@ public class UserServiceImplTest {
     @Mock
     UserRepository userRepository;
 
-    @Spy
-    UserValidator userValidator;
-
-    @Spy
-    ModelMapper modelMapper;
-
-    @Autowired
+    @InjectMocks
     private UserService userService;
 
     @Mock

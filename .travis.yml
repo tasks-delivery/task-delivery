@@ -26,7 +26,7 @@ branches:
     
 stages:
   - deploy test server
-#  - unit test
+  - unit and rest api tests
   - selenium test
   - name: push docker test image
     if: branch = dev
@@ -44,11 +44,20 @@ jobs:
         - git push -f origin ${BRANCH_LINUX_FIREFOX}
         - git branch ${BRANCH_LINUX_CHROME}
         - git push -f origin ${BRANCH_LINUX_CHROME}
-#   - stage: unit test
-#     os:
-#       - linux
-#     script:
-#       - mvn clean test -Dtest=com.tloureiro.SimpleCrmApplicationTests -Dsurefire.useFile=false
+    - stage: unit and rest api tests
+      os:
+        - linux
+      env:
+        - UNIT=unit-test
+      script:
+        - mvn test -P ${UNIT}
+    - stage: unit and rest api tests
+      os:
+        - linux
+      env:
+        - API=api-test
+      script:
+        - mvn test -P ${API}
     - stage: selenium test
       os:
         - linux

@@ -4,5 +4,7 @@
     <suite-files>
         <suite-file path="testLinuxChrome.xml"/>
         <suite-file path="testLinuxFirefox.xml"/>
+        <suite-file path="testApi.xml"/>
+        <suite-file path="testUnit.xml"/>
     </suite-files>
 </suite>

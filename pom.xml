@@ -81,6 +81,28 @@
 				<suites>testLocal</suites>
 			</properties>
 		</profile>
+		<profile>
+			<id>unit-test</id>
+			<activation>
+				<property>
+					<name>SUITES</name>
+				</property>
+			</activation>
+			<properties>
+				<suites>testUnit</suites>
+			</properties>
+		</profile>
+		<profile>
+			<id>api-test</id>
+			<activation>
+				<property>
+					<name>SUITES</name>
+				</property>
+			</activation>
+			<properties>
+				<suites>testApi</suites>
+			</properties>
+		</profile>
 	</profiles>
 	<dependencies>
 		<dependency>
@@ -162,12 +184,6 @@
 
 
 
-
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>RELEASE</version>
-		</dependency>
 		<dependency>
 			<groupId>org.modelmapper</groupId>
 			<artifactId>modelmapper</artifactId>
@@ -186,12 +202,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>spring-mock-mvc</artifactId>
-			<version>3.0.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
 			<version>1.9.5</version>
@@ -201,11 +211,6 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.freemarker</groupId>
-			<artifactId>freemarker</artifactId>
-			<version>2.3.23</version>
 		</dependency>
 		<dependency>
 			<groupId>org.freemarker</groupId>

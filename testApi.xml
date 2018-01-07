@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Rest api tests">
+    <test name="testApi">
+        <classes>
+            <class name="com.task.delivery.web.AboutControllerTest"/>
+            <class name="com.task.delivery.web.BlogControllerTest"/>
+            <class name="com.task.delivery.web.DocsControllerTest"/>
+            <class name="com.task.delivery.web.ProjectControllerTest"/>
+            <class name="com.task.delivery.web.SupportControllerTest"/>
+            <class name="com.task.delivery.web.UserControllerTest"/>
+        </classes>
+    </test>
+</suite>
