@@ -57,6 +57,7 @@ jobs:
       env:
         - API=api-test
       script:
+        - docker-compose up --build -d
         - mvn test -P ${API}
     - stage: selenium test
       os:
