@@ -8,10 +8,11 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class LoginModalWindow extends BasePage {
 
-    SelenideElement regModalWindow = $(By.xpath("//*[@class='reg']")),
+    SelenideElement loginPage = $(By.xpath("//*[@class='login']")),
+    registrationPage = $(By.xpath("//*[@class='registration']")),
     fieldUsername = $(By.name("username")),
     fieldPassword = $(By.name("password")),
-    btnLogin = $(By.xpath("//BUTTON[text()='Log In']/self::BUTTON")),
+    btnLogin = $(By.xpath("//BUTTON[text()='Login']/self::BUTTON")),
     linkCreateAcc = $(By.xpath("//A[@href='/registration'][text()='Create an account']/self::A")),
     usernamePlaceholder = $(By.xpath("//INPUT[@placeholder='Username']/self::INPUT")),
     passwordPlaceholder = $(By.xpath("//INPUT[@placeholder='Password']/self::INPUT"));

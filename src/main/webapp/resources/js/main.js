@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
         $('.reg').hide();
         $('#btnReg').click(function(){
             $('.reg').css({'display':'block'});
@@ -8,3 +8,4 @@ $(document).ready(function(){
                 $('.reg').hide();
         });
     });
+*/

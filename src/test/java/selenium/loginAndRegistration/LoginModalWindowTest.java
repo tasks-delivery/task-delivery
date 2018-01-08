@@ -1,6 +1,5 @@
 package selenium.loginAndRegistration;
 
-import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
 import selenium.main.MainPage;
@@ -9,9 +8,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static org.openqa.selenium.Keys.ENTER;
 import static org.openqa.selenium.Keys.ESCAPE;
-import static org.testng.Assert.*;
 
 public class LoginModalWindowTest extends BaseTest {
 
@@ -26,14 +23,14 @@ public class LoginModalWindowTest extends BaseTest {
     @Test(description = "Registration modal window  should not be visible")
     public void registrationWindowShouldNotBeVisible(){
         open(baseUrl);
-        $(loginModalWindow.regModalWindow).shouldNotBe(visible);
+        $(loginModalWindow.loginPage).shouldNotBe(visible);
     }
 
-    @Test(description = "Registration modal window  should not be visible by clicking on 'Sign up'")
+    @Test(enabled = false, description = "Registration modal window  should not be visible by clicking on 'Sign up'")
     public void registrationWindowShouldBeVisibleByClicking(){
         open(baseUrl);
         $(mainPage.btnSignIn).click();
-        $(loginModalWindow.regModalWindow).shouldBe(visible);
+        $(loginModalWindow.loginPage).shouldBe(visible);
     }
 
     @Test(enabled = false, description = "Login to the system")
@@ -44,7 +41,7 @@ public class LoginModalWindowTest extends BaseTest {
     public void linkForCreationNewAcc(){
         open(baseUrl);
         $(mainPage.btnSignIn).click();
-        $(loginModalWindow.regModalWindow).shouldBe(visible);
+        $(loginModalWindow.loginPage).shouldBe(visible);
     }
 
     @Test(enabled = false, description = "Create new acc")
@@ -69,12 +66,12 @@ public class LoginModalWindowTest extends BaseTest {
         $(loginModalWindow.passwordPlaceholder).shouldBe(visible).exists();
     }
 
-    @Test(description = "Close login modal window  by press 'Esc' button ")
+    @Test(enabled = false, description = "Close login modal window  by press 'Esc' button ")
     public void closeWindowByESC(){
         open(baseUrl);
         $(mainPage.btnSignIn).click();
-        $(loginModalWindow.regModalWindow).shouldBe(visible);
-        $(loginModalWindow.regModalWindow).sendKeys(ESCAPE);
+        $(loginModalWindow.loginPage).shouldBe(visible);
+        $(loginModalWindow.loginPage).sendKeys(ESCAPE);
 
     }
 
