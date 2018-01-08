@@ -43,7 +43,8 @@
 }
 .form-signin button {
  margin-top: 10px;
+ background: #228B22;
 }
 .has-error {
- color: red
+ color: #DC143C;
 }
