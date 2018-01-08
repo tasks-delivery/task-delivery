@@ -14,7 +14,7 @@
             <class name="selenium.about.AboutPageTest"/>
             <class name="selenium.support.SupportPageTest"/>
             <class name="selenium.blog.BlogPageTest"/>
-            <class name="selenium.loginAndRegistration.LoginModalWindowTest"/>
+            <class name="selenium.loginAndRegistration.SignUpPageTest"/>
         </classes>
     </test>
 </suite>

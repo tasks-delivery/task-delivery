@@ -7,10 +7,9 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeClass;
-
 import java.io.IOException;
 
-public class RestTest  {
+public class RestTest   {
 
     protected RequestSpecification spec;
     private
@@ -19,7 +18,7 @@ public class RestTest  {
     @BeforeClass
     public void initSpec() {
         spec = new RequestSpecBuilder()
-                .setBaseUri("https://task-delivery-test-linux-ff.herokuapp.com/")
+                .setBaseUri("http://task-delivery-test-linux-ff.herokuapp.com/")
                 .addFilter(new ResponseLoggingFilter())
                 .addFilter(new RequestLoggingFilter())
                 .build();
