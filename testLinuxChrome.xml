@@ -14,11 +14,7 @@
             <class name="selenium.about.AboutPageTest"/>
             <class name="selenium.support.SupportPageTest"/>
             <class name="selenium.blog.BlogPageTest"/>
-            <class name="selenium.loginAndRegistration.LoginModalWindowTest">
-                <methods>
-                    <exclude name="closeWindowByESC"/>
-                </methods>
-            </class>
+            <class name="selenium.loginAndRegistration.LoginModalWindowTest"/>
         </classes>
     </test>
 </suite>
