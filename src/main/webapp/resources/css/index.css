@@ -1,0 +1,52 @@
+.home-banner {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+ width: 100%;
+ height: 100%;
+ display: -webkit-flex;
+ display: -ms-flexbox;
+ padding: 15% 0%  0%  10% ;
+}
+.left-banner, .right-banner{
+ margin-top: -10%;
+ display: flex;
+ width: 50%;
+}
+.left-banner {
+ opacity: 0.8;
+ background-color: #fff;
+ width: 550px;
+ justify-content: left;
+ border-radius: 15px;
+}
+.right-banner {
+ justify-content: right;
+}
+.left-banner > ul{
+position: relative;
+ color: black;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ list-style-type: none;
+ font-weight: bold;
+}
+
+.left-banner > ul > li > {
+position: relative;
+ color: black;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ font-weight: bold;
+}
+
+span, img, li, ul{
+position: relative;
+}
+
+
+
+
+
