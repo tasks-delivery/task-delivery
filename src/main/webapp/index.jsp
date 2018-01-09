@@ -41,11 +41,10 @@
 </div>
 <div class="footer">
     <ul class="social">
-        <li><a href=""></li>
-        <li><a href=""></li>
-        <li><a href=""></li>
-        <li><a href=""></li>
-        <li><a href=""></li>
+        <li><a href="">text</a></li>
+        <li><a href="">text</a></li>
+        <li><a href="">text</a></li>
+        <li><a href="">text</a></li>
     </ul>
 </div>
 </body>

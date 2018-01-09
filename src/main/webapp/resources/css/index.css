@@ -3,13 +3,14 @@
  flex-direction: row;
  justify-content: space-around;
  width: 100%;
- height: 100%;
+
  display: -webkit-flex;
  display: -ms-flexbox;
- padding: 15% 0%  0%  10% ;
+  -webkit-padding-before: 10%;
+
 }
 .left-banner, .right-banner{
- margin-top: -10%;
+
  display: flex;
  width: 50%;
 }

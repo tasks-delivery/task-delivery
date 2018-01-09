@@ -9,18 +9,20 @@ body{
  -o-background-size: 100%;
  background-size: 100%;
  display: block;
-
  background-size: cover;
 }
-/*
+
 .footer {
- background: black;
+ background:#333;
 position: relative;
-}*/
+}
 
 .social {
  list-style-type: none;
 }
 
+a{
+color: #fff;
+}
 
 
