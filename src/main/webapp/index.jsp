@@ -39,13 +39,5 @@
         <img src="${contextPath}/resources/img/error404.png">
     </div>
 </div>
-<div class="footer">
-    <ul class="social">
-        <li><a href="">text</a></li>
-        <li><a href="">text</a></li>
-        <li><a href="">text</a></li>
-        <li><a href="">text</a></li>
-    </ul>
-</div>
 </body>
 </html>
