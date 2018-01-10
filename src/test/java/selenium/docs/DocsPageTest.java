@@ -3,6 +3,7 @@ package selenium.docs;
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
 
+import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
@@ -36,5 +37,13 @@ public class DocsPageTest extends BaseTest {
         $(docsPage.btnSupport).shouldBe(visible).shouldHave(text("Support")).exists();
         $(docsPage.appName).shouldBe(visible);
         $(docsPage.tdLogo).shouldBe(visible).exists();
+    }
+
+    @Test(description = "Footer with link to github should be visible")
+    public void footerWithTextAndLinkElementsShouldBeVisible(){
+        open(baseUrl);
+        $(docsPage.btnDocs).click();
+        $(docsPage.footer).shouldHave(text(docsPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(docsPage.footerLinks).shouldHave(attribute("href", docsPage.linkToGitHubRepo));
     }
 }

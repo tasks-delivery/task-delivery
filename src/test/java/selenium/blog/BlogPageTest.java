@@ -3,6 +3,7 @@ package selenium.blog;
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
 
+import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
@@ -36,6 +37,14 @@ public class BlogPageTest extends BaseTest {
         $(blogPage.btnSupport).shouldBe(visible).shouldHave(text("Support")).exists();
         $(blogPage.appName).shouldBe(visible);
         $(blogPage.tdLogo).shouldBe(visible).exists();
+    }
+
+    @Test(description = "Footer with link to github should be visible")
+    public void footerWithTextAndLinkElementsShouldBeVisible(){
+        open(baseUrl);
+        $(blogPage.btnBlog).click();
+        $(blogPage.footer).shouldHave(text(blogPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(blogPage.footerLinks).shouldHave(attribute("href", blogPage.linkToGitHubRepo));
     }
 
 }
