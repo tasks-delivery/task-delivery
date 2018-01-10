@@ -8,16 +8,16 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MainPage extends BasePage {
 
-    SelenideElement btnHowItWork = $(By.xpath("//A[@class='big-button'][text()='How it works']/self::A")),
-    btnRegistration = $(By.xpath("//A[@class='big-button'][text()='Registration']/self::A")),
-    infoText = $(By.className("highlights")),
-    tdLogo = $(By.xpath("//*[@class='top-bar']//IMG[@src='/resources/img/bomb.png']/self::IMG")),
-    applicationPicture = $(By.xpath("//IMG[@src='images/error404.png']/self::IMG")),
-    bugPicture = $(By.xpath("//IMG[@src='images/bug.png']/self::IMG")),
-    managePicture = $(By.xpath("//IMG[@src='images/manage.png']/self::IMG")),
-    scenariosPicture = $(By.xpath("//IMG[@src='images/scenarios.png']/self::IMG")),
-    specsPicture = $(By.xpath("//IMG[@src='images/specs.png']/self::IMG")),
-    appName = $(By.xpath("//*[@class='top-bar']//SPAN[text()='Task-delivery']/self::SPAN"));
+    SelenideElement infoText = $(By.className("highlights")),
+    applicationImg = $(By.xpath("//*[@class='home-banner']//*[@src='/resources/img/error404.png']")),
+    reportImg = $(By.xpath("//*[@class='home-banner']//*[@src='/resources/img/report.png']")),
+    manageImg = $(By.xpath("//*[@class='home-banner']//*[@src='/resources/img/manage.png']")),
+    testCaseImg = $(By.xpath("//*[@class='home-banner']//*[@src='/resources/img/test-case.png']")),
+    specImg = $(By.xpath("//*[@class='home-banner']//*[@src='/resources/img/spec.png']")),
+    textSpecImg = $(By.xpath("//*[@src='/resources/img/spec.png']/parent::*//*[text()='Combines test specs into test coverage scenarios']")),
+    textReportImg = $(By.xpath("//*[@src='/resources/img/report.png']/parent::*//*[text()='Generates progress reports']")),
+    textTestCaseImg = $(By.xpath("//*[@src='/resources/img/test-case.png']/parent::*//*[text()='Keeps track of the progress through testing scenarios']")),
+    textManageImg = $(By.xpath("//*[@src='/resources/img/manage.png']/parent::*//*[text()='Manage requirements, features and use-cases']"));
 
     public MainPage(WebDriver driver) {
         super(driver);

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.td</groupId>
 	<artifactId>task-delivery</artifactId>
-	<version>0.2.8</version>
+	<version>0.2.9</version>
 	<packaging>jar</packaging>
 	<name>Task delivery</name>
 	<description>Tracing system</description>

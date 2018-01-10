@@ -2,7 +2,7 @@ html, body {
 position: relative;
 }
 body{
- background: url(/resources/img/oboi.jpg) fixed no-repeat;
+ background: url(/resources/img/fon.jpg) fixed no-repeat;
  -moz-background-size: 100%;
  -webkit-background-size: 100%;
  -o-background-size: 100%;
