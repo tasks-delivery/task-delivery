@@ -3,6 +3,7 @@ package selenium.support;
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
 
+import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
@@ -36,6 +37,14 @@ public class SupportPageTest extends BaseTest {
         $(supportPage.btnSupport).shouldBe(visible).shouldHave(text("Support")).exists();
         $(supportPage.appName).shouldBe(visible);
         $(supportPage.tdLogo).shouldBe(visible).exists();
+    }
+
+    @Test(enabled = false, description = "Footer with link to github should be visible")
+    public void footerWithTextAndLinkElementsShouldBeVisible(){
+        open(baseUrl);
+        $(supportPage.btnSupport).click();
+        $(supportPage.footer).shouldHave(text(supportPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(supportPage.footerLinks).shouldHave(attribute("href", supportPage.linkToGitHubRepo));
     }
 
 }
