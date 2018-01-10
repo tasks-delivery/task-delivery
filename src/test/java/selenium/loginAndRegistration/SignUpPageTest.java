@@ -3,7 +3,6 @@ package selenium.loginAndRegistration;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
-import selenium.main.MainPage;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
@@ -13,10 +12,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class SignUpPageTest extends BaseTest {
 
     SignUpPage signUpPage;
-    MainPage mainPage;
 
     private SignUpPageTest(){
-        mainPage = new MainPage(driver);
         signUpPage = new SignUpPage(driver);
     }
 
@@ -30,7 +27,7 @@ public class SignUpPageTest extends BaseTest {
     @Test(description = "Registration page should  be visible by clicking on 'Create an account'")
     public void getRegistrationPageByClickingCreateAnAccount(){
         open(baseUrl);
-        $(mainPage.btnSignIn).click();
+        $(signUpPage.btnSignIn).click();
         $(signUpPage.linkCreateAcc).click();
         $(signUpPage.fieldUsername).shouldBe(visible).exists();
         $(signUpPage.fieldPass).shouldBe(visible).exists();
@@ -44,7 +41,7 @@ public class SignUpPageTest extends BaseTest {
     @Test(description = "Registration page should  be visible by clicking on 'Sign up'")
     public void getLoginPageByClickingSignUp(){
         open(baseUrl);
-        $(mainPage.btnSignIn).click();
+        $(signUpPage.btnSignIn).click();
         $(signUpPage.btnLogin).shouldBe(visible).exists();
         $(signUpPage.fieldUsername).shouldBe(visible).exists();
         $(signUpPage.fieldPass).shouldBe(visible).exists();
@@ -126,6 +123,33 @@ public class SignUpPageTest extends BaseTest {
         signUpPage.createNewUser("testuser","testpassword","testpassword");
         $(signUpPage.userError).shouldHave(text(signUpPage.SomeoneAlreadyHasThatUsername));
         $(signUpPage.logoutForm).shouldNotBe(visible);
+    }
+
+    @Test(description = "Verify navbar elements")
+    public void navBarShouldBeVisibleOnRegistrationPage(){
+        open(baseUrl);
+        $(signUpPage.btnSignIn).click();
+        $(signUpPage.linkCreateAcc).click();
+        $(signUpPage.btnAbout).shouldBe(visible).shouldHave(text("About")).exists();
+        $(signUpPage.btnBlog).shouldBe(visible).shouldHave(text("Blog")).exists();
+        $(signUpPage.btnDocs).shouldBe(visible).shouldHave(text("Docs")).exists();
+        $(signUpPage.btnSignIn).shouldBe(visible).shouldHave(text("Sign up")).exists();
+        $(signUpPage.btnSupport).shouldBe(visible).shouldHave(text("Support")).exists();
+        $(signUpPage.appName).shouldBe(visible);
+        $(signUpPage.tdLogo).shouldBe(visible).exists();
+    }
+
+    @Test(description = "Verify navbar elements")
+    public void navBarShouldBeVisibleOnLoginPage(){
+        open(baseUrl);
+        $(signUpPage.btnSignIn).click();
+        $(signUpPage.btnAbout).shouldBe(visible).shouldHave(text("About")).exists();
+        $(signUpPage.btnBlog).shouldBe(visible).shouldHave(text("Blog")).exists();
+        $(signUpPage.btnDocs).shouldBe(visible).shouldHave(text("Docs")).exists();
+        $(signUpPage.btnSignIn).shouldBe(visible).shouldHave(text("Sign up")).exists();
+        $(signUpPage.btnSupport).shouldBe(visible).shouldHave(text("Support")).exists();
+        $(signUpPage.appName).shouldBe(visible);
+        $(signUpPage.tdLogo).shouldBe(visible).exists();
     }
 
 }

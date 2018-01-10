@@ -15,7 +15,9 @@ TODO: rework elements without public
     btnDocs = $(By.xpath("//*[@class='top-bar']//*[text()='Docs']")),
     btnBlog = $(By.xpath("//*[@class='top-bar']//*[text()='Blog']")),
     btnSupport = $(By.xpath("//*[@class='top-bar']//*[text()='Support']")),
-    btnAbout = $(By.xpath("//*[@class='top-bar']//*[text()='About']"));
+    btnAbout = $(By.xpath("//*[@class='top-bar']//*[text()='About']")),
+    tdLogo = $(By.xpath("//*[@class='top-bar']//IMG[@src='/resources/img/bomb.png']/self::IMG")),
+    appName = $(By.xpath("//*[@class='top-bar']//SPAN[text()='Task-delivery']/self::SPAN"));
 
     public WebDriver driver(){
         return driver;
