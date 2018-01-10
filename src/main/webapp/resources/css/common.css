@@ -1,93 +1,32 @@
-body {
- padding-top: 40px;
- padding-bottom: 40px;
- background-color: #F0FFFF;
+html, body {
+position: relative;
 }
-.contain-to-grid {
- background:#333;
- position:fixed;
- top:0;
- width:100%;
- height: auto;
-}
-.top-bar-section {
- display:flex;
- flex-direction: row;
- justify-content: space-around;
-}
-.top-bar-section .left {
- display:flex;
- justify-content: left;
- padding:0px;
- padding-top:10px;
-}
-.top-bar-section .center {
- display:flex;
- justify-content: center;
- padding:0px;
- padding-top:15px;
-}
-.top-bar-section .right {
- display:flex;
- justify-content: right;
- padding:0px;
- padding-top:15px;
+body{
+ background: url(/resources/img/fon.jpg) fixed no-repeat;
+ -moz-background-size: 100%;
+ -webkit-background-size: 100%;
+ -o-background-size: 100%;
+ background-size: 100%;
+ display: block;
+ background-size: cover;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 10%;
 }
 a {
  color: #fff;
- padding-left:15px;
- padding-right:15px;
-}
-h5, h5 {
- margin-top: 0;
- color: #fff;
- padding-top:3px;
- padding-left:15px;
 }
 a:hover {
  color: #00FFFF;
  text-decoration: none;
 }
-.reg{
-    display: none;
-    height: 300px;
-    width: 500px;
-    border-radius: 5px;
-    background: #00BFFF;
-    margin: 15% auto;
+button {
+ color: #00008B;
+ background: #24292e;
+ background-color: #eff3f6;
+ border: 1px #1E90FF;
+ border-style: groove;
 }
-.form-signin {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
-}
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-    margin-bottom: 10px;
-}
-.form-signin .checkbox {
-    font-weight: normal;
-}
-.form-signin .form-control {
-    position: relative;
-    height: auto;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: 16px;
-}
-.form-signin .form-control:focus {
-    z-index: 2;
-}
-.form-signin input {
-    margin-top: 10px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
-}
-.form-signin button {
-    margin-top: 10px;
-}
-.has-error {
-    color: red
-}
+

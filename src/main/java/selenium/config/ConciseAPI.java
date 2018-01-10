@@ -9,6 +9,11 @@ public abstract class ConciseAPI  {
 
     public WebDriver driver;
 
+    static{
+        System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
+        System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.http", "warn");
+    }
+
     String currentDir = System.getProperty("user.dir");
 
     @Parameters({"browser", "browserVersion", "headless", "remote", "timeout", "baseUrl"})

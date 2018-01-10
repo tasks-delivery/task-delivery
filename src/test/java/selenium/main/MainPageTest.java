@@ -5,7 +5,6 @@ import selenium.config.BaseTest;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -17,13 +16,13 @@ public class MainPageTest extends BaseTest {
         mainPage = new MainPage(driver);
     }
 
-    @Test(enabled = false, description = "Check text near picture")
+    @Test(description = "Check text near picture")
     public void textNearPictureShouldBeVisible(){
         open(baseUrl);
-        $(mainPage.infoText).shouldHave(text("Generates progress reports"))
-        .shouldHave(text("Keeps track of the progress through testing scenarios"))
-        .shouldHave(text("Combines test specs into test coverage scenarios"))
-        .shouldHave(text("Manage requirements, features and use-cases"));
+        $(mainPage.textTestCaseImg).shouldHave(text("Keeps track of the progress through testing scenarios"));
+        $(mainPage.textManageImg).shouldHave(text("Manage requirements, features and use-cases"));
+        $(mainPage.textReportImg).shouldHave(text("Generates progress reports"));
+        $(mainPage.textSpecImg).shouldHave(text("Combines test specs into test coverage scenarios"));
     }
 
     @Test(description = "Verify menu item in top bar")
@@ -38,26 +37,14 @@ public class MainPageTest extends BaseTest {
         $(mainPage.tdLogo).shouldBe(visible).exists();
     }
 
-    @Test(enabled = false, description = "Verify big button 'Registration' and 'How it works'")
-    public void buttonsRegistrationAndHowItWorksShouldBeVisible(){
+    @Test(description = "Pictures in the middle page part should be visible")
+    public void picturesMiddlePagePart(){
         open(baseUrl);
-        $(mainPage.btnRegistration).shouldBe(visible).shouldHave(text("Registration")).exists();
-        $(mainPage.btnHowItWork).shouldBe(visible).shouldHave(text("How it works")).exists();
-    }
-
-    @Test(enabled = false, description = "Picture with application should be visible")
-    public void pictureWithApplication(){
-        open(baseUrl);
-        $(mainPage.applicationPicture).shouldBe(visible).exists();
-    }
-
-    @Test(enabled = false, description = "Pictures near text should be visible")
-    public void picturesNearTextInfo(){
-        open(baseUrl);
-        $(mainPage.bugPicture).shouldBe(visible).exists();
-        $(mainPage.managePicture).shouldBe(visible).exists();
-        $(mainPage.scenariosPicture).shouldBe(visible).exists();
-        $(mainPage.specsPicture).shouldBe(visible).exists();
+        $(mainPage.applicationImg).shouldBe(visible).exists();
+        $(mainPage.reportImg).shouldBe(visible).exists();
+        $(mainPage.manageImg).shouldBe(visible).exists();
+        $(mainPage.testCaseImg).shouldBe(visible).exists();
+        $(mainPage.specImg).shouldBe(visible).exists();
     }
 
 }

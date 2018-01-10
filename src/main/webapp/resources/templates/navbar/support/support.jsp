@@ -16,12 +16,12 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
 <body>
-<%@ include file="/resources/templates/navbar/navbar.html" %>
+<%@ include file="/resources/templates/navbar/navbar.jsp" %>
 <div>Support page</div>
 <div>Support page</div>
 <div>Support page</div>
 <div class="support">Support page</div>
+</body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
-</body>
 </html>

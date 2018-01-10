@@ -42,6 +42,7 @@ jobs:
       script:
         - git branch ${BRANCH_LINUX_FIREFOX}
         - git push -f origin ${BRANCH_LINUX_FIREFOX}
+        - sleep 59
         - git branch ${BRANCH_LINUX_CHROME}
         - git push -f origin ${BRANCH_LINUX_CHROME}
     - stage: unit and rest api tests

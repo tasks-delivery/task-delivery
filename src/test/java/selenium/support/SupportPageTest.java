@@ -2,6 +2,8 @@ package selenium.support;
 
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
@@ -21,6 +23,19 @@ public class SupportPageTest extends BaseTest {
         open(baseUrl);
         $(supportPage.btnSupport).click();
         $(byText("Support page")).shouldBe(visible).exists();
+    }
+
+    @Test(description = "Verify navbar elements")
+    public void navBarShouldBeVisibleOnSupportPage(){
+        open(baseUrl);
+        $(supportPage.btnSupport).click();
+        $(supportPage.btnAbout).shouldBe(visible).shouldHave(text("About")).exists();
+        $(supportPage.btnBlog).shouldBe(visible).shouldHave(text("Blog")).exists();
+        $(supportPage.btnDocs).shouldBe(visible).shouldHave(text("Docs")).exists();
+        $(supportPage.btnSignIn).shouldBe(visible).shouldHave(text("Sign up")).exists();
+        $(supportPage.btnSupport).shouldBe(visible).shouldHave(text("Support")).exists();
+        $(supportPage.appName).shouldBe(visible);
+        $(supportPage.tdLogo).shouldBe(visible).exists();
     }
 
 }

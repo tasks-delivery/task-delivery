@@ -2,6 +2,8 @@ package selenium.blog;
 
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
@@ -21,6 +23,19 @@ public class BlogPageTest extends BaseTest {
         open(baseUrl);
         $(blogPage.btnBlog).click();
         $(byText("Blog page")).shouldBe(visible).exists();
+    }
+
+    @Test(description = "Verify navbar elements")
+    public void navBarShouldBeVisibleOnBlogPage(){
+        open(baseUrl);
+        $(blogPage.btnBlog).click();
+        $(blogPage.btnAbout).shouldBe(visible).shouldHave(text("About")).exists();
+        $(blogPage.btnBlog).shouldBe(visible).shouldHave(text("Blog")).exists();
+        $(blogPage.btnDocs).shouldBe(visible).shouldHave(text("Docs")).exists();
+        $(blogPage.btnSignIn).shouldBe(visible).shouldHave(text("Sign up")).exists();
+        $(blogPage.btnSupport).shouldBe(visible).shouldHave(text("Support")).exists();
+        $(blogPage.appName).shouldBe(visible);
+        $(blogPage.tdLogo).shouldBe(visible).exists();
     }
 
 }
