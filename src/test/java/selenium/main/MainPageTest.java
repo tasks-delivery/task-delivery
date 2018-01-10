@@ -2,8 +2,8 @@ package selenium.main;
 
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -45,6 +45,13 @@ public class MainPageTest extends BaseTest {
         $(mainPage.manageImg).shouldBe(visible).exists();
         $(mainPage.testCaseImg).shouldBe(visible).exists();
         $(mainPage.specImg).shouldBe(visible).exists();
+    }
+
+    @Test(description = "Footer with link to github should be visible")
+    public void footerWithTextAndLinkElementsShouldBeVisible(){
+        open(baseUrl);
+        $(mainPage.footer).shouldHave(text(mainPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(mainPage.footerLinks).shouldHave(attribute("href", mainPage.linkToGitHubRepo));
     }
 
 }

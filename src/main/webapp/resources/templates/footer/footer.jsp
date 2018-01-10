@@ -20,13 +20,12 @@
     <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="footer">
-    <ul class="social">
-        <li><a href="">text</a></li>
-        <li><a href="">text</a></li>
-        <li><a href="">text</a></li>
-        <li><a href="">text</a></li>
-    </ul>
-</div>
+    <div class="footer">
+        <ul class="social"><li>
+            <span class="social-contact">Copyright Task-delivery © - 2018</span>
+            <a href="https://github.com/tasks-delivery/task-delivery">
+            <img src="/resources/templates/footer/github-circle.png">
+        </ul></a></li>
+    </div>
 </body>
 </html>
