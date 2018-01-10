@@ -1,5 +1,6 @@
 html, body {
 position: relative;
+ overflow: auto;
 }
 body{
  background: url(/resources/img/fon.jpg) fixed no-repeat;
@@ -13,13 +14,18 @@ body{
  top: 0;
  left: 0;
  width: 100%;
+  overflow: auto;
 }
+
+
 a {
  color: #fff;
+  list-style-type: none;
 }
 a:hover {
  color: #00FFFF;
  text-decoration: none;
+  list-style-type: none;
 }
 button {
  color: #00008B;

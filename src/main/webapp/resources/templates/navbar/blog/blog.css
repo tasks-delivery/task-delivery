@@ -17,12 +17,13 @@
  height: auto;
  width: 90%;
  padding-top: 1%;
- padding-down: 1%;
+ padding-bottom: 5%;
 }
 .blog-list{
+ overflow: auto;
  display:flex;
  width: 95%;
- height: 90%;
+ height: 95%;
  position: relative;
  background: #F0FFFF;;
  border-radius: 5px;

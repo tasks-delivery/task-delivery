@@ -154,7 +154,7 @@ public class SignUpPageTest extends BaseTest {
         $(signUpPage.tdLogo).shouldBe(visible).exists();
     }
 
-    @Test(description = "Footer with link to github should be visible on login page")
+    @Test(enabled = false, description = "Footer with link to github should be visible on login page")
     public void footerWithTextAndLinkElementsShouldBeVisibleOnLoginPage(){
         open(baseUrl);
         $(signUpPage.btnSignIn).click();
@@ -162,7 +162,7 @@ public class SignUpPageTest extends BaseTest {
         $(signUpPage.footerLinks).shouldHave(attribute("href", signUpPage.linkToGitHubRepo));
     }
 
-    @Test(description = "Footer with link to github should be visible on registration page")
+    @Test(enabled = false, description = "Footer with link to github should be visible on registration page")
     public void footerWithTextAndLinkElementsShouldBeVisibleOnRegistrationPage(){
         open(baseUrl);
         $(signUpPage.btnSignIn).click();

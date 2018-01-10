@@ -17,14 +17,16 @@
  height: auto;
  width: 90%;
  padding-top: 1%;
- padding-down: 1%;
+ padding-bottom: 5%;
+  height: 100%;
 }
 .right-column, .left-column {
  display:flex;
- height: 90%;
  position: relative;
  background: #fff;
  border-radius: 5px;
+ height: 95%;
+ overflow: auto;
 }
 .left-column {
  position: relative;
