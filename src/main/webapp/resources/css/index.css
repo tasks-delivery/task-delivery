@@ -1,4 +1,5 @@
 .home-banner {
+ overflow: auto;
  display: flex;
  flex-direction: row;
  justify-content: space-around;
@@ -12,15 +13,20 @@
  left: 0;
 }
 .left-banner {
+
  position: relative;
  display: flex;
  opacity: 0.8;
  background-color: #fff;
- width: 550px;
+ width: 530px;
+ height: 450px;
  justify-content: left;
  border-radius: 5px;
 }
-.right-banner {
+.right-banner > img {
+
+ width: 530px;
+ height: 450px;
 }
 .left-banner > ul{
 position: relative;
@@ -32,6 +38,7 @@ position: relative;
  font-weight: bold;
 }
 .left-banner > ul > li > {
+
 position: relative;
  color: black;
  display: flex;

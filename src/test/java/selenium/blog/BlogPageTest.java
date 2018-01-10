@@ -39,7 +39,7 @@ public class BlogPageTest extends BaseTest {
         $(blogPage.tdLogo).shouldBe(visible).exists();
     }
 
-    @Test(description = "Footer with link to github should be visible")
+    @Test(enabled = false, description = "Footer with link to github should be visible")
     public void footerWithTextAndLinkElementsShouldBeVisible(){
         open(baseUrl);
         $(blogPage.btnBlog).click();

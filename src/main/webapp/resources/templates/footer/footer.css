@@ -1,4 +1,5 @@
 .footer {
+ overflow: auto;
  background: #212121;
  position: fixed;
  top: 97%;
