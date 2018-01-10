@@ -1,6 +1,5 @@
 html, body {
 position: relative;
-
 }
 body{
  background: url(/resources/img/oboi.jpg) fixed no-repeat;
@@ -9,18 +8,25 @@ body{
  -o-background-size: 100%;
  background-size: 100%;
  display: block;
-
  background-size: cover;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 10%;
 }
-/*
-.footer {
- background: black;
-position: relative;
-}*/
-
-.social {
- list-style-type: none;
+a {
+ color: #fff;
 }
-
-
+a:hover {
+ color: #00FFFF;
+ text-decoration: none;
+}
+button {
+ color: #00008B;
+ background: #24292e;
+ background-color: #eff3f6;
+ border: 1px #1E90FF;
+ border-style: groove;
+}
 

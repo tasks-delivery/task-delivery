@@ -1,7 +1,9 @@
 .contain-to-grid {
- position: relative;
  background:#333;
- width:100%;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
  height: auto;
 }
 .top-bar-section {
@@ -29,7 +31,6 @@
  padding-top:15px;
 }
 a {
- color: #fff;
  padding-left:15px;
  padding-right:15px;
 }
@@ -38,8 +39,4 @@ h5, h5 {
  color: #fff;
  padding-top:3px;
  padding-left:15px;
-}
-a:hover {
- color: #00FFFF;
- text-decoration: none;
 }
