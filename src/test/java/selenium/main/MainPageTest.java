@@ -50,7 +50,7 @@ public class MainPageTest extends BaseTest {
     @Test(description = "Footer with link to github should be visible")
     public void footerWithTextAndLinkElementsShouldBeVisible(){
         open(baseUrl);
-        $(mainPage.footer).shouldHave(text(mainPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(mainPage.footer).shouldHave(text(mainPage.copyrightTaskDelivery2018));
         $(mainPage.footerLinks).shouldHave(attribute("href", mainPage.linkToGitHubRepo));
     }
 

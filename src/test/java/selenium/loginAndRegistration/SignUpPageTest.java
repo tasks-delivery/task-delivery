@@ -157,7 +157,7 @@ public class SignUpPageTest extends BaseTest {
     public void footerWithTextAndLinkElementsShouldBeVisibleOnLoginPage(){
         open(baseUrl);
         $(signUpPage.btnSignIn).click();
-        $(signUpPage.footer).shouldHave(text(signUpPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(signUpPage.footer).shouldHave(text(signUpPage.copyrightTaskDelivery2018));
         $(signUpPage.footerLinks).shouldHave(attribute("href", signUpPage.linkToGitHubRepo));
     }
 
@@ -166,7 +166,7 @@ public class SignUpPageTest extends BaseTest {
         open(baseUrl);
         $(signUpPage.btnSignIn).click();
         $(signUpPage.linkCreateAcc).click();
-        $(signUpPage.footer).shouldHave(text(signUpPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(signUpPage.footer).shouldHave(text(signUpPage.copyrightTaskDelivery2018));
         $(signUpPage.footerLinks).shouldHave(attribute("href", signUpPage.linkToGitHubRepo));
     }
 

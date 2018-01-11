@@ -41,7 +41,7 @@ public class BlogPageTest extends BaseTest {
     public void footerWithTextAndLinkElementsShouldBeVisible(){
         open(baseUrl);
         $(blogPage.btnBlog).click();
-        $(blogPage.footer).shouldHave(text(blogPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(blogPage.footer).shouldHave(text(blogPage.copyrightTaskDelivery2018));
         $(blogPage.footerLinks).shouldHave(attribute("href", blogPage.linkToGitHubRepo));
     }
 

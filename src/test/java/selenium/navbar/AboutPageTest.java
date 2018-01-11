@@ -41,7 +41,7 @@ public class AboutPageTest extends BaseTest {
     public void footerWithTextAndLinkElementsShouldBeVisible(){
         open(baseUrl);
         $(aboutPage.btnAbout).click();
-        $(aboutPage.footer).shouldHave(text(aboutPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(aboutPage.footer).shouldHave(text(aboutPage.copyrightTaskDelivery2018));
         $(aboutPage.footerLinks).shouldHave(attribute("href", aboutPage.linkToGitHubRepo));
     }
 }

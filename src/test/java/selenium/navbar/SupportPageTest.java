@@ -41,7 +41,7 @@ public class SupportPageTest extends BaseTest {
     public void footerWithTextAndLinkElementsShouldBeVisible(){
         open(baseUrl);
         $(supportPage.btnSupport).click();
-        $(supportPage.footer).shouldHave(text(supportPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(supportPage.footer).shouldHave(text(supportPage.copyrightTaskDelivery2018));
         $(supportPage.footerLinks).shouldHave(attribute("href", supportPage.linkToGitHubRepo));
     }
 

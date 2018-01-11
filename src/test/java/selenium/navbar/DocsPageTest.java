@@ -42,7 +42,7 @@ public class DocsPageTest extends BaseTest {
     public void footerWithTextAndLinkElementsShouldBeVisible(){
         open(baseUrl);
         $(docsPage.btnDocs).click();
-        $(docsPage.footer).shouldHave(text(docsPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(docsPage.footer).shouldHave(text(docsPage.copyrightTaskDelivery2018));
         $(docsPage.footerLinks).shouldHave(attribute("href", docsPage.linkToGitHubRepo));
     }
 }
