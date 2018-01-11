@@ -39,7 +39,7 @@ public class SupportPageTest extends BaseTest {
         $(supportPage.tdLogo).shouldBe(visible).exists();
     }
 
-    @Test(description = "Footer with link to github should be visible")
+    @Test(enabled = false, description = "Footer with link to github should be visible")
     public void footerWithTextAndLinkElementsShouldBeVisible(){
         open(baseUrl);
         $(supportPage.btnSupport).click();

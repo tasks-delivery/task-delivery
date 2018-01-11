@@ -47,7 +47,7 @@ public class MainPageTest extends BaseTest {
         $(mainPage.specImg).shouldBe(visible).exists();
     }
 
-    @Test(description = "Footer with link to github should be visible")
+    @Test(enabled = false, description = "Footer with link to github should be visible")
     public void footerWithTextAndLinkElementsShouldBeVisible(){
         open(baseUrl);
         $(mainPage.footer).shouldHave(text(mainPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
