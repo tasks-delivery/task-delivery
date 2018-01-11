@@ -1,13 +1,11 @@
-package selenium.support;
+package selenium.navbar;
 
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
-
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -23,7 +21,7 @@ public class SupportPageTest extends BaseTest {
     public void redirectToDocsPage(){
         open(baseUrl);
         $(supportPage.btnSupport).click();
-        $(byText("Support page")).shouldBe(visible).exists();
+        $(supportPage.supportInfo).shouldHave(text("Test support content"));
     }
 
     @Test(description = "Verify navbar elements")
@@ -39,11 +37,11 @@ public class SupportPageTest extends BaseTest {
         $(supportPage.tdLogo).shouldBe(visible).exists();
     }
 
-    @Test(enabled = false, description = "Footer with link to github should be visible")
+    @Test(description = "Footer with link to github should be visible")
     public void footerWithTextAndLinkElementsShouldBeVisible(){
         open(baseUrl);
         $(supportPage.btnSupport).click();
-        $(supportPage.footer).shouldHave(text(supportPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(supportPage.footer).shouldHave(text(supportPage.copyrightTaskDelivery2018));
         $(supportPage.footerLinks).shouldHave(attribute("href", supportPage.linkToGitHubRepo));
     }
 

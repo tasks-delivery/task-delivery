@@ -3,7 +3,6 @@ package selenium.loginAndRegistration;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
-
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -154,20 +153,20 @@ public class SignUpPageTest extends BaseTest {
         $(signUpPage.tdLogo).shouldBe(visible).exists();
     }
 
-    @Test(enabled = false, description = "Footer with link to github should be visible on login page")
+    @Test(description = "Footer with link to github should be visible on login page")
     public void footerWithTextAndLinkElementsShouldBeVisibleOnLoginPage(){
         open(baseUrl);
         $(signUpPage.btnSignIn).click();
-        $(signUpPage.footer).shouldHave(text(signUpPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(signUpPage.footer).shouldHave(text(signUpPage.copyrightTaskDelivery2018));
         $(signUpPage.footerLinks).shouldHave(attribute("href", signUpPage.linkToGitHubRepo));
     }
 
-    @Test(enabled = false, description = "Footer with link to github should be visible on registration page")
+    @Test(description = "Footer with link to github should be visible on registration page")
     public void footerWithTextAndLinkElementsShouldBeVisibleOnRegistrationPage(){
         open(baseUrl);
         $(signUpPage.btnSignIn).click();
         $(signUpPage.linkCreateAcc).click();
-        $(signUpPage.footer).shouldHave(text(signUpPage.copyrightTaskDelivery2018)).shouldBe(visible).exists();
+        $(signUpPage.footer).shouldHave(text(signUpPage.copyrightTaskDelivery2018));
         $(signUpPage.footerLinks).shouldHave(attribute("href", signUpPage.linkToGitHubRepo));
     }
 
