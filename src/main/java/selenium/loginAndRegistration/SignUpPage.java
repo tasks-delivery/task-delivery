@@ -29,7 +29,7 @@ public class SignUpPage extends BasePage {
     usernamePlaceholder = $(By.xpath("//INPUT[@placeholder='Username']/self::INPUT")),
     passPlaceholder = $(By.xpath("//INPUT[@placeholder='Password']/self::INPUT")),
     passConfirmPlaceholder = $(By.xpath("//INPUT[@placeholder='Confirm your password']/self::INPUT")),
-    userInfo = $(By.xpath("//*[@class='btnLogout']")),
+    userInfo = $(By.xpath("//*[@class='welcome-user']")),
     loginFormError = $(By.xpath("//*[@class='login']//SPAN[text()='Your username and password is invalid.']/self::SPAN")),
     logoutForm = $(By.id("logoutForm")),
     userError = $(By.xpath("//SPAN[@id='username.errors']/self::SPAN")),

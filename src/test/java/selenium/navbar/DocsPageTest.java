@@ -1,13 +1,11 @@
-package selenium.docs;
+package selenium.navbar;
 
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
-
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -23,7 +21,8 @@ public class DocsPageTest extends BaseTest {
     public void redirectToDocsPage(){
         open(baseUrl);
         $(docsPage.btnDocs).click();
-        $(byText("Docs page")).shouldBe(visible).exists();
+        $(docsPage.rightColumn).shouldHave(text("Test docs right column"));
+        $(docsPage.leftColumn).shouldHave(text("Test docs left column"));
     }
 
     @Test(description = "Verify navbar elements")
@@ -39,7 +38,7 @@ public class DocsPageTest extends BaseTest {
         $(docsPage.tdLogo).shouldBe(visible).exists();
     }
 
-    @Test(enabled = false, description = "Footer with link to github should be visible")
+    @Test(description = "Footer with link to github should be visible")
     public void footerWithTextAndLinkElementsShouldBeVisible(){
         open(baseUrl);
         $(docsPage.btnDocs).click();

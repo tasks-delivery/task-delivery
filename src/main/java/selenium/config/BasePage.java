@@ -3,7 +3,6 @@ package selenium.config;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import static com.codeborne.selenide.Selenide.$;
 
 public class BasePage extends ConciseAPI {
@@ -12,8 +11,8 @@ public class BasePage extends ConciseAPI {
     public String linkToGitHubRepo = "https://github.com/tasks-delivery/task-delivery";
 
     /*
-TODO: rework elements without public
- */
+    TODO: rework elements without public
+    */
     public SelenideElement btnSignIn = $(By.xpath("//*[@class='top-bar']//*[text()='Sign up']")),
     btnDocs = $(By.xpath("//*[@class='top-bar']//*[text()='Docs']")),
     btnBlog = $(By.xpath("//*[@class='top-bar']//*[text()='Blog']")),

@@ -24,7 +24,6 @@
  border-radius: 5px;
 }
 .right-banner > img {
-
  width: 530px;
  height: 450px;
 }
@@ -38,8 +37,7 @@ position: relative;
  font-weight: bold;
 }
 .left-banner > ul > li > {
-
-position: relative;
+ position: relative;
  color: black;
  display: flex;
  flex-direction: row;

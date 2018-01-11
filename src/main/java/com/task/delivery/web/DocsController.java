@@ -10,6 +10,6 @@ public class DocsController {
 
     @RequestMapping(value = {"/docs"}, method = RequestMethod.GET)
     public String docs(Model model) {
-        return "resources/templates/navbar/docs/docs";
+        return "resources/templates/common/docs/docs";
     }
 }
