@@ -15,12 +15,6 @@ public class UserControllerTest  extends RestTest{
         assertThat(response.statusCode()).isEqualTo(OK.value());
     }
 
-    @Test(description = "should be return login page from endpoint '/login'")
-    public void getLoginPage(){
-        Response response = given(spec).get("/login");
-        assertThat(response.statusCode()).isEqualTo(OK.value());
-    }
-
     @Test(description = "Should be add new account to system from endpoint")
     public void createNewUser() {
         given(spec)
@@ -52,6 +46,12 @@ public class UserControllerTest  extends RestTest{
         enableLoggingOfRequestAndResponseIfValidationFails();
     }
 
+    @Test(description = "should be return login page from endpoint '/login'")
+    public void getLoginPage(){
+        Response response = given(spec).get("/login");
+        assertThat(response.statusCode()).isEqualTo(OK.value());
+    }
+
     @Test( description = "Should be login to system")
     public void loginToSystem(){
         given(spec)
@@ -59,17 +59,6 @@ public class UserControllerTest  extends RestTest{
                 .param("password", "testpassword").
                 when().
                 post("/login").
-                then().
-                statusCode(302).
-                extract().response().print();
-        enableLoggingOfRequestAndResponseIfValidationFails();
-    }
-
-    @Test( description = "should be perform  to logout from the system")
-    public void logoutFromSystem(){
-        given(spec).
-                when().
-                post("/logout").
                 then().
                 statusCode(302).
                 extract().response().print();
@@ -92,4 +81,14 @@ public class UserControllerTest  extends RestTest{
         enableLoggingOfRequestAndResponseIfValidationFails();
     }
 
+    @Test( description = "should be perform  to logout from the system")
+    public void logoutFromSystem(){
+        given(spec).
+                when().
+                post("/logout").
+                then().
+                statusCode(302).
+                extract().response().print();
+        enableLoggingOfRequestAndResponseIfValidationFails();
+    }
 }
