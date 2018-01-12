@@ -20,7 +20,6 @@
                </c:if>
                <c:if test="${pageContext.request.userPrincipal.name != null}">
                <form id="logoutForm" method="POST" action="${contextPath}/logout">
-                   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                </form>
                <h5 class="welcome-user">Welcome ${pageContext.request.userPrincipal.name}</h5>
                <h5 class="separate">|</h5>
