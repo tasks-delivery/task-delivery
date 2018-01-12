@@ -18,7 +18,7 @@ public class RestTest   {
     @BeforeClass
     public void initSpec() {
         spec = new RequestSpecBuilder()
-                .setBaseUri("http://localhost:8080")
+                .setBaseUri("http://task-delivery-test-linux-ff.herokuapp.com/")
                 .addFilter(new ResponseLoggingFilter())
                 .addFilter(new RequestLoggingFilter())
                 .build();

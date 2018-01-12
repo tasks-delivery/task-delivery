@@ -1,5 +1,6 @@
 package com.task.delivery.web;
 
+import com.task.delivery.exception.WrongIdFormatException;
 import com.task.delivery.model.User;
 import com.task.delivery.service.SecurityService;
 import com.task.delivery.service.UserService;
@@ -47,11 +48,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model, String error, String logout) {
+    public String login(Model model, String error, String logout) throws WrongIdFormatException {
         if (error != null)
+
             model.addAttribute("error", "Your username and password is invalid.");
 
         if (logout != null)
+    //        throw new WrongIdFormatException();
             model.addAttribute("message", "You have been logged out successfully.");
 
         return "resources/templates/signup/login";
