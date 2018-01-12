@@ -23,7 +23,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
         http
+                .httpBasic()
+                .and()
                 .authorizeRequests()
                     .antMatchers("/resources/**", "/registration").permitAll()
                     .antMatchers("/projects/**").permitAll()
@@ -40,6 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                 .logout()
                     .permitAll();
+
     }
 
     @Autowired

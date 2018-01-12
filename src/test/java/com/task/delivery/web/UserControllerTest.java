@@ -3,7 +3,7 @@ package com.task.delivery.web;
 import com.task.delivery.RestTest;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.HttpStatus.OK;
 
@@ -20,23 +20,52 @@ public class UserControllerTest  extends RestTest{
         Response response = given(spec).get("/login");
         assertThat(response.statusCode()).isEqualTo(OK.value());
     }
+
+    @Test(description = "Should be add new account to system from endpoint")
+    public void createNewUser() {
+        given(spec)
+                .param("username", "testusercore")
+                .param("password", "testpassword")
+                .param("passwordConfirm", "testpassword").
+                when().
+                post("/registration").
+                then().
+                statusCode(302).
+                extract().response().print();
+        enableLoggingOfRequestAndResponseIfValidationFails();
+    }
+
     /*
-           TODO: make parse CSRF token for testing
+    TODO: BUG (need to add validation of back-end side)
      */
-    @Test(enabled = false, description = "should be login to system from endpoint '/login'")
+    @Test(enabled = false, description = "Should be add new account to system from endpoint")
+    public void createNewUserWithInvalidData() {
+        given(spec)
+                .param("username", "test!")
+                .param("password", "admin@")
+                .param("passwordConfirm", "admin").
+                when().
+                post("/registration").
+                then().
+                statusCode(403).
+                extract().response().print();
+        enableLoggingOfRequestAndResponseIfValidationFails();
+    }
+
+    @Test( description = "Should be login to system")
     public void loginToSystem(){
-        given(spec).
-                body("{\"username=testuser&password=testpassword\"}").
+        given(spec)
+                .param("username", "testusercore")
+                .param("password", "testpassword").
                 when().
                 post("/login").
                 then().
                 statusCode(302).
                 extract().response().print();
+        enableLoggingOfRequestAndResponseIfValidationFails();
     }
-    /*
-       TODO: make parse CSRF token for testing
-        */
-    @Test(enabled = false, description = "should be logout from system from endpoint '/login'")
+
+    @Test( description = "should be perform  to logout from the system")
     public void logoutFromSystem(){
         given(spec).
                 when().
@@ -44,20 +73,23 @@ public class UserControllerTest  extends RestTest{
                 then().
                 statusCode(302).
                 extract().response().print();
+        enableLoggingOfRequestAndResponseIfValidationFails();
     }
 
     /*
-    TODO:   make parse CSRF token for testing
+    TODO: BUG (need to add validation back-end side)
      */
-    @Test(description = "should be login to system from endpoint '/login'")
-    public void logisnToSystemWithNonExistingUser(){
-        given(spec).
-                body("{\"username=usernonexist&password=passnonexist\"}").
+    @Test(enabled = false, description = "should be login to system from endpoint '/login'")
+    public void loginToSystemWithNonExistingUser(){
+        given(spec)
+                .param("username", "testusesdfrcore")
+                .param("password", "testpasdfssword").
                 when().
-                post("/logout").
+                post("/login").
                 then().
                 statusCode(403).
                 extract().response().print();
+        enableLoggingOfRequestAndResponseIfValidationFails();
     }
 
 }
