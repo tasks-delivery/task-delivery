@@ -1,6 +1,5 @@
 html, body {
  position: relative;
- overflow: auto;
 }
 body{
  background: url(/resources/img/fon.jpg) fixed no-repeat;
@@ -14,7 +13,6 @@ body{
  top: 0;
  left: 0;
  width: 100%;
- overflow: auto;
 }
 a {
  color: #fff;
@@ -33,7 +31,6 @@ button {
  border-style: groove;
 }
 .contain-to-grid {
- overflow: auto;
  background:#212121;
  position: relative;
  top: 0;
@@ -89,7 +86,6 @@ button {
  color: #fff;
 }
 .footer {
- overflow: auto;
  background: #212121;
  position: fixed;
  top: 97%;
