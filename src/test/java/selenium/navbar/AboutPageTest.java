@@ -1,12 +1,11 @@
-package selenium.about;
+package selenium.navbar;
 
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
-
+import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -22,7 +21,7 @@ public class AboutPageTest extends BaseTest {
     public void redirectToDocsPage(){
         open(baseUrl);
         $(aboutPage.btnAbout).click();
-        $(byText("About page")).shouldBe(visible).exists();
+        $(aboutPage.aboutInfo).shouldHave(text("Test about content"));
     }
 
     @Test(description = "Verify navbar elements")
@@ -36,5 +35,13 @@ public class AboutPageTest extends BaseTest {
         $(aboutPage.btnSupport).shouldBe(visible).shouldHave(text("Support")).exists();
         $(aboutPage.appName).shouldBe(visible);
         $(aboutPage.tdLogo).shouldBe(visible).exists();
+    }
+
+    @Test(description = "Footer with link to github should be visible")
+    public void footerWithTextAndLinkElementsShouldBeVisible(){
+        open(baseUrl);
+        $(aboutPage.btnAbout).click();
+        $(aboutPage.footer).shouldHave(text(aboutPage.copyrightTaskDelivery2018));
+        $(aboutPage.footerLinks).shouldHave(attribute("href", aboutPage.linkToGitHubRepo));
     }
 }

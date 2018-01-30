@@ -9,3 +9,6 @@
         });
     });
 */
+
+window.onresize = function() {
+ $(".blog-window").innerHTML = window.innerWidth;

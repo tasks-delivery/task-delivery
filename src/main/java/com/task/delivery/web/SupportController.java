@@ -10,7 +10,7 @@ public class SupportController {
 
     @RequestMapping(value = {"/support"}, method = RequestMethod.GET)
     public String support(Model model) {
-        return "resources/templates/navbar/support/support";
+        return "resources/templates/common/support/support";
     }
 
 

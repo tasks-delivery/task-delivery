@@ -23,7 +23,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable();
         http
+                .httpBasic()
+                .and()
                 .authorizeRequests()
                     .antMatchers("/resources/**", "/registration").permitAll()
                     .antMatchers("/projects/**").permitAll()
@@ -35,15 +38,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                 .formLogin()
                     .loginPage("/login")
+                    .defaultSuccessUrl("/dashboard")
                     .permitAll()
                     .and()
                 .logout()
                     .permitAll();
+
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+       // auth.inMemoryAuthentication()
+       //         .withUser("admin").password("admin")
+        //        .authorities("ROLE_USER");
     }
 
 }

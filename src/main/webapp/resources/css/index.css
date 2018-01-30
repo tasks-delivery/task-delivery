@@ -1,36 +1,31 @@
- .home-banner {
+.home-banner {
+ overflow: auto;
  display: flex;
  flex-direction: row;
  justify-content: space-around;
  width: 100%;
- height: 100%;
- margin-top: 10%;
+ height: 55%;
  display: -webkit-flex;
  display: -ms-flexbox;
-margin-top: -20%;
-
- position: fixed;
- top: 50%;
+ position: relative;
+ padding-top: 10%;
+ top: 0;
  left: 0;
- width: 100%;
- height: 500px;
-}
-
-.left-banner, .right-banner{
-
- display: flex;
- width: 50%;
 }
 .left-banner {
+
+ position: relative;
+ display: flex;
  opacity: 0.8;
  background-color: #fff;
- width: 550px;
+ width: 530px;
+ height: 450px;
  justify-content: left;
- border-radius: 15px;
+ border-radius: 5px;
 }
-.right-banner {
- justify-content: right;
-  -webkit-padding-start: 7%;
+.right-banner > img {
+ width: 530px;
+ height: 450px;
 }
 .left-banner > ul{
 position: relative;
@@ -41,20 +36,14 @@ position: relative;
  list-style-type: none;
  font-weight: bold;
 }
-
 .left-banner > ul > li > {
-position: relative;
+ position: relative;
  color: black;
  display: flex;
  flex-direction: row;
  justify-content: space-between;
  font-weight: bold;
 }
-
 span, img, li, ul{
 position: relative;
 }
-
-
-
-

@@ -1,10 +1,12 @@
 package com.task.delivery.web;
 
+import com.task.delivery.exception.WrongIdFormatException;
 import com.task.delivery.model.User;
 import com.task.delivery.service.SecurityService;
 import com.task.delivery.service.UserService;
 import com.task.delivery.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -46,16 +48,42 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model, String error, String logout) {
+    public String login(Model model, String error, String logout) throws WrongIdFormatException {
         if (error != null)
+
             model.addAttribute("error", "Your username and password is invalid.");
 
         if (logout != null)
+    //        throw new WrongIdFormatException();
             model.addAttribute("message", "You have been logged out successfully.");
 
         return "resources/templates/signup/login";
-    }
+
+     }
+
+/*
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@ModelAttribute("userForm") User userForm, Model model,  BindingResult bindingResult, String error) {
+        if (error == null)
+            model.addAttribute("error", "Your username and password is invalid.");
+        return "redirect:/dashboard";
+    }*/
 
 }
+
+
+
+
+/*
+            if (logout != null) {
+                return "redirect:/dashboard";
+            }
+            return "resources/templates/signup/login";
+        }*/
+
+
+
+
+
 
 
