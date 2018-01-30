@@ -1,5 +1,5 @@
 html, body {
-position: relative;
+ position: relative;
 }
 body{
  background: url(/resources/img/fon.jpg) fixed no-repeat;
@@ -13,14 +13,15 @@ body{
  top: 0;
  left: 0;
  width: 100%;
- height: 10%;
 }
 a {
  color: #fff;
+  list-style-type: none;
 }
 a:hover {
  color: #00FFFF;
  text-decoration: none;
+ list-style-type: none;
 }
 button {
  color: #00008B;
@@ -28,5 +29,96 @@ button {
  background-color: #eff3f6;
  border: 1px #1E90FF;
  border-style: groove;
+}
+table{
+ color: #00008B;
+ background: #24292e;
+ background-color: #eff3f6;
+ border: 1px #1E90FF;
+ border-style: groove;
+}
+.contain-to-grid {
+ background:#212121;
+ position: relative;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: auto;
+}
+.top-bar-section {
+ display:flex;
+ flex-direction: row;
+ justify-content: space-around;
+}
+.top-bar-section .left {
+ display:flex;
+ justify-content: left;
+ padding:0px;
+ padding-top:10px;
+ list-style-type: none;
+}
+.top-bar-section .center {
+ margin-right: 5%;
+ display:flex;
+ justify-content: center;
+ padding:0px;
+ padding-top:15px;
+ list-style-type: none;
+}
+.top-bar-section .right {
+ display:flex;
+ justify-content: right;
+ padding:0px;
+ padding-top:15px;
+ list-style-type: none;
+}
+.top-bar > div > ul > li > a {
+ padding-left:15px;
+ padding-right:15px;
+}
+.welcome-user {
+ margin-top: 0;
+ color: #fff;
+ padding-top:3px;
+}
+.separate {
+ margin-top: 0;
+ color: #fff;
+ padding-top:3px;
+ padding-left:15px;
+ padding-right:15px;
+}
+.btn-logout {
+ margin-top: 0;
+ color: #fff;
+}
+.footer {
+ background: #212121;
+ position: fixed;
+ top: 97%;
+ left: 0;
+ width: 100%;
+ height: auto;
+ display:flex;
+ flex-direction: row;
+ justify-content: center;
+ z-index: 1;
+}
+.social {
+ display:flex;
+ flex-direction: row;
+ justify-content: center;
+ list-style-type: none;
+ }
+.social > li a > img {
+ flex-direction: row;
+ justify-content: center;
+ height: 32px;
+ width: 32px;
+}
+.social {
+ flex-direction: row;
+ justify-content: center;
+ color: #FFF8DC;
 }
 

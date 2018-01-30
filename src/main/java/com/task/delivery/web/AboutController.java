@@ -10,7 +10,7 @@ public class AboutController {
 
     @RequestMapping(value = {"/about"}, method = RequestMethod.GET)
     public String about(Model model) {
-        return "resources/templates/navbar/about/about";
+        return "resources/templates/common/about/about";
     }
 
 }

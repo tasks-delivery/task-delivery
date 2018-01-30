@@ -10,10 +10,10 @@
         <parameter name="baseUrl" value="https://task-delivery-test-linux-chrom.herokuapp.com/"/>
         <classes>
             <class name="selenium.main.MainPageTest"/>
-            <class name="selenium.docs.DocsPageTest"/>
-            <class name="selenium.about.AboutPageTest"/>
-            <class name="selenium.support.SupportPageTest"/>
-            <class name="selenium.blog.BlogPageTest"/>
+            <class name="selenium.navbar.DocsPageTest"/>
+            <class name="selenium.navbar.AboutPageTest"/>
+            <class name="selenium.navbar.SupportPageTest"/>
+            <class name="selenium.navbar.BlogPageTest"/>
             <class name="selenium.loginAndRegistration.SignUpPageTest"/>
         </classes>
     </test>
