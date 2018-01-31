@@ -36,19 +36,19 @@
  border: 1px 	#1E90FF;
  border-style: groove;
 }
+
 .form-signin button {
- color: #00008B;
  margin-top: 10px;
+ color: #00008B;
  background: #24292e;
  background-color: #eff3f6;
- border: 1px #1E90FF;
- border-style: groove;
 }
 .link-reg {
  display: flex;
  justify-content: center;
  margin-top: 15%;
 }
+
 h4 > a {
  color: #00008B;
 }
