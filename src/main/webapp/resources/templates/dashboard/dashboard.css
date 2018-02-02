@@ -19,7 +19,7 @@
  padding-top: 1%;
  padding-bottom: 5%;
 }
-.project{
+.add-project{
  display:flex;
  justify-content: center;
  width: 20%;
@@ -28,7 +28,6 @@
  background: #F0FFFF;;
  border-radius: 5px;
 }
-
 .project-list {
  overflow: auto;
   display:flex;
