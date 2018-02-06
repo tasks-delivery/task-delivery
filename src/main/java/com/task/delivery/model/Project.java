@@ -1,22 +1,18 @@
 package com.task.delivery.model;
 
-import javax.persistence.*;
-import java.util.List;
+import org.springframework.data.annotation.Id;
 
-@Entity
-@Table(name = "project")
 public class Project {
 
-    private Long id;
+    @Id
+    private int id;
     private String projectName;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -27,6 +23,5 @@ public class Project {
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
-
 
 }

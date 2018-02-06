@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Spring Trading application</title>
+    <link href="${contextPath}/resources/templates/project/project.css" rel="stylesheet">
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="project">
+        <form class="form-inline">
+            <div class="form-group">
+                <input class="form-control" type="text" id="input" th:value="${projectName}">
+                <input class="btn btn-default" type="submit" id="button" value="Send"/>
+            </div>
+        </form>
+    </div>
+    <div>
+        <h2 th:value="${projectName}">verify</h2>
+
+    </div>
+<script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

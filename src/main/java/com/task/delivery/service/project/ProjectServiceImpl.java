@@ -4,6 +4,7 @@ import com.task.delivery.model.Project;
 import com.task.delivery.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -19,7 +20,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Project findByProjectName(String projectName) {
+    public Mono<Project> findByProjectName(String projectName) {
         return projectRepository.findByProjectName(projectName);
     }
 

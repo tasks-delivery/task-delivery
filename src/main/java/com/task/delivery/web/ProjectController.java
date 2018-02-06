@@ -2,51 +2,53 @@ package com.task.delivery.web;
 
 import com.task.delivery.model.Project;
 import com.task.delivery.repository.ProjectRepository;
-import com.task.delivery.service.project.ProjectService;
-import com.task.delivery.validator.ProjectValidation;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.task.delivery.repository.UserRepository;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Controller
-public class ProjectController extends HttpServlet {
-/*
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/project.jsp").forward(req, resp);
-    }*/
+public class ProjectController  {
 
 
-    @Autowired
-    ProjectRepository projectRepository;
+    private final ProjectRepository projectRepository;
 
-    @Autowired
-    private ProjectService projectService;
+    public ProjectController(ProjectRepository projectRepository) {
+        this.projectRepository = projectRepository;
+    }
 
+    @PostMapping(path = "/project", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Flux<Project> listProjects() {
+        return this.projectRepository.findAll();
+    }
 
-    @Autowired
-    private ProjectValidation projectValidation;
+    @GetMapping("/project")
+    public String project(Model model) {
+        model.addAttribute("projectName", this.projectRepository.findAll());
+        return "project";
+    }
 
-    @RequestMapping(value = {"/projects"}, method = RequestMethod.GET)
+    @GetMapping(path = "/project/{projectName}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Mono<Project> showProjects(@PathVariable String projectName) {
+        return this.projectRepository.findByProjectName(projectName);
+    }
+    /*
+    @RequestMapping(value = {"/project"}, method = RequestMethod.GET)
     public String project(Model model) {
         model.addAttribute("projectForm", new Project());
 
         return "resources/templates/project/project";
     }
 
-
-    @RequestMapping(value = {"/projects"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"/project"}, method = RequestMethod.POST)
     public String project(@ModelAttribute("projectForm") Project projectForm, Model model) {
         projectService.save(projectForm);
-
-        return "redirect:/dashboard";
+        return "project";
     }
 
+*/
 }
 

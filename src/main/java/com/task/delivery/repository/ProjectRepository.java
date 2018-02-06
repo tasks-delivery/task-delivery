@@ -1,13 +1,14 @@
 package com.task.delivery.repository;
 
 import com.task.delivery.model.Project;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.data.repository.CrudRepository;
+import reactor.core.publisher.Mono;
+
 import java.util.List;
 
-public interface ProjectRepository extends CrudRepository<Project, Long> {
-    Project findByProjectName (String project);
+public interface ProjectRepository extends ReactiveMongoRepository<Project, String> {
 
- //   public List<Project> findByProjectName(String projectName);
+    Mono<Project> findByProjectName(String projectName);
 
-    public List<Project> findById(Long id);
 }

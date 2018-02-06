@@ -1,13 +1,11 @@
+
+/*
 package com.task.delivery.service.project;
 
-import com.task.delivery.model.Project;
 import com.task.delivery.repository.ProjectRepository;
 import org.mockito.Mock;
 import org.mockito.Spy;
-import org.modelmapper.ModelMapper;
 import org.springframework.http.MediaType;
-import org.springframework.util.Assert;
-import org.testng.annotations.Test;
 import java.nio.charset.Charset;
 import java.util.List;
 
@@ -44,7 +42,7 @@ public class ProjectServiceImplTest {
                 Charset.forName("utf8"));
 
     }
-
+/*
     @Test(enabled = false)
     public void first(){
         Project project = new Project();
@@ -59,5 +57,7 @@ public class ProjectServiceImplTest {
         Assert.isTrue(projects.isEmpty());
       //  projectRepository.save(project);
     }
-
+    */
+/*
 }
+*/

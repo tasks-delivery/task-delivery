@@ -1,3 +1,4 @@
+/*
 package com.task.delivery.service;
 
 import com.task.delivery.model.User;
@@ -39,3 +40,4 @@ public class UserServiceImplTest {
     }
 
 }
+*/
