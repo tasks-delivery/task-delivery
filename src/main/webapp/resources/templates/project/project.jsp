@@ -1,5 +1,4 @@
 <%@ include file="/resources/templates/common/common.jsp" %>
-<link href="${contextPath}/resources/templates/project/project.css" rel="stylesheet">
 <div>
 	<div class="panel-body">
 		<form action="<spring:url value='/project'/>" method="post">

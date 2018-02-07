@@ -1,4 +1,3 @@
-<link href="${contextPath}/resources/templates/signup/signup.css" rel="stylesheet">
 <%@ include file="/resources/templates/common/common.jsp" %>
 <div class="login">
    <form method="POST" action="${contextPath}/login" class="form-signin">

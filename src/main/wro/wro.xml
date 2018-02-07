@@ -1,0 +1,13 @@
+<groups xmlns="http://www.isdc.ro/wro">
+  <group name="common">
+    <css>classpath:META-INF/resources/webjars/bootstrap/3.3.6/less/bootstrap.less</css>
+      <css>/common.less</css>
+      <css>/about.less</css>
+      <css>/docs.less</css>
+      <css>/signup.less</css>
+      <css>/index.less</css>
+      <css>/blog.less</css>
+      <css>/support.less</css>
+      <css>/dashboard.less</css>
+   </group>
+</groups>

@@ -4,13 +4,13 @@
 		    <ul class="left">
 		       <c:if test="${pageContext.request.userPrincipal.name == null}">
 		        <li><a href="/" class="collapse-only">
-                    <img src="${contextPath}/resources/img/bomb.png">
+                    <img src="/resources/img/bomb.png">
                     <span>Task-delivery</span></a>
                 </li>
                </c:if>
                <c:if test="${pageContext.request.userPrincipal.name != null}">
                 <li><a href="/dashboard" class="collapse-only">
-                    <img src="${contextPath}/resources/img/bomb.png">
+                    <img src="/resources/img/bomb.png">
                     <span>Task-delivery</span></a>
                 </li>
                </c:if>

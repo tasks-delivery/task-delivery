@@ -1,4 +1,3 @@
-<link href="${contextPath}/resources/templates/common/docs/docs.css" rel="stylesheet">
 <%@ include file="/resources/templates/common/common.jsp" %>
 <div class="docs">
     <div class="docs-window">

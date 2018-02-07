@@ -1,5 +1,4 @@
 <%@ include file="/resources/templates/common/common.jsp" %>
-<link href="${contextPath}/resources/templates/dashboard/dashboard.css" rel="stylesheet">
 <div class="board">
     <div class='dashboard'>
         <button class="add-project" type="button" onclick="location.href = '/project'">Create project</button>
