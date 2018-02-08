@@ -9,11 +9,11 @@
 	<name>Task delivery</name>
 	<description>Tracing system</description>
 	<properties>
-		<selenide.version>4.4.2</selenide.version>
-		<selenium.java.version>3.0.1</selenium.java.version>
-		<selenium.server.version>3.0.1</selenium.server.version>
-		<selenium.firefox.version>3.0.1</selenium.firefox.version>
-		<selenium.chrome.version>3.0.1</selenium.chrome.version>
+		<selenide.version>4.9</selenide.version>
+		<selenium.java.version>3.8.1</selenium.java.version>
+		<selenium.server.version>3.8.1</selenium.server.version>
+		<selenium.firefox.version>3.8.1</selenium.firefox.version>
+		<selenium.chrome.version>3.8.1</selenium.chrome.version>
 		<modelmapper.version>0.7.4</modelmapper.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
@@ -108,6 +108,24 @@
 		</profile>
 	</profiles>
 	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-api</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-support</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
