@@ -14,7 +14,7 @@
             <class name="selenium.navbar.AboutPageTest"/>
             <class name="selenium.navbar.SupportPageTest"/>
             <class name="selenium.navbar.BlogPageTest"/>
-            <!--   <class name="selenium.loginAndRegistration.SignUpPageTest"/>-->
+            <class name="selenium.loginAndRegistration.SignUpPageTest"/>
         </classes>
     </test>
 </suite>

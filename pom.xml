@@ -14,7 +14,6 @@
 		<selenium.server.version>3.0.1</selenium.server.version>
 		<selenium.firefox.version>3.0.1</selenium.firefox.version>
 		<selenium.chrome.version>3.0.1</selenium.chrome.version>
-		<!--<selenium.remote.version>3.0.1</selenium.remote.version>-->
 		<modelmapper.version>0.7.4</modelmapper.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
@@ -134,11 +133,6 @@
 			<artifactId>selenium-firefox-driver</artifactId>
 			<version>${selenium.firefox.version}</version>
 		</dependency>
-		<!--<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-remote-driver</artifactId>
-			<version>${selenium.remote.version}</version>
-		</dependency>-->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-chrome-driver</artifactId>
@@ -220,11 +214,6 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 		</dependency>
-		<!--<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency> -->
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
