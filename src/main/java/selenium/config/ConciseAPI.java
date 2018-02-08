@@ -24,7 +24,7 @@ public abstract class ConciseAPI  {
     System.setProperty("webdriver.ie.driver", "src/main/resources/drivers/windows/IEDriverServer.exe");
     Configuration.browser = browsers;
     Configuration.browserVersion = version;
- //   Configuration.headless = mode;
+  //  Configuration.headless = mode;
     Configuration.remote = server;
     Configuration.timeout = time;
     Configuration.baseUrl = url;

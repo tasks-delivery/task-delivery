@@ -19,6 +19,7 @@ before_install:
 - echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
 - git lfs pull
 
+
 install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
