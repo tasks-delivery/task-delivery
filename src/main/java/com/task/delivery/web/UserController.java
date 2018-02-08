@@ -2,11 +2,18 @@ package com.task.delivery.web;
 
 import com.task.delivery.exception.WrongIdFormatException;
 import com.task.delivery.model.User;
+<<<<<<< HEAD
 import com.task.delivery.service.SecurityService;
 import com.task.delivery.service.UserService;
 import com.task.delivery.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+=======
+import com.task.delivery.service.security.SecurityService;
+import com.task.delivery.service.user.UserService;
+import com.task.delivery.validator.UserValidator;
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> 6e455b12c35d8a29ddf7e94511b0bdf8d05170c5
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -50,16 +57,23 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) throws WrongIdFormatException {
         if (error != null)
+<<<<<<< HEAD
 
             model.addAttribute("error", "Your username and password is invalid.");
 
         if (logout != null)
     //        throw new WrongIdFormatException();
+=======
+            model.addAttribute("error", "Your username and password is invalid.");
+
+        if (logout != null)
+>>>>>>> 6e455b12c35d8a29ddf7e94511b0bdf8d05170c5
             model.addAttribute("message", "You have been logged out successfully.");
 
         return "resources/templates/signup/login";
 
      }
+<<<<<<< HEAD
 
 /*
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -69,11 +83,14 @@ public class UserController {
         return "redirect:/dashboard";
     }*/
 
+=======
+>>>>>>> 6e455b12c35d8a29ddf7e94511b0bdf8d05170c5
 }
 
 
 
 
+<<<<<<< HEAD
 /*
             if (logout != null) {
                 return "redirect:/dashboard";
@@ -85,5 +102,7 @@ public class UserController {
 
 
 
+=======
+>>>>>>> 6e455b12c35d8a29ddf7e94511b0bdf8d05170c5
 
 

@@ -3,29 +3,22 @@ package com.task.delivery.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "project")
 public class Project {
 
-    private Long id;
-    private String projectName;
+    public Project() { }
+
+    public Project(String name) {
+        this.name = name;
+    }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
-        return id;
-    }
+    private String name;
+    public void setName(String c) {name = c;}
+    public String getName() {return name ;}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getProjectName() {
-        return projectName;
-    }
-
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
-    }
-
+    @Transient
+    private String nonPersistant;
+    public String getNonPersistant() { return nonPersistant; }
+    public void setNonPersistant(String nonPersistant) { this.nonPersistant = nonPersistant; }
 
 }

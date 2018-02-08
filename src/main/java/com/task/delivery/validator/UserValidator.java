@@ -1,7 +1,7 @@
 package com.task.delivery.validator;
 
 import com.task.delivery.model.User;
-import com.task.delivery.service.UserService;
+import com.task.delivery.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

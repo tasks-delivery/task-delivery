@@ -15,13 +15,6 @@
             <class name="selenium.navbar.SupportPageTest"/>
             <class name="selenium.navbar.BlogPageTest"/>
             <class name="selenium.loginAndRegistration.SignUpPageTest"/>
-
-            <!--<class name="selenium.loginAndRegistration.SignUpPageTest">
-                <methods>
-                    <include name="logoutFromSystem"/>
-                </methods>
-            </class>!-->
-
         </classes>
     </test>
 </suite>
