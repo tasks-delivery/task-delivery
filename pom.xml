@@ -9,12 +9,20 @@
 	<name>Task delivery</name>
 	<description>Tracing system</description>
 	<properties>
+<<<<<<< HEAD
 		<selenide.version>4.9</selenide.version>
 		<selenium.java.version>3.8.1</selenium.java.version>
 		<selenium.server.version>3.8.1</selenium.server.version>
 		<selenium.firefox.version>3.8.1</selenium.firefox.version>
 		<selenium.chrome.version>3.8.1</selenium.chrome.version>
 		<selenium.remote.version>3.8.1</selenium.remote.version>
+=======
+		<selenide.version>4.4.2</selenide.version>
+		<selenium.java.version>3.0.1</selenium.java.version>
+		<selenium.server.version>3.0.1</selenium.server.version>
+		<selenium.firefox.version>3.0.1</selenium.firefox.version>
+		<selenium.chrome.version>3.0.1</selenium.chrome.version>
+>>>>>>> 59b707923a72af8895bdd25a39de335f069e534a
 		<modelmapper.version>0.7.4</modelmapper.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
@@ -26,7 +34,11 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
+<<<<<<< HEAD
 		<version>1.5.10.RELEASE</version>
+=======
+		<version>1.4.4.RELEASE</version>
+>>>>>>> 59b707923a72af8895bdd25a39de335f069e534a
 		<relativePath/>
 	</parent>
 	<profiles>
@@ -136,11 +148,6 @@
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-remote-driver</artifactId>
-			<version>${selenium.remote.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-chrome-driver</artifactId>
 			<version>${selenium.chrome.version}</version>
 		</dependency>
@@ -221,11 +228,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
 			<version>2.3.23</version>
@@ -251,7 +253,6 @@
 			<version>${webjars-bootstrap.version}</version>
 		</dependency>
 		<!-- end of webjars -->
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -387,7 +388,6 @@
                  </execution>
        </executions>
    </plugin>!-->
-
 		</plugins>
 	</build>
 
@@ -436,5 +436,4 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
 </project>
