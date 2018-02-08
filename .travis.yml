@@ -29,7 +29,7 @@ branches:
     - master
     
 stages:
-  - deploy test server               #TODO: need to fix
+  - deploy test server
   - test
   - name: push docker test image
     if: branch = dev
@@ -41,12 +41,21 @@ jobs:
     - stage: deploy test server
       env:
         - BRANCH_LINUX_CHROME=linux-chrome
+      script:
+        - git branch ${BRANCH_LINUX_CHROME}
+        - git push -f origin ${BRANCH_LINUX_CHROME}
+    - stage: deploy test server
+      env:
         - BRANCH_LINUX_FIREFOX=linux-firefox
       script:
         - git branch ${BRANCH_LINUX_FIREFOX}
         - git push -f origin ${BRANCH_LINUX_FIREFOX}
-        - git branch ${BRANCH_LINUX_CHROME}            #TODO: need to fix
-        - git push -f origin ${BRANCH_LINUX_CHROME}    #TODO: need to fix
+    - stage: deploy test server
+      env:
+        - BRANCH_REST_API=rest-api-test
+      script:
+        - git branch ${BRANCH_REST_API}
+        - git push -f origin ${BRANCH_REST_API}
     - stage: test
       os:
         - linux
