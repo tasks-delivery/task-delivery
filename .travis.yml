@@ -40,22 +40,10 @@ jobs:
   include:
     - stage: deploy test server
       env:
-        - BRANCH_LINUX_CHROME=linux-chrome
+        - BRANCH_TEST_DEPLOY=test-deploy
       script:
-        - git branch ${BRANCH_LINUX_CHROME}
-        - git push -f origin ${BRANCH_LINUX_CHROME}
-#    - stage: deploy test server
-#      env:
-#        - BRANCH_LINUX_FIREFOX=linux-firefox
-#      script:
-#        - git branch ${BRANCH_LINUX_FIREFOX}
-#        - git push -f origin ${BRANCH_LINUX_FIREFOX}
-#    - stage: deploy test server
-#      env:
-#        - BRANCH_REST_API=rest-api-test
-#      script:
-#        - git branch ${BRANCH_REST_API}
-#        - git push -f origin ${BRANCH_REST_API}
+        - git branch ${BRANCH_TEST_DEPLOY}
+        - git push -f origin ${BRANCH_TEST_DEPLOY}
     - stage: test
       os:
         - linux
