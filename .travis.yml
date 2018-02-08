@@ -57,23 +57,24 @@ jobs:
       env:
         - API=api-test
       script:
+        - docker-compose --file deploy.yml up --build -d
         - mvn test -P ${API}
     - stage: test
       os:
         - linux
       env:
-        - SELENIUM_BROWSER=chrome
+        - SELENIUM_CONFIG=linux-chrome
       script:
-        - if [ $SELENIUM_BROWSER == 'chrome' ]; then docker-compose up -d; fi
-        - if [ $SELENIUM_BROWSER == 'chrome' ]; then mvn test -P linux-chrome; fi
+        - docker-compose --file selenium.yml up -d
+        - mvn test -P ${SELENIUM_CONFIG}
     - stage: test
       os:
         - linux
       env:
-        - SELENIUM_BROWSER=firefox
+        - SELENIUM_CONFIG=linux-firefox
       script:
-        - if [ $SELENIUM_BROWSER == 'firefox' ]; then docker-compose up -d; fi
-        - if [ $SELENIUM_BROWSER == 'firefox' ]; then mvn test -P linux-firefox; fi
+        - docker-compose --file selenium.yml up -d
+        - mvn test -P ${SELENIUM_CONFIG}
     - stage: push docker test image
       env:
         - IMAGE=fiodar/td:test
