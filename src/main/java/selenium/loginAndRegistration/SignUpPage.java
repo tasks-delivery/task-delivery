@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import selenium.config.BasePage;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
+//import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
 import static com.codeborne.selenide.Selenide.open;
 
 public class SignUpPage extends BasePage {
