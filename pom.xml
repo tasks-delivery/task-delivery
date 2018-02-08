@@ -280,8 +280,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<!-- Spring Boot Actuator displays build-related information
-                          if a META-INF/build-info.properties file is present -->
 						<goals>
 							<goal>build-info</goal>
 						</goals>
@@ -364,39 +362,9 @@
 					</resources>
 				</configuration>
 			</plugin>
-			<!--<plugin>
-                   <groupId>com.dkanejs.maven.plugins</groupId>
-                   <artifactId>docker-compose-maven-plugin</artifactId>
-                   <version>1.0.1</version>
-                   <executions>
-                          <execution>
-                              <id>up</id>
-                              <phase>post-integration-test</phase>
-                              <goals>
-                                  <goal>up</goal>
-                              </goals>
-                              <configuration>
-                                  <composeFile>${project.basedir}/docker-compose.yml</composeFile>
-                                  <detachedMode>true</detachedMode>
-                              </configuration>
-                          </execution>
-               <execution>
-                     <id>test</id>
-                     <phase>clean</phase>
-                     <goals>
-                         <goal>down</goal>
-                     </goals>
-                     <configuration>
-                         <composeFile>${project.basedir}/docker-compose.yml</composeFile>
-                         <removeVolumes>true</removeVolumes>
-                     </configuration>
-                 </execution>
-       </executions>
-   </plugin>!-->
 		</plugins>
 	</build>
 
-	<!-- Apache 2 license -->
 	<licenses>
 		<license>
 			<name>Apache License, Version 2.0</name>

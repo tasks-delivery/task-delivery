@@ -58,6 +58,7 @@ jobs:
         - API=api-test
       script:
         - docker-compose --file deploy.yml up --build -d
+        - sleep 60
         - mvn test -P ${API}
     - stage: test
       os:
