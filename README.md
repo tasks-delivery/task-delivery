@@ -9,3 +9,6 @@
   <img alt="Coverity Scan Build Status"
        src="https://scan.coverity.com/projects/15084/badge.svg"/>
 </a>
+
+
+[ ![Codeship Status for tasks-delivery/task-delivery](https://app.codeship.com/projects/6bd0a770-eefb-0135-eccb-2e99b60e2a7c/status?branch=master)](https://app.codeship.com/projects/271037)
