@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-
-<body>
-<%@ include file="/resources/templates/common/common.jsp" %>
-</body>
-=======
 <%@ include file="/resources/templates/common/common.jsp" %>
 <div class="newproject">
     <div class='project-form'>
@@ -18,4 +12,4 @@
         </form>
     </div>
 </div>
->>>>>>> 6e455b12c35d8a29ddf7e94511b0bdf8d05170c5
+

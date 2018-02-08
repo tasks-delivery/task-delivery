@@ -1,11 +1,7 @@
 package com.task.delivery.service.project;
 
 import com.task.delivery.model.Project;
-<<<<<<< HEAD
-import com.task.delivery.repository.ProjectRepository;
-=======
 //import com.task.delivery.repository.ProjectRepository;
->>>>>>> 6e455b12c35d8a29ddf7e94511b0bdf8d05170c5
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.modelmapper.ModelMapper;
@@ -16,9 +12,6 @@ import java.nio.charset.Charset;
 import java.util.List;
 
 public class ProjectServiceImplTest {
-<<<<<<< HEAD
-
-=======
 /*
 >>>>>>> 6e455b12c35d8a29ddf7e94511b0bdf8d05170c5
     private MediaType contentType;
@@ -79,5 +72,4 @@ public class ProjectServiceImplTest {
 
 =======
 */
->>>>>>> 6e455b12c35d8a29ddf7e94511b0bdf8d05170c5
 }

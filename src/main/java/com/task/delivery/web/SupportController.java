@@ -13,8 +13,4 @@ public class SupportController {
         return "resources/templates/common/support/support";
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6e455b12c35d8a29ddf7e94511b0bdf8d05170c5
 }
