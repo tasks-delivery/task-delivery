@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Test in linux for firefox browser">
     <test name="testLinuxFirefox">
-        <parameter name="browser" value="firefox"/>
+        <parameter name="browser" value="marionette"/>
         <parameter name="browserVersion" value="null"/>
         <parameter name="remote" value="http://localhost:4444/wd/hub"/>
         <parameter name="headless" value="false"/>
