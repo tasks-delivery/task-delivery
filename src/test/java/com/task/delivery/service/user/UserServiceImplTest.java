@@ -1,12 +1,10 @@
-package com.task.delivery.service;
+package com.task.delivery.service.user;
 
 import com.task.delivery.model.User;
 import com.task.delivery.repository.UserRepository;
-import com.task.delivery.service.user.UserService;
-import com.task.delivery.service.user.UserServiceImpl;
 import org.mockito.InjectMocks;
-import org.testng.annotations.Test;
 import org.mockito.Mock;
+import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class UserServiceImplTest {
@@ -27,7 +25,7 @@ public class UserServiceImplTest {
         user.setUsername(username);
         user.setPassword(password);
         user.setPasswordConfirm(passwordConfirm);
-     //   user.setRoles(roles);
+        //   user.setRoles(roles);
 
     }
 

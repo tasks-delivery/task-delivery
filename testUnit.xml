@@ -3,7 +3,7 @@
 <suite name="Unit tests">
     <test name="testUnit">
         <classes>
-            <class name="com.task.delivery.service.UserServiceImplTest"/>
+            <class name="com.task.delivery.service.user.UserServiceImplTest"/>
         </classes>
     </test>
 </suite>
