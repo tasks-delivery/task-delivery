@@ -29,12 +29,12 @@ services:
 #      - "--character-set-server=utf8"
 #      - "--collation-server=utf8_unicode_ci"
    selenium-hub:
-     image: selenium/hub:3.8.1
+     image: selenium/hub:3.0.1
      container_name: selenium-hub
      ports:
        - "4444:4444"
    chrome:
-     image: selenium/node-chrome:3.8.1
+     image: selenium/node-chrome:3.0.1
      depends_on:
        - selenium-hub
      environment:

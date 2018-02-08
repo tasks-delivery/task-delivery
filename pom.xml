@@ -14,7 +14,7 @@
 		<selenium.server.version>3.0.1</selenium.server.version>
 		<selenium.firefox.version>3.0.1</selenium.firefox.version>
 		<selenium.chrome.version>3.0.1</selenium.chrome.version>
-		<selenium.remote.version>3.0.1</selenium.remote.version>
+		<!--<selenium.remote.version>3.0.1</selenium.remote.version>-->
 		<modelmapper.version>0.7.4</modelmapper.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
@@ -251,7 +251,6 @@
 			<version>${webjars-bootstrap.version}</version>
 		</dependency>
 		<!-- end of webjars -->
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>

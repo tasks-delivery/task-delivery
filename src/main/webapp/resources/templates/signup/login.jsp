@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<link href="${contextPath}/resources/templates/signup/signup.css" rel="stylesheet">
-=======
->>>>>>> 6e455b12c35d8a29ddf7e94511b0bdf8d05170c5
 <%@ include file="/resources/templates/common/common.jsp" %>
 <div class="login">
    <form method="POST" action="${contextPath}/login" class="form-signin">
