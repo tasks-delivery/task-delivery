@@ -9,7 +9,7 @@
 	<name>Task delivery</name>
 	<description>Tracing system</description>
 	<properties>
-		<selenide.version>4.4</selenide.version>
+		<selenide.version>4.9</selenide.version>
 		<selenium.java.version>3.8.1</selenium.java.version>
 		<selenium.server.version>3.8.1</selenium.server.version>
 		<selenium.firefox.version>3.8.1</selenium.firefox.version>
@@ -26,7 +26,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.4.RELEASE</version>
+		<version>1.5.10.RELEASE</version>
 		<relativePath/>
 	</parent>
 	<profiles>
