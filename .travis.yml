@@ -73,7 +73,7 @@ jobs:
       os:
         - linux
       env:
-        - $SELENIUM_BROWSER=firefox
+        - SELENIUM_BROWSER=firefox
       script:
         - if [ $SELENIUM_BROWSER == 'firefox' ]; then docker-compose up -d; fi
         - if [ $SELENIUM_BROWSER == 'firefox' ]; then mvn test -P linux-firefox; fi
