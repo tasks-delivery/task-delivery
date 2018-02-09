@@ -1,13 +1,8 @@
 package com.task.delivery.service.project;
 
 import com.task.delivery.model.Project;
-import java.util.List;
+import com.task.delivery.service.helper.AbstractService;
 
-public interface ProjectService {
+public interface ProjectService extends AbstractService<Project> {
 
-    void save(Project project);
-
-    List<Project> findByProjectName(String projectName);
-
-    List<Project> findById(Long id);
 }

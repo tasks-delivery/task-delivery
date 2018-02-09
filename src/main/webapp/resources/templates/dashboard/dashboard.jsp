@@ -1,27 +1,14 @@
 <%@ include file="/resources/templates/common/common.jsp" %>
-<link href="${contextPath}/resources/templates/dashboard/dashboard.css" rel="stylesheet">
 <div class="board">
     <div class='dashboard'>
-        <button class="project" type="submit">Create project</button>
-        <table class="project-list">
-            <thead></thead>
-                <tbody>
-                    <tr>
-                        <td>first project</td>
-                        <td>second project</td>
-                        <td>third project</td>
-                    </tr>
-                    <tr>
-                        <td>first project</td>
-                        <td>second project</td>
-                        <td>third project</td>
-                    </tr>
-                    <tr>
-                        <td>first project</td>
-                        <td>second project</td>
-                        <td>third project</td>
-                    </tr>
-                </tbody>
+        <button class="add-project" type="button" onclick="location.href = '/project'">Create project</button>
+        <table border="1" cellspacing="0" cellpadding="8" class="project-list">
+            <tr><th>Name</th><th>Start date</th></tr>
+            <c:forEach items="${project}" var="project">
+                <tr><td>${project.name}</td><td>01.02.1993
+                 <button class="project-del-btn">Delete</button>
+                 <button class="project-edit-btn">Edit</button>
+                </td></tr>
+            </c:forEach>
         </table>
-    </div>
 </div>

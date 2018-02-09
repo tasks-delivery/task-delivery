@@ -9,12 +9,14 @@
         <parameter name="timeout" value="8000"/>
         <parameter name="baseUrl" value="https://task-delivery-test-linux-ff.herokuapp.com/"/>
         <classes>
+            <class name="selenium.loginAndRegistration.SignUpPageTest"/>
             <class name="selenium.main.MainPageTest"/>
             <class name="selenium.navbar.DocsPageTest"/>
             <class name="selenium.navbar.AboutPageTest"/>
             <class name="selenium.navbar.SupportPageTest"/>
             <class name="selenium.navbar.BlogPageTest"/>
-            <class name="selenium.loginAndRegistration.SignUpPageTest"/>
+            <class name="selenium.project.ProjectPageTest"/>
+            <class name="selenium.dashboard.DashboardPageTest"/>
         </classes>
     </test>
 </suite>

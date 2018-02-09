@@ -15,5 +15,4 @@ public class DocsControllerTest extends RestTest {
         assertThat(response.statusCode()).isEqualTo(OK.value());
     }
 
-
 }

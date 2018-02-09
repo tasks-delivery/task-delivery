@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import selenium.config.BasePage;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
+//import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
 import static com.codeborne.selenide.Selenide.open;
 
 public class SignUpPage extends BasePage {
@@ -24,7 +24,7 @@ public class SignUpPage extends BasePage {
     fieldPassConfirm = $(By.name("passwordConfirm")),
     btnLogin = $(By.xpath("//*[@class='login']//BUTTON[text()='Login']/self::BUTTON")),
     btnSubmit = $(By.xpath("//*[@class='registration']//button[text()='Submit']/self::BUTTON")),
-    btnLogout = $(By.xpath("//*[@class='top-bar-section']//*[@class='btn-logout']")),
+
     linkCreateAcc = $(By.xpath("//*[@class='login']//a[text()='Create an account']/self::A")),
     usernamePlaceholder = $(By.xpath("//INPUT[@placeholder='Username']/self::INPUT")),
     passPlaceholder = $(By.xpath("//INPUT[@placeholder='Password']/self::INPUT")),
@@ -51,7 +51,7 @@ public class SignUpPage extends BasePage {
         $(btnSubmit).click();
     }
 
-    public void logitToSystem(String username, String password){
+    public void loginToSystem(String username, String password){
         open(baseUrl);
         $(btnSignIn).click();
         $(fieldUsername).val(username);

@@ -19,15 +19,18 @@ before_install:
 - echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
 - git lfs pull
 
+install:
+- mvn -N io.takari:maven:wrapper
+- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
 branches:
   only:
     - dev
     - master
     
 stages:
-  - deploy test server               #TODO: need to fix
-  - unit and rest api tests
-  - selenium test
+  - deploy test server
+  - test
   - name: push docker test image
     if: branch = dev
   - name: deploy prod and push docker image
@@ -37,47 +40,42 @@ jobs:
   include:
     - stage: deploy test server
       env:
-        - BRANCH_LINUX_CHROME=linux-chrome
-        - BRANCH_LINUX_FIREFOX=linux-firefox
+        - BRANCH_TEST_DEPLOY=test-deploy
       script:
-        - git branch ${BRANCH_LINUX_FIREFOX}
-        - git push -f origin ${BRANCH_LINUX_FIREFOX}
-        - git branch ${BRANCH_LINUX_CHROME}            #TODO: need to fix
-        - git push -f origin ${BRANCH_LINUX_CHROME}    #TODO: need to fix
-    - stage: unit and rest api tests
+        - git branch ${BRANCH_TEST_DEPLOY}
+        - git push -f origin ${BRANCH_TEST_DEPLOY}
+    - stage: test
       os:
         - linux
       env:
         - UNIT=unit-test
       script:
         - mvn test -P ${UNIT}
-    - stage: unit and rest api tests
+    - stage: test
       os:
         - linux
       env:
         - API=api-test
       script:
+        - docker-compose --file deploy.yml up --build -d
+        - sleep 60
         - mvn test -P ${API}
-    - stage: selenium test
+    - stage: test
       os:
         - linux
       env:
-        - BROWSER=chrome
-        - BRANCH_LINUX_CHROME=linux-chrome           #TODO: need to refactoring
-      before_script:
-        - git branch ${BRANCH_LINUX_CHROME}          #TODO: need to refactoring
-        - git push -f origin ${BRANCH_LINUX_CHROME}  #TODO: need to refactoring
+        - SELENIUM_CONFIG=linux-chrome
       script:
-        - if [ $BROWSER == 'chrome' ]; then docker-compose up -d; fi
-        - if [ $BROWSER == 'chrome' ]; then mvn test -P linux-chrome; fi
-    - stage: selenium test
+        - docker-compose --file selenium.yml up -d
+        - mvn test -P ${SELENIUM_CONFIG}
+    - stage: test
       os:
         - linux
       env:
-        - BROWSER=firefox
+        - SELENIUM_CONFIG=linux-firefox
       script:
-        - if [ $BROWSER == 'firefox' ]; then docker-compose up -d; fi
-        - if [ $BROWSER == 'firefox' ]; then mvn test -P linux-firefox; fi
+        - docker-compose --file selenium.yml up -d
+        - mvn test -P ${SELENIUM_CONFIG}
     - stage: push docker test image
       env:
         - IMAGE=fiodar/td:test

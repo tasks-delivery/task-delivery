@@ -1,51 +1,58 @@
 package com.task.delivery.web;
 
-import com.task.delivery.exception.WrongIdFormatException;
 import com.task.delivery.model.Project;
-import com.task.delivery.repository.ProjectRepository;
+import com.task.delivery.model.User;
+import com.task.delivery.service.project.ProjectService;
+import com.task.delivery.validator.ProjectValidation;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ProjectController {
 
+    private final Logger logger = LoggerFactory.getLogger(ProjectController.class);
+
     @Autowired
-    ProjectRepository projectRepository;
-/*
-    @RequestMapping(value = "{id}", method = RequestMethod.POST)
-    public Project create(@RequestBody Project project, HttpServletResponse response){
+    ProjectService projectService;
 
+    @Autowired
+    private ProjectValidation projectValidation;
 
-        projectRepository.save(project);
-
-        response.setStatus(HttpServletResponse.SC_CREATED);
-
-        return project;
-    }
-*/
-    @RequestMapping(value = {"/projects"}, method = RequestMethod.GET)
-    public String  project(Model model){
-
-
+    @RequestMapping(value = "/project", method = RequestMethod.GET)
+    public String list(Map<String, Object> model) {
+        List<Project> project = projectService.list();
+        model.put("project", project);
+        model.put("active", "project");
         return "resources/templates/project/project";
     }
 
-/*
-    @RequestMapping(value = "{id}",method = RequestMethod.PUT)
-    public Contact updateClient(@PathVariable String id, @RequestBody Contact contact){
-
-        contactRepository.save(contact);
-
-        return contact;
+    @RequestMapping(value = "/project", method = RequestMethod.POST)
+    public ModelAndView add(ModelMap model, String name) {
+        try {
+            if (StringUtils.isNoneBlank(name)) {
+                Project project = new Project(name);
+                projectService.save(project);
+                model.put("success", true);
+            }
+        } catch (Exception e) {
+            logger.error(ExceptionUtils.getStackTrace(e));
+            model.put("success", false);
+        }
+        return new ModelAndView("redirect:/dashboard", model);
     }
-*/
-
 
 }
+
 

@@ -1,7 +1,9 @@
 package selenium.navbar;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
+import selenium.loginAndRegistration.SignUpPage;
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -12,9 +14,17 @@ import static com.codeborne.selenide.Selenide.open;
 public class SupportPageTest extends BaseTest {
 
     SupportPage supportPage;
+    SignUpPage signUpPage;
 
     public SupportPageTest(){
         supportPage = new SupportPage(driver);
+        signUpPage = new SignUpPage(driver);
+    }
+
+    @BeforeClass
+    public void preconditions(){
+        signUpPage.createNewUser("testsupport", "password", "password");
+        signUpPage.logoutFromSystem();
     }
 
     @Test(description = "Docs page should be visible by clicking 'Docs' in navbar panel")
@@ -43,6 +53,21 @@ public class SupportPageTest extends BaseTest {
         $(supportPage.btnSupport).click();
         $(supportPage.footer).shouldHave(text(supportPage.copyrightTaskDelivery2018));
         $(supportPage.footerLinks).shouldHave(attribute("href", supportPage.linkToGitHubRepo));
+    }
+
+    @Test(description = "Verify logout button")
+    public void logoutButtonShouldBeVisible(){
+        signUpPage.loginToSystem("testsupport", "password");
+        $(supportPage.btnAbout).click();
+        $(supportPage.btnAbout).shouldBe(visible).shouldHave(text("About")).exists();
+        $(supportPage.btnBlog).shouldBe(visible).shouldHave(text("Blog")).exists();
+        $(supportPage.btnDocs).shouldBe(visible).shouldHave(text("Docs")).exists();
+        $(supportPage.btnSignIn).shouldNotBe(visible);
+        $(supportPage.btnSupport).shouldBe(visible).shouldHave(text("Support")).exists();
+        $(supportPage.btnLogout).shouldBe(visible);
+        $(supportPage.appName).shouldBe(visible);
+        $(supportPage.tdLogo).shouldBe(visible).exists();
+        signUpPage.logoutFromSystem();
     }
 
 }
