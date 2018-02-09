@@ -5,9 +5,13 @@ import com.task.delivery.model.User;
 import com.task.delivery.service.security.SecurityService;
 import com.task.delivery.service.user.UserService;
 import com.task.delivery.validator.UserValidator;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class UserController {
+
+    private final Logger logger = LoggerFactory.getLogger(ProjectController.class);
+
     @Autowired
     private UserService userService;
 
@@ -33,6 +40,7 @@ public class UserController {
 
     @RequestMapping(value = {"/registration"}, method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
+
         userValidator.validate(userForm, bindingResult);
 
         if (bindingResult.hasErrors()) {
@@ -47,21 +55,15 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login(Model model, String error, String logout) throws WrongIdFormatException {
-        if (error != null)
-
-            model.addAttribute("error", "Your username and password is invalid.");
-
-        if (logout != null)
-
-            model.addAttribute("error", "Your username and password is invalid.");
-
-        if (logout != null)
-
-            model.addAttribute("message", "You have been logged out successfully.");
+    public String login(Model model, String error, String logout) {
+            if (error != null)
+                model.addAttribute("error", "Your username and password is invalid.");
+            if (logout != null)
+                model.addAttribute("error", "Your username and password is invalid.");
+            if (logout != null)
+                model.addAttribute("message", "You have been logged out successfully.");
 
         return "resources/templates/signup/login";
-
      }
 
 }

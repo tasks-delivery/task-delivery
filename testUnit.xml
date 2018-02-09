@@ -4,6 +4,7 @@
     <test name="testUnit">
         <classes>
             <class name="com.task.delivery.service.user.UserServiceImplTest"/>
+            <class name="com.task.delivery.service.project.ProjectServiceImplTest"/>
         </classes>
     </test>
 </suite>

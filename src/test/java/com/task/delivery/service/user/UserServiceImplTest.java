@@ -18,24 +18,12 @@ public class UserServiceImplTest {
     @Mock
     UserServiceImpl converter;
 
-    User user = new User();
-
-    public void getUser(Long id, String username, String password, String passwordConfirm)  {
-        user.setId(id);
-        user.setUsername(username);
-        user.setPassword(password);
-        user.setPasswordConfirm(passwordConfirm);
-        //   user.setRoles(roles);
-
-    }
-
     @Test
-    public void testSmoke()  {
-        getUser(1L,"tt", "aa", "bb");
-        assertThat(user.getId()).isEqualTo(1L);
-        assertThat(user.getUsername()).isEqualTo("tt");
-        assertThat(user.getPassword()).isEqualTo("aa");
-        assertThat(user.getPasswordConfirm()).isEqualTo("bb");
+    public void createNewUser()  {
+        User user = new User(1L,"test", "test","test");
+        assertThat(user.getUsername()).isEqualTo("test");
+        assertThat(user.getPassword()).isEqualTo("test");
+        assertThat(user.getPasswordConfirm()).isEqualTo("test");
     }
 
 }

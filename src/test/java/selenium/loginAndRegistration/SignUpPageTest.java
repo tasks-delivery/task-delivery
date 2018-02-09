@@ -53,7 +53,7 @@ public class SignUpPageTest extends BaseTest {
 
     @Test(description = "Login to the system")
     public void loginToSystem(){
-        signUpPage.logitToSystem("testuser","testpassword");
+        signUpPage.loginToSystem("testuser","testpassword");
         $(signUpPage.userInfo).shouldHave(text("Welcome testuser")).exists();
         $(signUpPage.logoutForm).shouldBe(visible);
         signUpPage.logoutFromSystem();
@@ -69,14 +69,14 @@ public class SignUpPageTest extends BaseTest {
 
     @Test(description = "Validation message should visibile if username contains invalid data")
     public void loginWithInvalidUsername(){
-        signUpPage.logitToSystem("testuser1","testpassword");
+        signUpPage.loginToSystem("testuser1","testpassword");
         $(signUpPage.logoutForm).shouldNotBe(visible);
         $(signUpPage.loginFormError).shouldHave(text(signUpPage.yourUsernameAndPasswordIsInvalid));
     }
 
     @Test(description = "Validation message should visibile if password contains invalid data")
     public void loginWithInvalidPassword(){
-        signUpPage.logitToSystem("testuser","testpassword1");
+        signUpPage.loginToSystem("testuser","testpassword1");
         $(signUpPage.logoutForm).shouldNotBe(visible);
         $(signUpPage.loginFormError).shouldHave(text(signUpPage.yourUsernameAndPasswordIsInvalid));
     }
@@ -103,7 +103,7 @@ public class SignUpPageTest extends BaseTest {
         $(signUpPage.logoutForm).shouldNotBe(visible);
     }
 
-    @Test(description = "validation for requrenment field should be visible")
+    @Test(description = "validation for requirement field should be visible")
     public void validationForRequiredFieldsRegistrationPage(){
         signUpPage.createNewUser("", "", "");
         $(signUpPage.userError).shouldHave(text(signUpPage.thisFieldIsRequired));
@@ -113,7 +113,7 @@ public class SignUpPageTest extends BaseTest {
 
     @Test(description = "It is possbile to logout from the system")
     public void logoutFromSystem(){
-        signUpPage.logitToSystem("testuser","testpassword");
+        signUpPage.loginToSystem("testuser","testpassword");
         signUpPage.logoutFromSystem();
         $(signUpPage.logoutForm).shouldNotBe(visible);
         $(byText(signUpPage.youHaveBeenLoggedOutSuccessfully)).shouldBe(visible);

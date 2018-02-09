@@ -1,17 +1,21 @@
 package com.task.delivery.web;
 
-
 import com.task.delivery.model.Project;
+import com.task.delivery.model.User;
 import com.task.delivery.service.project.ProjectService;
+import com.task.delivery.validator.ProjectValidation;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +27,10 @@ public class ProjectController {
     @Autowired
     ProjectService projectService;
 
-    @RequestMapping(value = "/project",method = RequestMethod.GET)
+    @Autowired
+    private ProjectValidation projectValidation;
+
+    @RequestMapping(value = "/project", method = RequestMethod.GET)
     public String list(Map<String, Object> model) {
         List<Project> project = projectService.list();
         model.put("project", project);
@@ -31,7 +38,7 @@ public class ProjectController {
         return "resources/templates/project/project";
     }
 
-    @RequestMapping(value = "/project", method = RequestMethod.PUT)
+    @RequestMapping(value = "/project", method = RequestMethod.POST)
     public ModelAndView add(ModelMap model, String name) {
         try {
             if (StringUtils.isNoneBlank(name)) {
@@ -42,10 +49,10 @@ public class ProjectController {
         } catch (Exception e) {
             logger.error(ExceptionUtils.getStackTrace(e));
             model.put("success", false);
-            model.put("error", e.getMessage());
         }
         return new ModelAndView("redirect:/dashboard", model);
     }
 
 }
+
 

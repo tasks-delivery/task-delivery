@@ -57,4 +57,13 @@ public class User  {
         this.roles = roles;
     }
 
+    public User() { }
+
+    public User(Long id, String username, String password, String passwordConfirm) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.passwordConfirm = passwordConfirm;
+    }
+
 }

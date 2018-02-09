@@ -6,29 +6,24 @@ import static io.restassured.RestAssured.given;
 
 public class DashboardControllerTest extends RestTest{
 
-    /*
-    TODO: BUG (Actual result: return 200 error)
-     */
-    @Test(enabled = false, description = "should be return error 403 from endpoint '/dashboard'")
+    @Test( description = "should be return error 401 from endpoint '/dashboard'")
     public void getDashboardPageWithInvalidToken(){
         given(spec).
                 when().
                 get("/dashboard").
                 then().
-                statusCode(403).
+                statusCode(401).
                 extract().response().print();
     }
 
-    /*
-    TODO: Add method for parse token
-     */
-    @Test(enabled = false, description = "should be return status code 303 from endpoint '/dashboard'")
+    @Test(description = "should be return status code 200 from endpoint '/dashboard'")
     public void getDashboardPageWithValidToken(){
         given(spec).
+                auth().basic("testuser","password").
                 when().
                 get("/dashboard").
                 then().
-                statusCode(303).
+                statusCode(200).
                 extract().response().print();
     }
 

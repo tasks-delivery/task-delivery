@@ -2,7 +2,6 @@ package selenium.main;
 
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;

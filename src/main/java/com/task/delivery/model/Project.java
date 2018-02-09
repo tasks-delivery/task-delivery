@@ -1,6 +1,7 @@
 package com.task.delivery.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Project {
@@ -12,6 +13,7 @@ public class Project {
     }
 
     @Id
+    @Size(min = 2, max = 20,message = "Please use between 2 and 20 characters.")
     private String name;
     public void setName(String c) {name = c;}
     public String getName() {return name ;}

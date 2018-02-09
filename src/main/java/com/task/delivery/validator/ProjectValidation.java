@@ -13,19 +13,18 @@ public class ProjectValidation {
     @Autowired
     private ProjectService projectService;
 
-
     public boolean supports(Class<?> aClass) {
         return Project.class.equals(aClass);
     }
 
-
     public void validate(Object o, Errors errors) {
-        Project user = (Project) o;
+        Project project = (Project) o;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "projectName", "NotEmpty");
-        //if (user.getProjectName().length() < 3 ) {
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "NotEmpty");
+        if (project.getName().length() < 2 || project.getName().length() > 20) {
             errors.rejectValue("name", "Size.projectForm.name");
         }
+    }
         /*
         if (userService.findByUsername(user.getUsername()) != null) {
             errors.rejectValue("username", "Duplicate.userForm.username");
@@ -40,5 +39,5 @@ public class ProjectValidation {
             errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
         }
         */
-    }
+}
 

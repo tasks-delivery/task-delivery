@@ -15,5 +15,4 @@ public class BlogControllerTest extends RestTest{
         assertThat(response.statusCode()).isEqualTo(OK.value());
     }
 
-
 }
