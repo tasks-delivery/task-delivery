@@ -12,6 +12,9 @@
 		<selenide.version>4.9</selenide.version>
 		<selenium.java.version>3.8.1</selenium.java.version>
 		<selenium.server.version>3.8.1</selenium.server.version>
+		<selenium.support.version>3.8.1</selenium.support.version>
+		<selenium.remote.version>3.8.1</selenium.remote.version>
+		<selenium.api.version>3.8.1</selenium.api.version>
 		<selenium.firefox.version>3.8.1</selenium.firefox.version>
 		<selenium.chrome.version>3.8.1</selenium.chrome.version>
 		<modelmapper.version>0.7.4</modelmapper.version>
@@ -111,21 +114,18 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-api</artifactId>
-			<version>3.8.1</version>
+			<version>${selenium.api.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-remote-driver</artifactId>
-			<version>3.8.1</version>
+			<version>${selenium.remote.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-support</artifactId>
-			<version>3.8.1</version>
+			<version>${selenium.support.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>

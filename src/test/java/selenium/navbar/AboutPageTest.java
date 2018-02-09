@@ -1,7 +1,9 @@
 package selenium.navbar;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
+import selenium.loginAndRegistration.SignUpPage;
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -12,9 +14,17 @@ import static com.codeborne.selenide.Selenide.open;
 public class AboutPageTest extends BaseTest {
 
     AboutPage aboutPage;
+    SignUpPage signUpPage;
 
     public AboutPageTest(){
+        signUpPage = new SignUpPage(driver);
         aboutPage = new AboutPage(driver);
+    }
+
+    @BeforeClass
+    public void preconditions(){
+        signUpPage.createNewUser("testabout", "password", "password");
+        signUpPage.logoutFromSystem();
     }
 
     @Test(description = "Docs page should be visible by clicking 'Docs' in navbar panel")
@@ -43,5 +53,20 @@ public class AboutPageTest extends BaseTest {
         $(aboutPage.btnAbout).click();
         $(aboutPage.footer).shouldHave(text(aboutPage.copyrightTaskDelivery2018));
         $(aboutPage.footerLinks).shouldHave(attribute("href", aboutPage.linkToGitHubRepo));
+    }
+
+    @Test(description = "Verify logout button")
+    public void logoutButtonShouldBeVisible(){
+        signUpPage.loginToSystem("testabout", "password");
+        $(aboutPage.btnAbout).click();
+        $(aboutPage.btnAbout).shouldBe(visible).shouldHave(text("About")).exists();
+        $(aboutPage.btnBlog).shouldBe(visible).shouldHave(text("Blog")).exists();
+        $(aboutPage.btnDocs).shouldBe(visible).shouldHave(text("Docs")).exists();
+        $(aboutPage.btnSignIn).shouldNotBe(visible);
+        $(aboutPage.btnSupport).shouldBe(visible).shouldHave(text("Support")).exists();
+        $(aboutPage.btnLogout).shouldBe(visible);
+        $(aboutPage.appName).shouldBe(visible);
+        $(aboutPage.tdLogo).shouldBe(visible).exists();
+        signUpPage.logoutFromSystem();
     }
 }

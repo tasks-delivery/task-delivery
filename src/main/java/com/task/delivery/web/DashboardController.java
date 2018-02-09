@@ -20,7 +20,6 @@ public class DashboardController {
 
     @RequestMapping("/dashboard")
     public String dashboard(Map<String, Object> model) {
-        model.put("active", "accueil");
         List<Project> project = projectService.list();
         model.put("project", project);
         model.put("active", "project");

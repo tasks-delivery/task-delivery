@@ -21,6 +21,7 @@ public class BasePage extends ConciseAPI {
     tdLogo = $(By.xpath("//*[@class='top-bar']//IMG[@src='/resources/img/bomb.png']/self::IMG")),
     appName = $(By.xpath("//*[@class='top-bar']//SPAN[text()='Task-delivery']/self::SPAN")),
     footerLinks = $(By.xpath("//*[@class='footer']//a")),
+    btnLogout = $(By.xpath("//*[@class='btn-logout']")),
     footer = $(By.xpath("//*[@class='footer']"));
 
     public WebDriver driver(){
