@@ -79,7 +79,8 @@ jobs:
         - mvn test -P ${SELENIUM_CONFIG}
     - stage: test
       os:
-        - osx
+       - osx
+       - osx_image: xcode7.3
       env:
         - SELENIUM_CONFIG=osx-chrome
       script:
