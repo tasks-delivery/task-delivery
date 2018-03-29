@@ -77,15 +77,15 @@ jobs:
       script:
         - docker-compose --file selenium.yml up -d
         - mvn test -P ${SELENIUM_CONFIG}
-#    - stage: test
-#      os:
-#        - osx
-#      env:
-#        - SELENIUM_CONFIG=osx-chrome
-#      script:
-#        - docker-compose --file selenium.yml up -d
-#        - mvn test -P ${SELENIUM_CONFIG}
-#    - stage: test
+    - stage: test
+      os:
+        - osx
+      env:
+        - SELENIUM_CONFIG=osx-chrome
+      script:
+        - docker-compose --file selenium.yml up -d
+        - mvn test -P ${SELENIUM_CONFIG}
+    - stage: test
 #      os:
 #        - osx
 #      env:
