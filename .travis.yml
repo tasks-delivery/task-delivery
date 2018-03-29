@@ -3,7 +3,7 @@ dist: trusty
 sudo: required
 group: deprecated-2017Q4
 
-oracle-java8-installer
+jdk: oracle-java8-installer
 
 
 services:
