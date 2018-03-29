@@ -4,7 +4,7 @@ sudo: required
 group: deprecated-2017Q4
 
 jdk: openjdk8
-osx_image: xcode8.3
+
 
 services:
   - docker
@@ -77,22 +77,22 @@ jobs:
       script:
         - docker-compose --file selenium.yml up -d
         - mvn test -P ${SELENIUM_CONFIG}
-    - stage: test
-      os:
-        - osx
-      env:
-        - SELENIUM_CONFIG=osx-chrome
-      script:
-        - docker-compose --file selenium.yml up -d
-        - mvn test -P ${SELENIUM_CONFIG}
-    - stage: test
-      os:
-        - osx
-      env:
-        - SELENIUM_CONFIG=osx-firefox
-      script:
-        - docker-compose --file selenium.yml up -d
-        - mvn test -P ${SELENIUM_CONFIG}
+#    - stage: test
+#      os:
+#        - osx
+#      env:
+#        - SELENIUM_CONFIG=osx-chrome
+#      script:
+#        - docker-compose --file selenium.yml up -d
+#        - mvn test -P ${SELENIUM_CONFIG}
+#    - stage: test
+#      os:
+#        - osx
+#      env:
+#        - SELENIUM_CONFIG=osx-firefox
+#      script:
+#        - docker-compose --file selenium.yml up -d
+#        - mvn test -P ${SELENIUM_CONFIG}
     - stage: push docker test image
       env:
         - IMAGE=fiodar/td:test
