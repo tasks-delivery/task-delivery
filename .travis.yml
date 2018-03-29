@@ -76,6 +76,22 @@ jobs:
       script:
         - docker-compose --file selenium.yml up -d
         - mvn test -P ${SELENIUM_CONFIG}
+    - stage: test
+      os:
+        - osx
+      env:
+        - SELENIUM_CONFIG=osx-chrome
+      script:
+        - docker-compose --file selenium.yml up -d
+        - mvn test -P ${SELENIUM_CONFIG}
+    - stage: test
+      os:
+        - osx
+      env:
+        - SELENIUM_CONFIG=osx-firefox
+      script:
+        - docker-compose --file selenium.yml up -d
+        - mvn test -P ${SELENIUM_CONFIG}
     - stage: push docker test image
       env:
         - IMAGE=fiodar/td:test
