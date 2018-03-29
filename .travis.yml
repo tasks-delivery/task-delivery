@@ -37,6 +37,7 @@ stages:
   - name: deploy prod and push docker image
     if: branch = master
 
+
 jobs:
   include:
     - stage: deploy test server
