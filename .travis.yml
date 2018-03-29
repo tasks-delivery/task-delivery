@@ -3,7 +3,15 @@ dist: trusty
 sudo: required
 group: deprecated-2017Q4
 
-jdk: oracle-java8-installer
+jdk:
+  - oraclejdk8
+addons:
+  # for now, let's test only with H2
+  #postgresql: '9.4'
+  #mariadb: '10.0'
+  apt:
+    packages:
+      - oracle-java8-installer
 
 
 services:
