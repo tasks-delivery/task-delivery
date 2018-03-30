@@ -87,6 +87,7 @@ jobs:
       env:
         - SELENIUM_CONFIG=linux-firefox
       script:
+        - docker-compose --file deploy.yml up --build -d
         - docker-compose --file selenium.yml up -d
         - mvn test -P ${SELENIUM_CONFIG}
     - stage: test
