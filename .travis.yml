@@ -10,6 +10,10 @@ addons:
     packages:
       - oracle-java8-installer
       - oracle-java8-set-default
+      
+addons:
+  hosts:
+    - travis.dev     
 
 
 services:
@@ -74,6 +78,7 @@ jobs:
       env:
         - SELENIUM_CONFIG=linux-chrome
       script:
+        - docker-compose --file deploy.yml up --build -d
         - docker-compose --file selenium.yml up -d
         - mvn test -P ${SELENIUM_CONFIG}
     - stage: test
