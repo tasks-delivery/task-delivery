@@ -7,7 +7,7 @@
         <parameter name="remote" value="http://localhost:4444/wd/hub"/>
         <parameter name="headless" value="false"/>
         <parameter name="timeout" value="8000"/>
-        <parameter name="baseUrl" value="https://travis.dev:8080"/>
+        <parameter name="baseUrl" value="https://10.240.0.10:8080"/>
         <classes>
             <class name="selenium.loginAndRegistration.SignUpPageTest"/>
             <class name="selenium.main.MainPageTest"/>
