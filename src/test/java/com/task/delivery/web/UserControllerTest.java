@@ -130,4 +130,5 @@ public class UserControllerTest  extends RestTest{
                 extract().response().print();
         enableLoggingOfRequestAndResponseIfValidationFails();
     }
+
 }
