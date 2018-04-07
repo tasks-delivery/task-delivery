@@ -1,9 +1,3 @@
-#!/usr/bin/env bash
-curl -s -X POST \
-   -H "Content-Type: application/json" \
-   -H "Accept: application/json" \
-   -H "Travis-API-Version: 3" \
-   -H "Authorization: token $APPVEYOR_TOKEN" \
-   -d '{accountName = "ordeh"; projectSlug = "task-delivery"}' \
-   https://ci.appveyor.com/api/builds
-endpoint=https://ci.appveyor.com/api/builds
+#!/bin/sh
+curl -X POST -H "Authorization:Bearer 3mb5uv6nmjl3l80ebsat" -H "Content-Type:application/json" -d "{\"accountName\": \"ordeh\",\"projectSlug\": \"task-delivery\"}" https://ci.appveyor.com/api/builds
+
