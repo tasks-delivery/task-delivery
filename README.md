@@ -18,4 +18,4 @@ Build script for appveyor
 mvn test -P windows-firefox
 mvn test -P windows-chrome
 mvn clean package -DskipTests=true
-appveyor PushArtifact C:\projects\task-delivery\target\app.jar -DeploymentName task-delivery.jar
+appveyor PushArtifact C:\projects\task-delivery\target\task-delivery.jar
