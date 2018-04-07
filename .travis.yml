@@ -1,120 +1,102 @@
-language: java
-dist: trusty
-sudo: required
-group: deprecated-2017Q4
-
-jdk: openjdk8
-
-
-services:
-  - docker
-
-cache:
-  directories:
-  - .autoconf
-  - $HOME/.m2
-  - _build
-  - deps
-
-before_install:
-- echo -e "machine github.com\n  login $GITHUB_TOKEN" >> ~/.netrc
-- git lfs pull
-
-install:
-- mvn -N io.takari:maven:wrapper
-- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-
-branches:
-  only:
+before_install: 
+  - "echo -e \"machine github.com\\n  login $GITHUB_TOKEN\" >> ~/.netrc"
+  - "git lfs pull"
+branches: 
+  only: 
     - dev
     - master
-    
-stages:
-  - deploy test server
-  - test
-  - name: push docker test image
-    if: branch = dev
-  - name: deploy prod and push docker image
-    if: branch = master
-
-jobs:
-  include:
-    - stage: deploy test server
-      env:
-#        - APPVEYOR_TOKEN=
+cache: 
+  directories: 
+    - .autoconf
+    - $HOME/.m2
+    - _build
+    - deps
+dist: trusty
+group: deprecated-2017Q4
+install: 
+  - "mvn -N io.takari:maven:wrapper"
+  - "./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V"
+jdk: openjdk8
+jobs: 
+  include: 
+    - 
+      env: 
         - BRANCH_TEST_DEPLOY=test-deploy
-      script:
-        - git branch ${BRANCH_TEST_DEPLOY}
-        - git push -f origin ${BRANCH_TEST_DEPLOY}
-      #  - "curl -H 'Authorization: Bearer $APPVEYOR_TOKEN' -H "Content-Type: application/json" https://ci.appveyor.com/api/roles"
-    #    - curl -H 'Authorization: Token someToken' -X POST http://my.server.com -F filedata=@file.txt
-    - stage: test
-      os:
-        - linux
-      env:
+      script: 
+        - "git branch ${BRANCH_TEST_DEPLOY}"
+        - "git push -f origin ${BRANCH_TEST_DEPLOY}"
+        - 
+          ? "curl -H 'Authorization"
+          : "Bearer $APPVEYOR_TOKEN' -X POST  https://ci.appveyor.com/api/roles"
+      stage: "deploy test server"
+    - 
+      env: 
         - UNIT=unit-test
-      script:
-        - mvn test -P ${UNIT}
-    - stage: test
-      os:
+      os: 
         - linux
-      env:
+      script: 
+        - "mvn test -P ${UNIT}"
+      stage: test
+    - 
+      env: 
         - API=api-test
-      script:
-        - docker-compose --file deploy.yml up --build -d
-        - sleep 60
-        - mvn test -P ${API}
-    - stage: test
-      os:
+      os: 
         - linux
-      env:
+      script: 
+        - "docker-compose --file deploy.yml up --build -d"
+        - "sleep 60"
+        - "mvn test -P ${API}"
+      stage: test
+    - 
+      env: 
         - SELENIUM_CONFIG=linux-chrome
-      script:
-        - docker-compose --file selenium.yml up -d
-        - mvn test -P ${SELENIUM_CONFIG}
-    - stage: test
-      os:
+      os: 
         - linux
-      env:
+      script: 
+        - "docker-compose --file selenium.yml up -d"
+        - "mvn test -P ${SELENIUM_CONFIG}"
+      stage: test
+    - 
+      env: 
         - SELENIUM_CONFIG=linux-firefox
-      script:
-        - docker-compose --file selenium.yml up -d
-        - mvn test -P ${SELENIUM_CONFIG}
-#    - stage: test
-#      os:
-#       - osx
-#       - osx_image: xcode7.3
-#      env:
-#        - SELENIUM_CONFIG=osx-chrome
-#      script:
-#        - docker-compose --file selenium.yml up -d
-#        - mvn test -P ${SELENIUM_CONFIG}
-#    - stage: test
-#      os:
-#        - osx
-#      env:
-#        - SELENIUM_CONFIG=osx-firefox
-#      script:
-#        - docker-compose --file selenium.yml up -d
-#        - mvn test -P ${SELENIUM_CONFIG}
-    - stage: push docker test image
-      env:
-        - IMAGE=fiodar/td:test
-      script:
-      - mvn clean package -DskipTests=true
-      - mvn docker:build
-      - docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push ${IMAGE}
-    - stage: deploy prod and push docker image
-      env:
+      os: 
+        - linux
+      script: 
+        - "docker-compose --file selenium.yml up -d"
+        - "mvn test -P ${SELENIUM_CONFIG}"
+      stage: test
+    - 
+      env: 
+        - "IMAGE=fiodar/td:test"
+      script: 
+        - "mvn clean package -DskipTests=true"
+        - "mvn docker:build"
+        - "docker login -u $DOCKER_USER -p $DOCKER_PASS"
+        - "docker push ${IMAGE}"
+      stage: "push docker test image"
+    - 
+      env: 
         - BRANCH_PROD=prod
         - IMAGE=fiodar/td
-      script:
-      - git branch ${BRANCH_PROD}
-      - git push -f origin ${BRANCH_PROD}
-      - mvn clean package -DskipTests=true
-      - mvn docker:build
-      - docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push ${IMAGE}   
-
-
+      script: 
+        - "git branch ${BRANCH_PROD}"
+        - "git push -f origin ${BRANCH_PROD}"
+        - "mvn clean package -DskipTests=true"
+        - "mvn docker:build"
+        - "docker login -u $DOCKER_USER -p $DOCKER_PASS"
+        - "docker push ${IMAGE}"
+      stage: "deploy prod and push docker image"
+language: java
+services: 
+  - docker
+stages: 
+  - "deploy test server"
+  - test
+  - 
+    if: "branch = dev"
+    name: "push docker test image"
+  - 
+    if: "branch = master"
+    name: "deploy prod and push docker image"
+sudo: required
+ 
