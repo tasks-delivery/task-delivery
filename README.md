@@ -13,3 +13,9 @@ Deploy on heroku via Codeship
 
 Code analysis
 [![BCH compliance](https://bettercodehub.com/edge/badge/tasks-delivery/task-delivery?branch=master)](https://bettercodehub.com/)
+
+Build script for appveyor
+mvn test -P windows-firefox
+mvn test -P windows-chrome
+mvn clean package -DskipTests=true
+appveyor PushArtifact C:\projects\task-delivery\target\app.jar -DeploymentName task-delivery.jar

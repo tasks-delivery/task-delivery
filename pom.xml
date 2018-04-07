@@ -153,7 +153,7 @@
 	    	<artifactId>selenium-remote-driver</artifactId>
 	    	<version>${selenium.remote.version}</version>
 	    </dependency>
-		<!--<dependency>
+		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>${selenium.java.version}</version>
@@ -177,7 +177,7 @@
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-chrome-driver</artifactId>
 			<version>${selenium.chrome.version}</version>
-		</dependency>-->
+		</dependency>
 		<dependency>
 			<groupId>com.codeborne</groupId>
 			<artifactId>selenide</artifactId>
