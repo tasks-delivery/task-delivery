@@ -22,6 +22,7 @@ before_install:
 install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- chmod +x deploy_appveyor.sh
 
 branches:
   only:
@@ -40,14 +41,11 @@ jobs:
   include:
     - stage: deploy test server
       env:
-    #    - APPVEYOR_TOKEN=
         - BRANCH_TEST_DEPLOY=test-deploy
       script:
         - git branch ${BRANCH_TEST_DEPLOY}
         - git push -f origin ${BRANCH_TEST_DEPLOY}
         - ./deploy_appveyor.sh
-#        - curl -H "Authorization: Bearer $APPVEYOR_TOKEN" -H "Content-Type: application/json" https://ci.appveyor.com/api/roles
-    #    - curl -H 'Authorization: Token someToken' -X POST http://my.server.com -F filedata=@file.txt
     - stage: test
       os:
         - linux
@@ -114,4 +112,4 @@ jobs:
       - mvn clean package -DskipTests=true
       - mvn docker:build
       - docker login -u $DOCKER_USER -p $DOCKER_PASS
-      - docker push ${IMAGE}   
+      - docker push ${IMAGE}
