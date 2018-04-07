@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test in osx for firefox browser">
+<suite name="Test in windows for firefox browser">
     <test name="testOsxFirefox">
         <parameter name="browser" value="chrome"/>
         <parameter name="browserVersion" value="null"/>

@@ -110,7 +110,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>window-chrome</id>
+			<id>windows-chrome</id>
 			<activation>
 				<property>
 					<name>SUITES</name>
