@@ -77,7 +77,7 @@
 			</properties>
 		</profile>
 		<profile>
-			<id>local-test</id>
+			<id>local</id>
 			<activation>
 				<property>
 					<name>SUITES</name>
@@ -107,6 +107,28 @@
 			</activation>
 			<properties>
 				<suites>testApi</suites>
+			</properties>
+		</profile>
+		<profile>
+			<id>windows-chrome</id>
+			<activation>
+				<property>
+					<name>SUITES</name>
+				</property>
+			</activation>
+			<properties>
+				<suites>testWinChrome</suites>
+			</properties>
+		</profile>
+		<profile>
+			<id>windows-firefox</id>
+			<activation>
+				<property>
+					<name>SUITES</name>
+				</property>
+			</activation>
+			<properties>
+				<suites>testWinFirefox</suites>
 			</properties>
 		</profile>
 	</profiles>

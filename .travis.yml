@@ -41,10 +41,13 @@ jobs:
   include:
     - stage: deploy test server
       env:
+#        - APPVEYOR_TOKEN=
         - BRANCH_TEST_DEPLOY=test-deploy
       script:
         - git branch ${BRANCH_TEST_DEPLOY}
         - git push -f origin ${BRANCH_TEST_DEPLOY}
+        - curl -H 'Authorization: Bearer $APPVEYOR_TOKEN' -H "Content-Type: application/json" https://ci.appveyor.com/api/roles
+    #    - curl -H 'Authorization: Token someToken' -X POST http://my.server.com -F filedata=@file.txt
     - stage: test
       os:
         - linux
