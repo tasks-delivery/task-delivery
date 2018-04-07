@@ -23,6 +23,7 @@ install:
 - mvn -N io.takari:maven:wrapper
 - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 - chmod +x deploy_appveyor.sh
+- chmod +x test.sh
 
 branches:
   only:
@@ -45,7 +46,8 @@ jobs:
       script:
         - git branch ${BRANCH_TEST_DEPLOY}
         - git push -f origin ${BRANCH_TEST_DEPLOY}
-        - ./deploy_appveyor.sh
+        - ./test.sh
+       # - ./deploy_appveyor.sh
     - stage: test
       os:
         - linux
