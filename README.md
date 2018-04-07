@@ -12,5 +12,5 @@ Deploy on heroku via Codeship
 Code analysis
 [![BCH compliance](https://bettercodehub.com/edge/badge/tasks-delivery/task-delivery?branch=master)](https://bettercodehub.com/)
 
-Windows test
+windows-test
 [![Build status](https://ci.appveyor.com/api/projects/status/gqojfgdgpv11k6nb?svg=true)](https://ci.appveyor.com/project/ordeh/task-delivery)
