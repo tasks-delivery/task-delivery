@@ -27,7 +27,7 @@ jobs:
         - "git push -f origin ${BRANCH_TEST_DEPLOY}"
         - 
           ? "curl -H 'Authorization"
-          : "Bearer $APPVEYOR_TOKEN' -X POST  https://ci.appveyor.com/api/roles"
+          : "Bearer $APPVEYOR_TOKEN' -H https://ci.appveyor.com/api/roles"
       stage: "deploy test server"
     - 
       env: 
