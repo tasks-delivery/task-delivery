@@ -2,6 +2,7 @@ package selenium.config;
 
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
@@ -33,15 +34,5 @@ public abstract class ConciseAPI  {
     Configuration.baseUrl = url;
     }
 
-    public void closeAuthorizationDialog()  {
-        Robot robot = null;
-        try {
-            robot = new Robot();
-        } catch (AWTException e) {
-            e.printStackTrace();
-        }
-        robot.keyPress(KeyEvent.VK_ESCAPE);
-        robot.keyRelease(KeyEvent.VK_ESCAPE);
-    }
 
 }
