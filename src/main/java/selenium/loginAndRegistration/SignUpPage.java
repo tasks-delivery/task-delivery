@@ -3,7 +3,9 @@ package selenium.loginAndRegistration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import selenium.config.BasePage;
 
 import java.awt.*;
@@ -44,8 +46,11 @@ public class SignUpPage extends BasePage {
     public void logoutFromSystem(){
         open(baseUrl);
         $(footer).click();
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.ENTER).build().perform();
+        $(footer).contextClick();
         $(btnLogout).click();
-        Selenide.switchTo().alert().accept();
+       // Selenide.switchTo().alert().accept();
     }
 
     public void createNewUser(String username, String password, String confirm) throws AWTException {
@@ -56,8 +61,12 @@ public class SignUpPage extends BasePage {
         $(fieldPass).val(password);
         $(fieldPassConfirm).val(confirm);
         $(btnSubmit).click();
-        Selenide.switchTo().alert().accept();
+      //  Selenide.switchTo().alert().accept();
         $(footer).click();
+
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.ENTER).build().perform();
+        $(footer).contextClick();
     }
 
     public void loginToSystem(String username, String password) throws AWTException {
@@ -66,8 +75,11 @@ public class SignUpPage extends BasePage {
         $(fieldUsername).val(username);
         $(fieldPass).val(password);
         $(btnLogin).click();
-        Selenide.switchTo().alert().accept();
+      //  Selenide.switchTo().alert().accept();
         $(footer).click();
+        Actions action = new Actions(driver);
+        action.sendKeys(Keys.ESCAPE).build().perform();
+        $(footer).contextClick();
     }
 
     public SignUpPage(WebDriver driver) {
