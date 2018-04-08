@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM java:8
 VOLUME /tmp
 VOLUME /opt/podcast-server
 ADD task-delivery.jar /opt/podcast-server/task-delivery.jar
