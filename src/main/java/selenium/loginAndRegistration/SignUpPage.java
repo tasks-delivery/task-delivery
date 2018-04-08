@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import selenium.config.BasePage;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
-//import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
 import static com.codeborne.selenide.Selenide.open;
 
 public class SignUpPage extends BasePage {
@@ -41,7 +40,7 @@ public class SignUpPage extends BasePage {
         $(btnLogout).click();
     }
 
-    public void createNewUser(String username, String password, String confirm){
+    public void createNewUser(String username, String password, String confirm) {
         open(baseUrl);
         $(btnSignIn).click();
         $(linkCreateAcc).click();
@@ -51,7 +50,7 @@ public class SignUpPage extends BasePage {
         $(btnSubmit).click();
     }
 
-    public void loginToSystem(String username, String password){
+    public void loginToSystem(String username, String password) {
         open(baseUrl);
         $(btnSignIn).click();
         $(fieldUsername).val(username);

@@ -25,7 +25,7 @@ public class DashboardPageTest extends BaseTest{
     }
 
     @BeforeClass
-    public void preconditions(){
+    public void preconditions()  {
         signUpPage.logoutFromSystem();
         signUpPage.createNewUser("testdashboard", "password", "password");
     }

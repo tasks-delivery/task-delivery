@@ -2,8 +2,12 @@ package selenium.config;
 
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public abstract class ConciseAPI  {
 
@@ -29,5 +33,6 @@ public abstract class ConciseAPI  {
     Configuration.timeout = time;
     Configuration.baseUrl = url;
     }
+
 
 }

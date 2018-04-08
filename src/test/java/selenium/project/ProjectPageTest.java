@@ -23,7 +23,7 @@ public class ProjectPageTest extends BaseTest {
     }
 
     @BeforeClass
-    public void preconditions(){
+    public void preconditions() {
         signUpPage.createNewUser("testproject", "password", "password");
     }
 
