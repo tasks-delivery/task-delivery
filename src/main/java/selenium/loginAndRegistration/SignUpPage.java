@@ -45,6 +45,7 @@ public class SignUpPage extends BasePage {
         open(baseUrl);
         $(footer).click();
         $(btnLogout).click();
+        Selenide.switchTo().alert().accept();
     }
 
     public void createNewUser(String username, String password, String confirm) throws AWTException {
@@ -55,7 +56,7 @@ public class SignUpPage extends BasePage {
         $(fieldPass).val(password);
         $(fieldPassConfirm).val(confirm);
         $(btnSubmit).click();
-     //   Selenide.switchTo().alert().dismiss();
+        Selenide.switchTo().alert().accept();
         $(footer).click();
     }
 
@@ -65,7 +66,7 @@ public class SignUpPage extends BasePage {
         $(fieldUsername).val(username);
         $(fieldPass).val(password);
         $(btnLogin).click();
-     //   Selenide.switchTo().alert().dismiss();
+        Selenide.switchTo().alert().accept();
         $(footer).click();
     }
 
