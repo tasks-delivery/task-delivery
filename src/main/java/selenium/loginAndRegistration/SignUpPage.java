@@ -54,12 +54,7 @@ public class SignUpPage extends BasePage {
         $(fieldPass).val(password);
         $(fieldPassConfirm).val(confirm);
         $(btnSubmit).click();
-       // closeAuthorizationDialog();
-        Selenide.sleep(2000);
-        Robot robot = new Robot();
-
-        robot.keyPress(KeyEvent.VK_ESCAPE);
-        robot.keyRelease(KeyEvent.VK_ESCAPE);
+        Selenide.switchTo().alert().dismiss();
     }
 
     public void loginToSystem(String username, String password) throws AWTException {
@@ -68,12 +63,7 @@ public class SignUpPage extends BasePage {
         $(fieldUsername).val(username);
         $(fieldPass).val(password);
         $(btnLogin).click();
-      //  closeAuthorizationDialog();
-        Selenide.sleep(2000);
-          Robot robot = new Robot();
-
-        robot.keyPress(KeyEvent.VK_ESCAPE);
-        robot.keyRelease(KeyEvent.VK_ESCAPE);
+        Selenide.switchTo().alert().dismiss();
     }
 
     public SignUpPage(WebDriver driver) {
