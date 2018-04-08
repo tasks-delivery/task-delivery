@@ -54,7 +54,7 @@ public class SignUpPage extends BasePage {
         $(fieldPass).val(password);
         $(fieldPassConfirm).val(confirm);
         $(btnSubmit).click();
-        Selenide.switchTo().alert().dismiss();
+     //   Selenide.switchTo().alert().dismiss();
     }
 
     public void loginToSystem(String username, String password) throws AWTException {
@@ -63,7 +63,7 @@ public class SignUpPage extends BasePage {
         $(fieldUsername).val(username);
         $(fieldPass).val(password);
         $(btnLogin).click();
-        Selenide.switchTo().alert().dismiss();
+     //   Selenide.switchTo().alert().dismiss();
     }
 
     public SignUpPage(WebDriver driver) {
