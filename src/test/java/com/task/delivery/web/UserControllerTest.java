@@ -99,7 +99,7 @@ public class UserControllerTest  extends RestTest{
                 post("/login").
                 then().
                 statusCode(302).
-                header("Location", "http://localhost:8080/dashboard").
+                header("Location", address+"/dashboard").
                 extract().response().print();
         enableLoggingOfRequestAndResponseIfValidationFails();
     }
@@ -112,7 +112,7 @@ public class UserControllerTest  extends RestTest{
                 when().
                 post("/login").
                 then().
-                header("Location", "http://localhost:8080/login?error").
+                header("Location", address+"/login?error").
                 statusCode(302).
                 extract().response().print();
         enableLoggingOfRequestAndResponseIfValidationFails();
@@ -126,7 +126,7 @@ public class UserControllerTest  extends RestTest{
                 post("/logout").
                 then().
                 statusCode(302).
-                header("Location", "http://localhost:8080/login?logout").
+                header("Location", address+"/login?logout").
                 extract().response().print();
         enableLoggingOfRequestAndResponseIfValidationFails();
     }

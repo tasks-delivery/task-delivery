@@ -63,7 +63,7 @@ public class ProjectControllerTest extends RestTest {
                 when().
                 post("/project").
                 then().
-                header("Location", "http://localhost:8080/dashboard?success=false").
+                header("Location", address+"/dashboard?success=false").
                 statusCode(302).
                 extract().response().print();
         enableLoggingOfRequestAndResponseIfValidationFails();
@@ -77,7 +77,7 @@ public class ProjectControllerTest extends RestTest {
                 when().
                 post("/project").
                 then().
-                header("Location", "http://localhost:8080/dashboard?success=false").
+                header("Location", address+"/dashboard?success=false").
                 statusCode(302).
                 extract().response().print();
         enableLoggingOfRequestAndResponseIfValidationFails();
@@ -91,7 +91,7 @@ public class ProjectControllerTest extends RestTest {
                 when().
                 post("/project").
                 then().
-                header("Location", "http://localhost:8080/dashboard?success=false").
+                header("Location", address+"/dashboard?success=false").
                 statusCode(302).
                 extract().response().print();
         enableLoggingOfRequestAndResponseIfValidationFails();
@@ -105,7 +105,7 @@ public class ProjectControllerTest extends RestTest {
                 when().
                 post("/project").
                 then().
-                header("Location", "http://localhost:8080/dashboard").
+                header("Location", address+"/dashboard").
                 statusCode(302).
                 extract().response().print();
         enableLoggingOfRequestAndResponseIfValidationFails();
