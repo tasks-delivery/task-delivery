@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
 public abstract class ConciseAPI  {
 
     public WebDriver driver;
@@ -28,6 +31,17 @@ public abstract class ConciseAPI  {
     Configuration.remote = server;
     Configuration.timeout = time;
     Configuration.baseUrl = url;
+    }
+
+    public void closeAuthorizationDialog()  {
+        Robot robot = null;
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+        robot.keyPress(KeyEvent.VK_ESCAPE);
+        robot.keyRelease(KeyEvent.VK_ESCAPE);
     }
 
 }

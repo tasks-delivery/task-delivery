@@ -49,6 +49,7 @@ public class SignUpPage extends BasePage {
         $(fieldPass).val(password);
         $(fieldPassConfirm).val(confirm);
         $(btnSubmit).click();
+        closeAuthorizationDialog();
     }
 
     public void loginToSystem(String username, String password){
@@ -57,6 +58,7 @@ public class SignUpPage extends BasePage {
         $(fieldUsername).val(username);
         $(fieldPass).val(password);
         $(btnLogin).click();
+        closeAuthorizationDialog();
     }
 
     public SignUpPage(WebDriver driver) {
