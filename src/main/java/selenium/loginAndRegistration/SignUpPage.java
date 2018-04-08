@@ -43,7 +43,7 @@ public class SignUpPage extends BasePage {
 
     public void logoutFromSystem(){
         open(baseUrl);
-        Selenide.refresh();
+        $(footer).click();
         $(btnLogout).click();
     }
 
