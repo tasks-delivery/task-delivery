@@ -1,9 +1,14 @@
 package selenium.loginAndRegistration;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import selenium.config.BasePage;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
 //import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
@@ -41,7 +46,7 @@ public class SignUpPage extends BasePage {
         $(btnLogout).click();
     }
 
-    public void createNewUser(String username, String password, String confirm){
+    public void createNewUser(String username, String password, String confirm) throws AWTException {
         open(baseUrl);
         $(btnSignIn).click();
         $(linkCreateAcc).click();
@@ -49,16 +54,26 @@ public class SignUpPage extends BasePage {
         $(fieldPass).val(password);
         $(fieldPassConfirm).val(confirm);
         $(btnSubmit).click();
-        closeAuthorizationDialog();
+       // closeAuthorizationDialog();
+        Selenide.sleep(2000);
+        Robot robot = new Robot();
+
+        robot.keyPress(KeyEvent.VK_ESCAPE);
+        robot.keyRelease(KeyEvent.VK_ESCAPE);
     }
 
-    public void loginToSystem(String username, String password){
+    public void loginToSystem(String username, String password) throws AWTException {
         open(baseUrl);
         $(btnSignIn).click();
         $(fieldUsername).val(username);
         $(fieldPass).val(password);
         $(btnLogin).click();
-        closeAuthorizationDialog();
+      //  closeAuthorizationDialog();
+        Selenide.sleep(2000);
+          Robot robot = new Robot();
+
+        robot.keyPress(KeyEvent.VK_ESCAPE);
+        robot.keyRelease(KeyEvent.VK_ESCAPE);
     }
 
     public SignUpPage(WebDriver driver) {
