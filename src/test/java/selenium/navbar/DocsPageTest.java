@@ -4,9 +4,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
 import selenium.loginAndRegistration.SignUpPage;
-
-import java.awt.*;
-
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -25,7 +22,7 @@ public class DocsPageTest extends BaseTest {
     }
 
     @BeforeClass
-    public void preconditions() throws AWTException {
+    public void preconditions()  {
         signUpPage.createNewUser("testdocs", "password", "password");
         signUpPage.logoutFromSystem();
     }
@@ -60,7 +57,7 @@ public class DocsPageTest extends BaseTest {
     }
 
     @Test(description = "Verify logout button")
-    public void logoutButtonShouldBeVisible() throws AWTException {
+    public void logoutButtonShouldBeVisible()  {
         signUpPage.loginToSystem("testdocs", "password");
         $(docsPage.btnAbout).click();
         $(docsPage.btnAbout).shouldBe(visible).shouldHave(text("About")).exists();

@@ -5,9 +5,6 @@ import org.testng.annotations.Test;
 import selenium.config.BaseTest;
 import selenium.dashboard.DashboardPage;
 import selenium.loginAndRegistration.SignUpPage;
-
-import java.awt.*;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
@@ -26,12 +23,12 @@ public class ProjectPageTest extends BaseTest {
     }
 
     @BeforeClass
-    public void preconditions() throws AWTException {
+    public void preconditions() {
         signUpPage.createNewUser("testproject", "password", "password");
     }
 
     @Test(description = "Project page for user with invalid auth token should not be visible")
-    public void getProjectPageWithInvalidAuthToken() throws AWTException {
+    public void getProjectPageWithInvalidAuthToken(){
         signUpPage.logoutFromSystem();
         open(baseUrl + "project");
         $(projectPage.title).shouldNotHave(text("New project"));

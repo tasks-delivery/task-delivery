@@ -3,9 +3,6 @@ package selenium.loginAndRegistration;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import selenium.config.BaseTest;
-
-import java.awt.*;
-
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -22,7 +19,7 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @BeforeClass
-    public void preconditions() throws AWTException {
+    public void preconditions() {
         signUpPage.createNewUser("testuser","testpassword","testpassword");
         signUpPage.logoutFromSystem();
         refresh();
@@ -55,7 +52,7 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test(description = "Login to the system")
-    public void loginToSystem() throws AWTException {
+    public void loginToSystem(){
         signUpPage.loginToSystem("testuser","testpassword");
         $(signUpPage.userInfo).shouldHave(text("Welcome testuser")).exists();
         $(signUpPage.logoutForm).shouldBe(visible);
@@ -63,7 +60,7 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test(description = "Create new acc")
-    public void createNewAcc() throws AWTException {
+    public void createNewAcc()  {
         signUpPage.createNewUser("testing","123456789","123456789");
         $(signUpPage.userInfo).shouldHave(text("Welcome testing")).exists();
         $(signUpPage.logoutForm).shouldBe(visible);
@@ -71,21 +68,21 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test(description = "Validation message should visibile if username contains invalid data")
-    public void loginWithInvalidUsername() throws AWTException {
+    public void loginWithInvalidUsername(){
         signUpPage.loginToSystem("testuser1","testpassword");
         $(signUpPage.logoutForm).shouldNotBe(visible);
         $(signUpPage.loginFormError).shouldHave(text(signUpPage.yourUsernameAndPasswordIsInvalid));
     }
 
     @Test(description = "Validation message should visibile if password contains invalid data")
-    public void loginWithInvalidPassword() throws AWTException {
+    public void loginWithInvalidPassword()  {
         signUpPage.loginToSystem("testuser","testpassword1");
         $(signUpPage.logoutForm).shouldNotBe(visible);
         $(signUpPage.loginFormError).shouldHave(text(signUpPage.yourUsernameAndPasswordIsInvalid));
     }
 
     @Test(description = "Validation message should visibile if username contains invalid data")
-    public void registrationWithInvalidUsername() throws AWTException {
+    public void registrationWithInvalidUsername() {
         signUpPage.createNewUser("user", "123456789", "123456789");
         $(signUpPage.logoutForm).shouldNotBe(visible);
         $(signUpPage.userError).shouldHave(text(signUpPage.pleaseUseBetween6And32Characters));
@@ -93,21 +90,21 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test(description = "Validation message should visibile if password contains invalid data")
-    public void registrationWithInvalidPassword() throws AWTException {
+    public void registrationWithInvalidPassword() {
         signUpPage.createNewUser("validuser", "pass", "123456789");
         $(signUpPage.passError).shouldHave(text(signUpPage.tryOneWithAtLeast8Characters));
         $(signUpPage.logoutForm).shouldNotBe(visible);
     }
 
     @Test(description = "Validation message should visibile if confirm password contains invalid data")
-    public void registrationWithInvalidConfirmPassword() throws AWTException {
+    public void registrationWithInvalidConfirmPassword(){
         signUpPage.createNewUser("validuser", "validpass", "123456789");
         $(signUpPage.confirmPassError).shouldHave(text(signUpPage.thesePasswordsDoNotMatch));
         $(signUpPage.logoutForm).shouldNotBe(visible);
     }
 
     @Test(description = "validation for requirement field should be visible")
-    public void validationForRequiredFieldsRegistrationPage() throws AWTException {
+    public void validationForRequiredFieldsRegistrationPage(){
         signUpPage.createNewUser("", "", "");
         $(signUpPage.userError).shouldHave(text(signUpPage.thisFieldIsRequired));
         $(signUpPage.passError).shouldHave(text(signUpPage.thisFieldIsRequired));
@@ -115,7 +112,7 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test(description = "It is possbile to logout from the system")
-    public void logoutFromSystem() throws AWTException {
+    public void logoutFromSystem()  {
         signUpPage.loginToSystem("testuser","testpassword");
         signUpPage.logoutFromSystem();
         $(signUpPage.logoutForm).shouldNotBe(visible);
@@ -123,7 +120,7 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test(description = "Same user should not be created")
-    public void createDuplicateUser() throws AWTException {
+    public void createDuplicateUser() {
         signUpPage.createNewUser("testuser","testpassword","testpassword");
         $(signUpPage.userError).shouldHave(text(signUpPage.SomeoneAlreadyHasThatUsername));
         $(signUpPage.logoutForm).shouldNotBe(visible);

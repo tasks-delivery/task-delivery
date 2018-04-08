@@ -1,19 +1,11 @@
 package selenium.loginAndRegistration;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 import selenium.config.BasePage;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
-
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
-//import static com.codeborne.selenide.Selenide.clearBrowserLocalStorage;
 import static com.codeborne.selenide.Selenide.open;
 
 public class SignUpPage extends BasePage {
@@ -48,7 +40,7 @@ public class SignUpPage extends BasePage {
         $(btnLogout).click();
     }
 
-    public void createNewUser(String username, String password, String confirm) throws AWTException {
+    public void createNewUser(String username, String password, String confirm) {
         open(baseUrl);
         $(btnSignIn).click();
         $(linkCreateAcc).click();
@@ -56,16 +48,14 @@ public class SignUpPage extends BasePage {
         $(fieldPass).val(password);
         $(fieldPassConfirm).val(confirm);
         $(btnSubmit).click();
-        $(footer).contextClick();
     }
 
-    public void loginToSystem(String username, String password) throws AWTException {
+    public void loginToSystem(String username, String password) {
         open(baseUrl);
         $(btnSignIn).click();
         $(fieldUsername).val(username);
         $(fieldPass).val(password);
         $(btnLogin).click();
-        $(footer).contextClick();
     }
 
     public SignUpPage(WebDriver driver) {
