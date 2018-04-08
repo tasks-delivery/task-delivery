@@ -7,18 +7,19 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeClass;
+
 import java.io.IOException;
 
 public class RestTest   {
 
     protected RequestSpecification spec;
-    private
-    int port = 8080;
+
+    public String address ="http://localhost:7070";
 
     @BeforeClass
     public void initSpec() {
         spec = new RequestSpecBuilder()
-                .setBaseUri("http://localhost:"+port)
+                .setBaseUri(address)
                 .addFilter(new ResponseLoggingFilter())
                 .addFilter(new RequestLoggingFilter())
                 .build();
