@@ -1,0 +1,1 @@
+java -jar target/task-delivery.jar -debbug
