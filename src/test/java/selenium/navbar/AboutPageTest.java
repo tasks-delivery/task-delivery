@@ -22,7 +22,7 @@ public class AboutPageTest extends BaseTest {
     }
 
     @BeforeClass
-    public void preconditions(){
+    public void preconditions() {
         signUpPage.createNewUser("testabout", "password", "password");
         signUpPage.logoutFromSystem();
     }

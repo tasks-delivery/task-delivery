@@ -56,7 +56,7 @@ public class BlogPageTest extends BaseTest {
     }
 
     @Test(description = "Verify logout button")
-    public void logoutButtonShouldBeVisible(){
+    public void logoutButtonShouldBeVisible() {
         signUpPage.loginToSystem("testblog", "password");
         $(blogPage.btnAbout).click();
         $(blogPage.btnAbout).shouldBe(visible).shouldHave(text("About")).exists();

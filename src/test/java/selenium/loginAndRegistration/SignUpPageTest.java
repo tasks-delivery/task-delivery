@@ -19,7 +19,7 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @BeforeClass
-    public void preconditions(){
+    public void preconditions() {
         signUpPage.createNewUser("testuser","testpassword","testpassword");
         signUpPage.logoutFromSystem();
         refresh();
@@ -60,7 +60,7 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test(description = "Create new acc")
-    public void createNewAcc(){
+    public void createNewAcc()  {
         signUpPage.createNewUser("testing","123456789","123456789");
         $(signUpPage.userInfo).shouldHave(text("Welcome testing")).exists();
         $(signUpPage.logoutForm).shouldBe(visible);
@@ -75,14 +75,14 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test(description = "Validation message should visibile if password contains invalid data")
-    public void loginWithInvalidPassword(){
+    public void loginWithInvalidPassword()  {
         signUpPage.loginToSystem("testuser","testpassword1");
         $(signUpPage.logoutForm).shouldNotBe(visible);
         $(signUpPage.loginFormError).shouldHave(text(signUpPage.yourUsernameAndPasswordIsInvalid));
     }
 
     @Test(description = "Validation message should visibile if username contains invalid data")
-    public void registrationWithInvalidUsername(){
+    public void registrationWithInvalidUsername() {
         signUpPage.createNewUser("user", "123456789", "123456789");
         $(signUpPage.logoutForm).shouldNotBe(visible);
         $(signUpPage.userError).shouldHave(text(signUpPage.pleaseUseBetween6And32Characters));
@@ -90,7 +90,7 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test(description = "Validation message should visibile if password contains invalid data")
-    public void registrationWithInvalidPassword(){
+    public void registrationWithInvalidPassword() {
         signUpPage.createNewUser("validuser", "pass", "123456789");
         $(signUpPage.passError).shouldHave(text(signUpPage.tryOneWithAtLeast8Characters));
         $(signUpPage.logoutForm).shouldNotBe(visible);
@@ -112,7 +112,7 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test(description = "It is possbile to logout from the system")
-    public void logoutFromSystem(){
+    public void logoutFromSystem()  {
         signUpPage.loginToSystem("testuser","testpassword");
         signUpPage.logoutFromSystem();
         $(signUpPage.logoutForm).shouldNotBe(visible);
@@ -120,7 +120,7 @@ public class SignUpPageTest extends BaseTest {
     }
 
     @Test(description = "Same user should not be created")
-    public void createDuplicateUser(){
+    public void createDuplicateUser() {
         signUpPage.createNewUser("testuser","testpassword","testpassword");
         $(signUpPage.userError).shouldHave(text(signUpPage.SomeoneAlreadyHasThatUsername));
         $(signUpPage.logoutForm).shouldNotBe(visible);

@@ -6,10 +6,17 @@
         <parameter name="browserVersion" value="null"/>
         <parameter name="remote" value="http://localhost:4444/wd/hub"/>
         <parameter name="headless" value="false"/>
-        <parameter name="timeout" value="8000"/>
-        <parameter name="baseUrl" value="https://task-delivery-test-osx-chrome.herokuapp.com/"/>
+        <parameter name="timeout" value="16000"/>
+        <parameter name="baseUrl" value="https://task-delivery-test-osx-chrom.herokuapp.com/"/>
         <classes>
+            <class name="selenium.loginAndRegistration.SignUpPageTest"/>
             <class name="selenium.main.MainPageTest"/>
+            <class name="selenium.navbar.DocsPageTest"/>
+            <class name="selenium.navbar.AboutPageTest"/>
+            <class name="selenium.navbar.SupportPageTest"/>
+            <class name="selenium.navbar.BlogPageTest"/>
+            <class name="selenium.project.ProjectPageTest"/>
+            <class name="selenium.dashboard.DashboardPageTest"/>
         </classes>
     </test>
 </suite>

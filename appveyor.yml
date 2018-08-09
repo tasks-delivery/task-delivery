@@ -1,0 +1,7 @@
+branches:
+     only:
+      - dev
+      
+install:
+  # Install DocumentDB Emulator
+- ps: Start-FileDownload 'https://aka.ms/cosmosdb-emulator' -FileName 'C:\projects\front-editor\Front_Editor.exe'      

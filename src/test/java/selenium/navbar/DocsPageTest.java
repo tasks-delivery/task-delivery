@@ -22,7 +22,7 @@ public class DocsPageTest extends BaseTest {
     }
 
     @BeforeClass
-    public void preconditions(){
+    public void preconditions()  {
         signUpPage.createNewUser("testdocs", "password", "password");
         signUpPage.logoutFromSystem();
     }
@@ -57,7 +57,7 @@ public class DocsPageTest extends BaseTest {
     }
 
     @Test(description = "Verify logout button")
-    public void logoutButtonShouldBeVisible(){
+    public void logoutButtonShouldBeVisible()  {
         signUpPage.loginToSystem("testdocs", "password");
         $(docsPage.btnAbout).click();
         $(docsPage.btnAbout).shouldBe(visible).shouldHave(text("About")).exists();

@@ -1,6 +1,6 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM java:8
 VOLUME /tmp
 VOLUME /opt/podcast-server
-ADD app.jar /opt/podcast-server/app.jar
-RUN sh -c 'touch /opt/app.jar'
-ENTRYPOINT ["java","-jar","/opt/podcast-server/app.jar"]
+ADD task-delivery.jar /opt/podcast-server/task-delivery.jar
+RUN sh -c 'touch /opt/task-delivery.jar'
+ENTRYPOINT ["java","-jar","/opt/podcast-server/task-delivery.jar"]

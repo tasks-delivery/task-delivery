@@ -1,0 +1,2 @@
+#!/bin/sh
+curl -X POST -H "Authorization:Bearer $APPVEYOR_TOKEN" -H "Content-Type:application/json" -d "{\"accountName\": \"$APPVEYOR_USERNAME\",\"projectSlug\": \"task-delivery\", \"branch\": \"$TRAVIS_BRANCH\" ,\"commitId\": \"$TRAVIS_COMMIT\"}" https://ci.appveyor.com/api/builds
