@@ -9,5 +9,5 @@ import org.springframework.stereotype.Component;
 @Component("projectDao")
 public class ProjectDaoImpl extends AbstractDaoImpl<Project> implements ProjectDao {
 
-    private final Logger logger = LoggerFactory.getLogger(ProjectDaoImpl.class);
+  //  private final Logger logger = LoggerFactory.getLogger(ProjectDaoImpl.class);
 }

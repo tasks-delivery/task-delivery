@@ -12,7 +12,18 @@ public class ProjectControllerTest extends RestTest {
     @BeforeClass(description = "Should be add new project to system from endpoint")
     public void preconditions() {
         given(spec)
-                .auth().basic("testuser","password")
+                .param("username", "testuserproject")
+                .param("password", "password")
+                .param("passwordConfirm", "password").
+                when().
+                post("/registration").
+                then().
+                statusCode(302).
+                extract().response().print();
+        enableLoggingOfRequestAndResponseIfValidationFails();
+
+        given(spec)
+                .auth().basic("testuserproject","password")
                 .param("name", "testproject").
                 when().
                 post("/project").
@@ -35,7 +46,7 @@ public class ProjectControllerTest extends RestTest {
     @Test( description = "should be return project page from endpoint '/project'")
     public void getProjectPageWithValidToken(){
         given(spec).
-                auth().basic("testuser","password").
+                auth().basic("testuserproject","password").
                 when().
                 get("/project").
                 then().
@@ -58,7 +69,7 @@ public class ProjectControllerTest extends RestTest {
     @Test(description = "Should not be add new project which already exists")
     public void createExistingProject() {
         given(spec).
-                auth().basic("testuser","password")
+                auth().basic("testuserproject","password")
                 .param("name", "testproject").
                 when().
                 post("/project").
@@ -72,7 +83,7 @@ public class ProjectControllerTest extends RestTest {
     @Test(description = "Should not be add new project with invalid name format")
     public void createProjectWithOneSymbol() {
         given(spec).
-                auth().basic("testuser","password")
+                auth().basic("testuserproject","password")
                 .param("name", "t").
                 when().
                 post("/project").
@@ -86,7 +97,7 @@ public class ProjectControllerTest extends RestTest {
     @Test(description = "Should not be add new project with invalid name format")
     public void createProjectWithManySymbols() {
         given(spec).
-                auth().basic("testuser","password")
+                auth().basic("testuserproject","password")
                 .param("name", "ttttttttttttttttttttt").
                 when().
                 post("/project").
@@ -100,7 +111,7 @@ public class ProjectControllerTest extends RestTest {
     @Test(description = "Should not be add new project with invalid name format")
     public void createProjectWithoutValueInProjectName() {
         given(spec).
-                auth().basic("testuser","password")
+                auth().basic("testuserproject","password")
                 .param("name", "").
                 when().
                 post("/project").
